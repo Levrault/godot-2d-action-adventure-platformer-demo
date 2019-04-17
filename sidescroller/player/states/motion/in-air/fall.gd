@@ -1,7 +1,7 @@
 extends InAir
 
-export (float) var BASE_MAX_AIR_SPEED: float = 75.0
-export (float) var ACCELERATION: float = 0.25
+export (float) var BASE_MAX_AIR_SPEED:= 75.0
+export (float) var ACCELERATION:= 0.25
 var max_air_speed: float = 0
 
 

@@ -1,8 +1,8 @@
 extends OnGround
 
 # pixels/sec
-export (float) var WALK_SPEED: float = 125
-export (float) var ACCELERATION: float = 1
+export (float) var WALK_SPEED:= 125
+export (float) var ACCELERATION:= 1
 
 
 func enter(host) -> void:

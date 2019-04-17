@@ -1,7 +1,7 @@
 extends Node2D
 
 # physics
-export (float) var GRAVITY: float = 900
+export (float) var GRAVITY:= 900
 
 const FLOOR_NORMAL = Vector2(0, -1)
 const SLOPE_SLIDE_STOP = 5.0

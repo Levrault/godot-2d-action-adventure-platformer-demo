@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/Physic.gd" type="Script" id=2]
@@ -7,6 +7,55 @@
 [ext_resource path="res://player/states/motion/on-ground/move.gd" type="Script" id=5]
 [ext_resource path="res://player/states/motion/in-air/jump.gd" type="Script" id=6]
 [ext_resource path="res://player/states/motion/in-air/fall.gd" type="Script" id=7]
+[ext_resource path="res://player/states/motion/combat/attack.gd" type="Script" id=8]
+[ext_resource path="res://player/states/motion/combat/combat-idle.gd" type="Script" id=9]
+[ext_resource path="res://player/states/motion/combat/tidy-sword.gd" type="Script" id=10]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 4, 2.63902, 3.36358, 1, 1, 1 ),
+"update": 1,
+"values": [ 42, 43, 44, 45, 46, 47 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "CombatIdle"
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 38, 39, 40, 41 ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Fall"
@@ -76,20 +125,46 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13 ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "TidySword"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 73, 74, 75, 76 ]
+}
+
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.30756
 height = 19.6778
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 14.5096, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 6 )
+anims/CombatIdle = SubResource( 8 )
 anims/Fall = SubResource( 4 )
 anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 5 )
 anims/Move = SubResource( 3 )
+anims/TidySword = SubResource( 9 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.8, 0.8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.242256, 2.35883 )
@@ -102,7 +177,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 3 )
 vframes = 16
 hframes = 7
-frame = 24
+frame = 3
 
 [node name="States" type="Node2D" parent="."]
 
@@ -118,3 +193,24 @@ script = ExtResource( 6 )
 [node name="Fall" type="Node2D" parent="States"]
 script = ExtResource( 7 )
 
+[node name="Attack" type="Node2D" parent="States"]
+script = ExtResource( 8 )
+
+[node name="CombatIdle" type="Node2D" parent="States"]
+editor/display_folded = true
+script = ExtResource( 9 )
+
+[node name="CombatIdleTimer" type="Timer" parent="States/CombatIdle"]
+
+[node name="TidySword" type="Node2D" parent="States"]
+script = ExtResource( 10 )
+
+[node name="DamageZone" type="Area2D" parent="."]
+editor/display_folded = true
+monitoring = false
+
+[node name="HitBox" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2( 11.0379, -0.69376 )
+shape = SubResource( 7 )
+
+[connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

@@ -37,7 +37,7 @@ func update(host, delta: float):
 	pass
 
 
-func _on_animation_finished(anim_name: String):
+func _on_animation_finished(anim_name: String, host):
 	pass
 
 

@@ -1,8 +1,8 @@
 extends InAir
 
-export (float) var JUMP_FORCE: float = 350.0
-export (float) var BASE_MAX_AIR_SPEED: float = 75.0
-export (float) var ACCELERATION: float = 0.25
+export (float) var JUMP_FORCE:= 350.0
+export (float) var BASE_MAX_AIR_SPEED:= 75.0
+export (float) var ACCELERATION:= 0.25
 
 onready var stream: Resource = load('res://player/assets/sfx_movement_jump1.wav')
 var max_air_speed: float = 0

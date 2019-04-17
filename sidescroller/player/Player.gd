@@ -5,8 +5,8 @@ class_name Player
 signal state_changed
 
 # weapon
-export (String, 'AtkFist', 'AtkSword','AtkGreatSword', 'AtkAxe','AtkGreatAxe', 'AtkWhip', 'AtkSpear') var primary_weapon = 'AtkFist'
-export (String, 'AtkThrowSpear', 'AtkBowIntro', 'AtkCast') var secondary_weapon = 'AtkThrowSpear'
+export (String, 'AtkFist', 'AtkSword','AtkGreatSword', 'AtkAxe','AtkGreatAxe', 'AtkWhip', 'AtkSpear') var primary_weapon := 'AtkFist'
+export (String, 'AtkThrowSpear', 'AtkBowIntro', 'AtkCast') var secondary_weapon := 'AtkThrowSpear'
 
 # state management
 var current_state: State = null
@@ -16,7 +16,10 @@ onready var states_map: Dictionary = {
 	'Idle': $States/Idle,
 	'Move': $States/Move,
 	'Jump': $States/Jump,
-	'Fall': $States/Fall
+	'Fall': $States/Fall,
+	'Attack': $States/Attack,
+	'CombatIdle': $States/CombatIdle,
+	'TidySword': $States/TidySword
 }
 
 # cache
@@ -40,6 +43,8 @@ var cooldown_states: Dictionary = {}
 
 
 func _ready() -> void:
+	$AnimationPlayer.connect('animation_finished', self, '_on_AnimationPlayer_animation_finished')
+
 	# state change
 	for state_node in $States.get_children():
 		state_node.connect('finished', self, '_change_state')
@@ -88,3 +93,7 @@ func _change_state(state_name: String) -> void:
 		current_state.enter(self)
 
 	emit_signal('state_changed', states_stack)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	current_state._on_animation_finished(anim_name, self)
