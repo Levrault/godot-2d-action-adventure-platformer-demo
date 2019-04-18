@@ -43,6 +43,7 @@ var cooldown_states: Dictionary = {}
 
 
 func _ready() -> void:
+	#warning-ignore:return_value_discarded
 	$AnimationPlayer.connect('animation_finished', self, '_on_AnimationPlayer_animation_finished')
 
 	# state change

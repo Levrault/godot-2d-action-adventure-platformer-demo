@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "DamageZone",
+"language": "GDScript",
+"path": "res://player/DamageZone.gd"
+}, {
+"base": "Player",
+"class": "Dummy",
+"language": "GDScript",
+"path": "res://dummy/Dummy.gd"
+}, {
 "base": "Motion",
 "class": "InAir",
 "language": "GDScript",
@@ -35,6 +45,8 @@ _global_script_classes=[ {
 "path": "res://player/states/state.gd"
 } ]
 _global_script_class_icons={
+"DamageZone": "",
+"Dummy": "",
 "InAir": "",
 "Motion": "",
 "OnGround": "",
@@ -80,3 +92,16 @@ attack={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_render/layer_1="walls"
+2d_physics/layer_1="walls"
+2d_render/layer_2="player"
+2d_physics/layer_2="player"
+2d_render/layer_3="ennemy"
+2d_physics/layer_3="ennemy"
+
+[logging]
+
+file_logging/enable_file_logging=true

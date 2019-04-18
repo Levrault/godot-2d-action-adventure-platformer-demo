@@ -12,6 +12,7 @@ func exit(host: Player) -> void:
 	$CombatIdleTimer.stop()
 
 
+
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 func update(host: Player, delta: float) -> void:

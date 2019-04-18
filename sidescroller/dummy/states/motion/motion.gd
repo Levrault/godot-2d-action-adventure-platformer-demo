@@ -15,7 +15,6 @@ func update_look_direction(host, direction) -> void:
 	if not direction.x in [-1, 1]:
 		return
 	host.get_node('Sprite').set_scale(Vector2(direction.x, 1))
-	host.get_node('DamageZone').set_scale(Vector2(direction.x, 1))
 
 
 func move(host, input_direction: Vector2, speed: float, acceleration: float) -> void:
