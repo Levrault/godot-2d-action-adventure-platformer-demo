@@ -1,12 +1,13 @@
-extends Motion
+extends Motion 
+class_name Attack
 
 
-func enter(host) -> void:
-	host.get_node('AnimationPlayer').play('Attack')
-	host.velocity.x = 0
+func exit(host: Player) -> void:
+	host.has_set_next_attack = false
 
 
-#warning-ignore:unused_argument
-func _on_animation_finished(anim_name: String, host: Player) -> void:
-	assert anim_name == 'Attack'
-	emit_signal('finished', 'CombatIdle')
+func handle_input(host: Player, event: InputEvent) -> InputEvent:
+	if event.is_action_pressed('attack') && not host.has_set_next_attack:
+		host.has_set_next_attack = true
+		
+	return .handle_input(host, event)

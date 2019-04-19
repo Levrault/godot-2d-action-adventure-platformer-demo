@@ -4,10 +4,6 @@ class_name Player
 
 signal state_changed
 
-# weapon
-export (String, 'AtkFist', 'AtkSword','AtkGreatSword', 'AtkAxe','AtkGreatAxe', 'AtkWhip', 'AtkSpear') var primary_weapon := 'AtkFist'
-export (String, 'AtkThrowSpear', 'AtkBowIntro', 'AtkCast') var secondary_weapon := 'AtkThrowSpear'
-
 # state management
 var current_state: State = null
 var states_stack: Array = []
@@ -17,13 +13,17 @@ onready var states_map: Dictionary = {
 	'Move': $States/Move,
 	'Jump': $States/Jump,
 	'Fall': $States/Fall,
-	'Attack': $States/Attack,
+	'AttackLight': $States/AttackLight,
+	'AttackMedium': $States/AttackMedium,
+	'AttackHeavy': $States/AttackHeavy,
 	'CombatIdle': $States/CombatIdle,
-	'TidySword': $States/TidySword
+	'TidySword': $States/TidySword,
+	'GettingHit': $States/GettingHit,
 }
 
 # cache
 onready var Physics2D: Node2D = $Physics2D
+onready var CoolDownTimer: Timer = $CoolDownTimer
 
 # velocity
 var velocity: Vector2 = Vector2()
@@ -39,12 +39,18 @@ var knockback_force: Vector2 = Vector2(0, 0)
 
 
 # cooldwon
-var cooldown_states: Dictionary = {}
+var can_attack: bool = true
+
+# combo
+var has_set_next_attack: bool = false
+var is_combo_over: bool = false
 
 
 func _ready() -> void:
 	#warning-ignore:return_value_discarded
-	$AnimationPlayer.connect('animation_finished', self, '_on_AnimationPlayer_animation_finished')
+	$AnimationPlayer.connect('animation_finished', self, '_on_AnimationPlayer_animation_finished')	
+	#warning-ignore:return_value_discarded
+	$Health.connect('take_damage', self, '_on_getting_hit')
 
 	# state change
 	for state_node in $States.get_children():
@@ -64,11 +70,12 @@ func _physics_process(delta: float) -> void:
 
 # Connect to Health
 func _on_getting_hit(alive: bool, direction: int) -> void:
+	print('get damaga')
 	look_direction.x = direction
 	if alive:
 		_change_state('GettingHit')
 	else:
-		_change_state('DeathIntro')
+		_change_state('Death')
 
 
 # Catch input
@@ -98,3 +105,7 @@ func _change_state(state_name: String) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	current_state._on_animation_finished(anim_name, self)
+
+
+func _on_CoolDownTimer_timeout():
+	can_attack = true
