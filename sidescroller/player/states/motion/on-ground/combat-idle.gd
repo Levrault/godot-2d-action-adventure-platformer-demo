@@ -1,16 +1,17 @@
-extends Motion
+extends OnGround
 
 
 func enter(host: Player) -> void:
 	host.get_node('AnimationPlayer').play('CombatIdle')
 	host.velocity.x = 0
+	host.can_attack = false
+	host.CoolDownTimer.start()
 	$CombatIdleTimer.start()
   
 
 #warning-ignore:unused_argument
 func exit(host: Player) -> void:
 	$CombatIdleTimer.stop()
-
 
 
 #warning-ignore:unused_argument
