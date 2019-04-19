@@ -62,7 +62,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godot-splio-bbl"
+config/name="sidescroller-demo"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
