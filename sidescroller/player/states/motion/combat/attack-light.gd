@@ -10,7 +10,7 @@ func enter(host: Player) -> void:
 
 
 func _on_animation_finished(anim_name: String, host: Player) -> void:
-	if host.is_combo_over:
+	if not host.has_set_next_attack:
 		emit_signal('finished', 'CombatIdle')
 	else:
 		emit_signal('finished', 'AttackMedium')

@@ -43,7 +43,6 @@ var can_attack: bool = true
 
 # combo
 var has_set_next_attack: bool = false
-var is_combo_over: bool = false
 
 
 func _ready() -> void:

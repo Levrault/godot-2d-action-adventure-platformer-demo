@@ -11,7 +11,6 @@ func enter(host: Player) -> void:
 
 func exit(host: Player) -> void:
 	host.has_set_next_attack = false
-	host.is_combo_over = false
 
 
 func _on_animation_finished(anim_name: String, host: Player) -> void:
