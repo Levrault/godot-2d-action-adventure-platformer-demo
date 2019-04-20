@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physic.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://player/states/motion/on-ground/combat-idle.gd" type="Script" id=14]
 [ext_resource path="res://player/states/motion/combat/tidy-sword.gd" type="Script" id=15]
 [ext_resource path="res://player/states/motion/combat/getting-hit.gd" type="Script" id=16]
+[ext_resource path="res://player/states/motion/combat/death.gd" type="Script" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackHeavy"
@@ -33,7 +34,7 @@ tracks/0/keys = {
 "values": [ 52, 53, 54, 55, 56, 58 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("States/AttackLight/DamageZone:monitoring")
+tracks/1/path = NodePath("States/AttackHeavy/DamageZone:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -88,7 +89,7 @@ tracks/0/keys = {
 "values": [ 48, 49, 50, 51, 52 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("States/AttackLight/DamageZone:monitoring")
+tracks/1/path = NodePath("States/AttackMedium/DamageZone:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -115,6 +116,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 38, 39, 40, 41 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Death"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 66, 67, 68 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -242,6 +260,7 @@ anims/AttackHeavy = SubResource( 1 )
 anims/AttackLight = SubResource( 2 )
 anims/AttackMedium = SubResource( 3 )
 anims/CombatIdle = SubResource( 4 )
+anims/Death = SubResource( 13 )
 anims/Fall = SubResource( 5 )
 anims/GettingHit = SubResource( 6 )
 anims/Idle = SubResource( 7 )
@@ -273,11 +292,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 58
+frame = 68
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 
 [node name="States" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="Idle" type="Node2D" parent="States"]
@@ -321,7 +341,6 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 12 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 13 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
@@ -329,6 +348,7 @@ monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 11 )
+KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
@@ -346,6 +366,9 @@ script = ExtResource( 15 )
 
 [node name="GettingHit" type="Node2D" parent="States"]
 script = ExtResource( 16 )
+
+[node name="Death" type="Node2D" parent="States"]
+script = ExtResource( 17 )
 
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

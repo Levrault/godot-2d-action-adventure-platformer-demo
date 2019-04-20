@@ -3,7 +3,7 @@ class_name DamageZone
 
 #warning-ignore:unused_class_variable
 export(float) var amount := 20.0 setget set_amount
-export(Vector2) var KNOCKBACK_FORCE := Vector2(200, 10)
+export(Vector2) var KNOCKBACK_FORCE := Vector2(5, 0)
 
 
 func _ready():

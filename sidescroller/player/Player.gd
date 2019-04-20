@@ -19,11 +19,16 @@ onready var states_map: Dictionary = {
 	'CombatIdle': $States/CombatIdle,
 	'TidySword': $States/TidySword,
 	'GettingHit': $States/GettingHit,
+	'Death': $States/Death
 }
 
 # cache
 onready var Physics2D: Node2D = $Physics2D
 onready var CoolDownTimer: Timer = $CoolDownTimer
+
+# Player condition
+var is_alive: bool = true
+var can_attack: bool = true
 
 # velocity
 var velocity: Vector2 = Vector2()
@@ -36,10 +41,6 @@ var is_on_wall: bool = false
 var snap_enable: bool = false
 var gravity_enable: bool = true
 var knockback_force: Vector2 = Vector2(0, 0)
-
-
-# cooldwon
-var can_attack: bool = true
 
 # combo
 var has_set_next_attack: bool = false
@@ -69,12 +70,9 @@ func _physics_process(delta: float) -> void:
 
 # Connect to Health
 func _on_getting_hit(alive: bool, direction: int) -> void:
-	print('get damaga')
 	look_direction.x = direction
-	if alive:
-		_change_state('GettingHit')
-	else:
-		_change_state('Death')
+	is_alive = alive
+	_change_state('GettingHit')
 
 
 # Catch input
