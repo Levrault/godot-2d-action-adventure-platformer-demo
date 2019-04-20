@@ -17,3 +17,6 @@ func update(host, delta: float) -> void:
 	var input_direction: Vector2 = get_input_direction()
 	if input_direction.x:
 		emit_signal('finished', 'Move')
+
+	if not host.is_grounded:
+		emit_signal('finished', 'Fall')

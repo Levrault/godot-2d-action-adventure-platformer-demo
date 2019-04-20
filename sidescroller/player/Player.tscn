@@ -273,6 +273,7 @@ anims/TidySword = SubResource( 10 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.8, 0.8 )
+limit_bottom = 270
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.242256, 2.35883 )
@@ -297,7 +298,6 @@ frame = 68
 [node name="CoolDownTimer" type="Timer" parent="."]
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 visible = false
 
 [node name="Idle" type="Node2D" parent="States"]
