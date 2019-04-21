@@ -20,5 +20,7 @@ func update(host, delta: float) -> void:
 	update_look_direction(host, get_input_direction())
 	if not input_direction:
 		emit_signal('finished', 'Idle')
+	if not host.is_grounded:
+		emit_signal('finished', 'Fall')
 	
 	move(host, input_direction, WALK_SPEED, ACCELERATION)

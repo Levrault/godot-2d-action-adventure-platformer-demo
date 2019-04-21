@@ -10,12 +10,7 @@ collision_layer = 4
 collision_mask = 5
 script = ExtResource( 2 )
 
-[node name="Camera2D" parent="." index="2"]
-visible = false
-current = false
-editor_draw_screen = false
-
-[node name="Sprite" parent="." index="7"]
+[node name="Sprite" parent="." index="6"]
 modulate = Color( 1, 0, 0, 1 )
 
 [node name="Idle" parent="States" index="0"]

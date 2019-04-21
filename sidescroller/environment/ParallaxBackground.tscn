@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environment/assets/CloudsBack.png" type="Texture" id=1]
+[ext_resource path="res://environment/assets/CloudsFront.png" type="Texture" id=2]
+[ext_resource path="res://environment/assets/BGBack.png" type="Texture" id=3]
+[ext_resource path="res://environment/assets/BGFront.png" type="Texture" id=4]
+
+[node name="Background" type="ParallaxBackground"]
+editor/display_folded = true
+
+[node name="CloudsBack" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+position = Vector2( 232.544, 132.854 )
+
+[node name="Sprite" type="Sprite" parent="CloudsBack"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 320 )
+
+[node name="CloudFront" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+position = Vector2( 221.544, 167.854 )
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="Sprite" type="Sprite" parent="CloudFront"]
+position = Vector2( 3.17334, -33.3199 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 320 )
+
+[node name="BGBack" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+position = Vector2( 226.544, 172.854 )
+motion_scale = Vector2( 0.8, 0.9 )
+
+[node name="Sprite" type="Sprite" parent="BGBack"]
+position = Vector2( 3.17334, -44.4265 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 320 )
+
+[node name="BGFront" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+position = Vector2( 228.312, 137.869 )
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="Sprite" type="Sprite" parent="BGFront"]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 320 )
+
