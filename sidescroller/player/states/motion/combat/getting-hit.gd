@@ -11,7 +11,6 @@ func enter(host: Player) -> void:
 	host.velocity.y = -host.knockback_force.y
 
 
-
 func exit(host: Player) -> void:
 	if host.is_alive:
 		host.snap_enable = true

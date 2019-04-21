@@ -12,10 +12,15 @@ onready var states_map: Dictionary = {
 	'Idle': $States/Idle,
 	'Move': $States/Move,
 	'Jump': $States/Jump,
+	'DoubleJump': $States/DoubleJump,
 	'Fall': $States/Fall,
 	'AttackLight': $States/AttackLight,
 	'AttackMedium': $States/AttackMedium,
 	'AttackHeavy': $States/AttackHeavy,
+	'AttackAirLight': $States/AttackAirLight,
+	'AttackAirMedium': $States/AttackAirMedium,
+	'AttackAirHeavy': $States/AttackAirHeavy,
+	'AttackAirHeavyGrounded': $States/AttackAirHeavyGrounded,
 	'CombatIdle': $States/CombatIdle,
 	'TidySword': $States/TidySword,
 	'GettingHit': $States/GettingHit,
@@ -29,6 +34,7 @@ onready var CoolDownTimer: Timer = $CoolDownTimer
 # Player condition
 var is_alive: bool = true
 var can_attack: bool = true
+var gravity_enable: bool = true
 
 # velocity
 var velocity: Vector2 = Vector2()
@@ -39,7 +45,6 @@ var is_grounded: bool = false
 var is_on_one_way_platform: bool = false
 var is_on_wall: bool = false
 var snap_enable: bool = false
-var gravity_enable: bool = true
 var knockback_force: Vector2 = Vector2(0, 0)
 
 # combo
