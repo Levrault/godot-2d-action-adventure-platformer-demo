@@ -18,6 +18,5 @@ func update_look_direction(host, direction) -> void:
 	host.get_node('States').set_scale(Vector2(direction.x, 1))
 
 
-
 func move(host, input_direction: Vector2, speed: float, acceleration: float) -> void:
 	host.velocity.x = lerp(host.velocity.x, host.look_direction.x * speed, acceleration) if input_direction else 0

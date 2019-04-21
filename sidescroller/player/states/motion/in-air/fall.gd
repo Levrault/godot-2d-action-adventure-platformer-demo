@@ -11,6 +11,13 @@ func enter(host: Player) -> void:
 	max_air_speed = current_velocity_x if current_velocity_x > 0 else BASE_MAX_AIR_SPEED
 
 
+func handle_input(host: Player, event: InputEvent) -> InputEvent:
+	if event.is_action_pressed('jump'):
+		emit_signal('finished', 'DoubleJump')
+		
+	return .handle_input(host, event)
+
+
 #warning-ignore:unused_argument
 func update(host: Player, delta: float) -> void:
 	var input_direction: Vector2 = get_input_direction()
