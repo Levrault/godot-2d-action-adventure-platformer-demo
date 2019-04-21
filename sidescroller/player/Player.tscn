@@ -118,7 +118,7 @@ tracks/0/keys = {
 "values": [ 38, 39, 40, 41 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 resource_name = "Death"
 length = 0.3
 loop = true
@@ -135,7 +135,7 @@ tracks/0/keys = {
 "values": [ 66, 67, 68 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -151,7 +151,7 @@ tracks/0/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -179,7 +179,7 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.6
 loop = true
 step = 0.2
@@ -196,7 +196,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -211,7 +211,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.9
 loop = true
 step = 0.15
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -243,11 +243,11 @@ tracks/0/keys = {
 "values": [ 73, 74, 75, 76 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 5.30756
 height = 19.6778
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 14.5096, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -260,24 +260,19 @@ anims/AttackHeavy = SubResource( 1 )
 anims/AttackLight = SubResource( 2 )
 anims/AttackMedium = SubResource( 3 )
 anims/CombatIdle = SubResource( 4 )
-anims/Death = SubResource( 13 )
-anims/Fall = SubResource( 5 )
-anims/GettingHit = SubResource( 6 )
-anims/Idle = SubResource( 7 )
-anims/Jump = SubResource( 8 )
-anims/Move = SubResource( 9 )
-anims/TidySword = SubResource( 10 )
+anims/Death = SubResource( 5 )
+anims/Fall = SubResource( 6 )
+anims/GettingHit = SubResource( 7 )
+anims/Idle = SubResource( 8 )
+anims/Jump = SubResource( 9 )
+anims/Move = SubResource( 10 )
+anims/TidySword = SubResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.8, 0.8 )
-limit_bottom = 270
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.242256, 2.35883 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -293,7 +288,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 68
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 
@@ -308,6 +302,7 @@ script = ExtResource( 7 )
 
 [node name="Jump" type="Node2D" parent="States"]
 script = ExtResource( 8 )
+BASE_MAX_AIR_SPEED = 125.0
 
 [node name="Fall" type="Node2D" parent="States"]
 script = ExtResource( 9 )
@@ -324,7 +319,7 @@ script = ExtResource( 11 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackLight/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="AttackMedium" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -338,7 +333,7 @@ script = ExtResource( 11 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackMedium/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
 script = ExtResource( 13 )
@@ -352,7 +347,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="CombatIdle" type="Node2D" parent="States"]
 editor/display_folded = true

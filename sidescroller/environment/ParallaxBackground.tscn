@@ -6,8 +6,10 @@
 [ext_resource path="res://environment/assets/BGFront.png" type="Texture" id=4]
 
 [node name="Background" type="ParallaxBackground"]
+editor/display_folded = true
 
 [node name="CloudsBack" type="ParallaxLayer" parent="."]
+editor/display_folded = true
 position = Vector2( 232.544, 132.854 )
 
 [node name="Sprite" type="Sprite" parent="CloudsBack"]
@@ -16,7 +18,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 320 )
 
 [node name="CloudFront" type="ParallaxLayer" parent="."]
-position = Vector2( 232.544, 132.854 )
+editor/display_folded = true
+position = Vector2( 221.544, 167.854 )
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="CloudFront"]
@@ -26,7 +29,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 320 )
 
 [node name="BGBack" type="ParallaxLayer" parent="."]
-position = Vector2( 232.544, 132.854 )
+editor/display_folded = true
+position = Vector2( 226.544, 172.854 )
 motion_scale = Vector2( 0.8, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="BGBack"]
@@ -36,7 +40,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 320 )
 
 [node name="BGFront" type="ParallaxLayer" parent="."]
-position = Vector2( 224.611, 102.707 )
+editor/display_folded = true
+position = Vector2( 228.312, 137.869 )
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="BGFront"]
