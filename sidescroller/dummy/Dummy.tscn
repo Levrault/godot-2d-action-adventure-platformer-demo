@@ -241,6 +241,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true, true, false, true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 10, 10, 10, 1 ), Color( 1, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "DoubleJump"
@@ -403,7 +415,6 @@ anims/TidySword = SubResource( 16 )
 
 [node name="Sprite" parent="." index="6"]
 modulate = Color( 1, 0, 0, 1 )
-frame = 43
 
 [node name="Idle" parent="States" index="0"]
 script = ExtResource( 3 )
@@ -419,13 +430,4 @@ editor/display_folded = false
 
 [node name="AttackHeavy" parent="States" index="7"]
 editor/display_folded = false
-
-[node name="AttackAirMedium" parent="States" index="9"]
-editor/display_folded = true
-
-[node name="AttackAirHeavy" parent="States" index="10"]
-editor/display_folded = true
-
-[node name="AttackAirHeavyGrounded" parent="States" index="11"]
-editor/display_folded = true
 

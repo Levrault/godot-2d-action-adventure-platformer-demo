@@ -259,6 +259,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false, true, true, false, true, false, true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "DoubleJump"
@@ -452,11 +464,12 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 61
+frame = 68
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 
 [node name="States" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
@@ -543,6 +556,7 @@ editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
+visible = false
 monitoring = false
 collision_layer = 4
 collision_mask = 4
@@ -559,6 +573,7 @@ editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
+visible = false
 monitoring = false
 collision_layer = 4
 collision_mask = 4
@@ -567,7 +582,6 @@ amount = 25.0
 KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
-visible = false
 position = Vector2( -0.421165, 0.408073 )
 shape = SubResource( 20 )
 
