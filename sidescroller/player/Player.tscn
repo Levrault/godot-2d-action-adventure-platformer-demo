@@ -23,7 +23,7 @@
 [ext_resource path="res://player/states/motion/combat/getting-hit.gd" type="Script" id=21]
 [ext_resource path="res://player/states/motion/combat/death.gd" type="Script" id=22]
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"
 length = 0.4
 loop = true
@@ -52,7 +52,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=2]
 resource_name = "AttackAirHeavyGrounded"
 length = 0.3
 tracks/0/type = "value"
@@ -80,7 +80,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=3]
 resource_name = "AttackAirLight"
 length = 0.4
 tracks/0/type = "value"
@@ -108,7 +108,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=4]
 resource_name = "AttackAirMedium"
 length = 0.3
 tracks/0/type = "value"
@@ -136,8 +136,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "AttackHeavy"
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -164,7 +163,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=6]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -191,8 +190,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "AttackMedium"
+[sub_resource type="Animation" id=7]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -219,7 +217,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 step = 0.2
@@ -236,8 +234,7 @@ tracks/0/keys = {
 "values": [ 38, 39, 40, 41 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Death"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -263,7 +260,7 @@ tracks/1/keys = {
 "values": [ false, true, true, false, true, false, true, false ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=10]
 resource_name = "DoubleJump"
 length = 0.5
 tracks/0/type = "value"
@@ -279,7 +276,7 @@ tracks/0/keys = {
 "values": [ 17, 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=11]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -295,7 +292,7 @@ tracks/0/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=12]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -322,8 +319,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=13]
 length = 0.6
 loop = true
 step = 0.2
@@ -340,7 +349,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=14]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -355,7 +364,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=15]
 length = 0.9
 loop = true
 step = 0.15
@@ -372,7 +381,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=16]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -387,17 +396,17 @@ tracks/0/keys = {
 "values": [ 73, 74, 75, 76 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=12]
+[sub_resource type="CapsuleShape2D" id=17]
 radius = 5.30756
 height = 19.6778
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 24.7865, 18.0065 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 16.8385, 16.2194 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 12.2256, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -406,28 +415,28 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/AttackAirHeavy = SubResource( 17 )
-anims/AttackAirHeavyGrounded = SubResource( 18 )
-anims/AttackAirLight = SubResource( 15 )
-anims/AttackAirMedium = SubResource( 16 )
-anims/AttackHeavy = SubResource( 1 )
-anims/AttackLight = SubResource( 2 )
-anims/AttackMedium = SubResource( 3 )
-anims/CombatIdle = SubResource( 4 )
-anims/Death = SubResource( 5 )
-anims/DoubleJump = SubResource( 14 )
-anims/Fall = SubResource( 6 )
-anims/GettingHit = SubResource( 7 )
-anims/Idle = SubResource( 8 )
-anims/Jump = SubResource( 9 )
-anims/Move = SubResource( 10 )
-anims/TidySword = SubResource( 11 )
+anims/AttackAirHeavy = SubResource( 1 )
+anims/AttackAirHeavyGrounded = SubResource( 2 )
+anims/AttackAirLight = SubResource( 3 )
+anims/AttackAirMedium = SubResource( 4 )
+anims/AttackHeavy = SubResource( 5 )
+anims/AttackLight = SubResource( 6 )
+anims/AttackMedium = SubResource( 7 )
+anims/CombatIdle = SubResource( 8 )
+anims/Death = SubResource( 9 )
+anims/DoubleJump = SubResource( 10 )
+anims/Fall = SubResource( 11 )
+anims/GettingHit = SubResource( 12 )
+anims/Idle = SubResource( 13 )
+anims/Jump = SubResource( 14 )
+anims/Move = SubResource( 15 )
+anims/TidySword = SubResource( 16 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.242256, 2.35883 )
-shape = SubResource( 12 )
+shape = SubResource( 17 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -443,7 +452,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 100
+frame = 61
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 
@@ -478,7 +487,7 @@ script = ExtResource( 12 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackLight/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 
 [node name="AttackMedium" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -493,7 +502,7 @@ script = ExtResource( 12 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackMedium/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -510,7 +519,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 
 [node name="AttackAirLight" type="Node2D" parent="States"]
 editor/display_folded = true
@@ -527,7 +536,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirLight/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 
 [node name="AttackAirMedium" type="Node2D" parent="States"]
 script = ExtResource( 16 )
@@ -542,7 +551,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirMedium/DamageZone"]
 position = Vector2( 7.51204, 1.06918 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
 script = ExtResource( 17 )
@@ -558,7 +567,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
 visible = false
 position = Vector2( -0.421165, 0.408073 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
 script = ExtResource( 18 )
@@ -574,7 +583,7 @@ KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavyGrounded/DamageZone"]
 position = Vector2( -0.0906134, -0.253025 )
-shape = SubResource( 13 )
+shape = SubResource( 18 )
 
 [node name="CombatIdle" type="Node2D" parent="States"]
 editor/display_folded = true
