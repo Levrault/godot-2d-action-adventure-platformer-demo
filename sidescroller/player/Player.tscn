@@ -539,6 +539,7 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
 [node name="AttackAirMedium" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
@@ -554,6 +555,7 @@ position = Vector2( 7.51204, 1.06918 )
 shape = SubResource( 19 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
@@ -570,6 +572,7 @@ position = Vector2( -0.421165, 0.408073 )
 shape = SubResource( 20 )
 
 [node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavyGrounded"]
