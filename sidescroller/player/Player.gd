@@ -105,6 +105,11 @@ func _change_state(state_name: String) -> void:
 	emit_signal('state_changed', states_stack)
 
 
+func game_over():
+	#warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Interfaces/GameOverInterface.tscn")
+
+
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	current_state._on_animation_finished(anim_name, self)
 

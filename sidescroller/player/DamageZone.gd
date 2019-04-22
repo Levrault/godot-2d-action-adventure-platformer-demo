@@ -18,7 +18,7 @@ func set_amount(new_amount):
 #warning-ignore:unused_argument
 func _on_body_entered(body: KinematicBody2D) -> void:
 	#	ennemy and player
-	if body.get_collision_mask_bit(2) or body.get_collision_mask_bit(2):
+	if body.get_collision_mask_bit(2):
 		var direction: int = 1
 		if body.get_global_position().x > get_parent().global_position.x:
 			direction = -1

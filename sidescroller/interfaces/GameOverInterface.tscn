@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interfaces/GameOverInterface.gd" type="Script" id=1]
+[ext_resource path="res://interfaces/theme/fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://interfaces/theme/Theme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -53.0
+
+[node name="Title" type="Label" parent="CenterContainer"]
+margin_left = 157.0
+margin_top = 86.0
+margin_right = 323.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 5 )
+text = "YOU DIED"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -68.7395
+margin_top = -74.8315
+margin_right = 71.2605
+margin_bottom = -54.8315
+custom_constants/separation = 55
+alignment = 1
+
+[node name="Retry" type="Button" parent="HBoxContainer"]
+margin_left = 2.0
+margin_right = 47.0
+margin_bottom = 20.0
+theme = ExtResource( 3 )
+custom_constants/hseparation = 0
+toggle_mode = true
+text = "Retry"
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+margin_left = 102.0
+margin_right = 138.0
+margin_bottom = 20.0
+theme = ExtResource( 3 )
+text = "Quit"
+

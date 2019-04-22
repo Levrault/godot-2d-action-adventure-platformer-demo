@@ -11,3 +11,5 @@ Free Pixelart Platformer Tileset https://aamatniekss.itch.io/free-pixelart-platf
 Free Side-Scroller Prototype Kit https://cyangmou.itch.io/free-side-scroller-prototype-box
 
 The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala https://opengameart.org/content/512-sound-effects-8-bit-style
+
+Arcade Classic Font https://www.1001fonts.com/arcadeclassic-font.html#more
