@@ -464,7 +464,6 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 68
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 

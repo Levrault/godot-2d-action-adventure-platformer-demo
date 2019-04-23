@@ -8,7 +8,6 @@
 [node name="Background" type="ParallaxBackground"]
 
 [node name="CloudsBack" type="ParallaxLayer" parent="."]
-editor/display_folded = true
 position = Vector2( 775.796, 127.943 )
 
 [node name="Sprite" type="Sprite" parent="CloudsBack"]

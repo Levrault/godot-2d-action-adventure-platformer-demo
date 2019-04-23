@@ -36,7 +36,6 @@ tile_data = PoolIntArray( -2228256, 6, 0, -2228255, 6, 0, -2228254, 4, 0, -22282
 
 [node name="Dummy" parent="World" instance=ExtResource( 8 )]
 position = Vector2( -603.242, -417.341 )
-scale = Vector2( -1, 1 )
 
 [node name="Player" parent="World" instance=ExtResource( 9 )]
 position = Vector2( -781.242, -417.341 )
@@ -45,4 +44,5 @@ position = Vector2( -781.242, -417.341 )
 current = true
 zoom = Vector2( 0.9, 0.9 )
 limit_bottom = 270
+limit_smoothed = true
 
