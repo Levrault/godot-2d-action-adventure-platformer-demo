@@ -12,7 +12,7 @@ var health: float = 0
 func _ready() -> void:
 	health = max_health
 	emit_signal('max_health_changed', max_health)
-	emit_signal('health_changed', max_health)
+	emit_signal('health_changed', health)
 	
 	#warning-ignore:return_value_discarded
 	self.connect('momentum', $'../Momentum', 'attack_momentum')
