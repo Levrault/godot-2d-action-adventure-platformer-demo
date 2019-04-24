@@ -392,7 +392,6 @@ tracks/0/keys = {
 }
 
 [node name="Dummy" instance=ExtResource( 1 )]
-collision_layer = 4
 collision_mask = 5
 script = ExtResource( 2 )
 
@@ -440,7 +439,6 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 85.0
 margin_bottom = 13.0
-rect_scale = Vector2( 0.4, 0.4 )
 size_flags_horizontal = 7
 size_flags_vertical = 3
 

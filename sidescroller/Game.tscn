@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://level/LevelLimit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://environment/TilemapForest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/TilemapHerb.tscn" type="PackedScene" id=7]
 [ext_resource path="res://dummy/Dummy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://slime/ Slime.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
@@ -38,7 +39,11 @@ tile_data = PoolIntArray( -2228256, 6, 0, -2228255, 6, 0, -2228254, 4, 0, -22282
 [node name="Dummy" parent="World" instance=ExtResource( 8 )]
 position = Vector2( -603.242, -417.341 )
 
-[node name="Player" parent="World" instance=ExtResource( 9 )]
+[node name="Slime" parent="World" instance=ExtResource( 9 )]
+position = Vector2( -654.242, -411.341 )
+
+[node name="Player" parent="World" instance=ExtResource( 10 )]
+editor/display_folded = true
 position = Vector2( -781.242, -417.341 )
 
 [node name="Camera2D" type="Camera2D" parent="World/Player"]
@@ -49,5 +54,5 @@ limit_smoothed = true
 
 [node name="gui" type="CanvasLayer" parent="World/Player"]
 
-[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 10 )]
+[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 11 )]
 

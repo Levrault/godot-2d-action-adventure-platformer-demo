@@ -1,0 +1,158 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://slime/ Slime.gd" type="Script" id=1]
+[ext_resource path="res://engine/Physic.gd" type="Script" id=2]
+[ext_resource path="res://player/Health.gd" type="Script" id=3]
+[ext_resource path="res://player/Momentum.gd" type="Script" id=4]
+[ext_resource path="res://slime/assets/slime-Sheet.png" type="Texture" id=5]
+[ext_resource path="res://player/DamageZone.gd" type="Script" id=6]
+[ext_resource path="res://dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "GettingHit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.9379, 10.5369 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20.6787, 15.9085 )
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 36.0
+height = 126.0
+
+[node name="Slime" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 2 )
+anims/Death = SubResource( 5 )
+anims/GettingHit = SubResource( 7 )
+anims/Idle = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0769463, 1.00029 )
+shape = SubResource( 1 )
+
+[node name="Physics2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource( 3 )
+max_health = 50.0
+
+[node name="Momentum" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+vframes = 3
+hframes = 8
+frame = 17
+
+[node name="DamageZone" type="Area2D" parent="."]
+editor/display_folded = true
+monitoring = false
+script = ExtResource( 6 )
+MASK = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
+position = Vector2( -17, -4 )
+shape = SubResource( 4 )
+
+[node name="SightZone" type="Area2D" parent="."]
+editor/display_folded = true
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightZone"]
+position = Vector2( 0, 1 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="GUI" type="Node2D" parent="."]
+
+[node name="SimpleLifebar" parent="GUI" instance=ExtResource( 7 )]
+margin_left = -15.0
+margin_top = -22.0
+margin_right = 64.0
+margin_bottom = -14.0
+
