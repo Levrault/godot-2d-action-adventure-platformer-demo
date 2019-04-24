@@ -4,7 +4,7 @@
 [ext_resource path="res://dummy/Dummy.gd" type="Script" id=2]
 [ext_resource path="res://dummy/states/motion/on-ground/idle.gd" type="Script" id=3]
 [ext_resource path="res://dummy/states/motion/on-ground/move.gd" type="Script" id=4]
-[ext_resource path="res://gui/SimpleLifebar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"

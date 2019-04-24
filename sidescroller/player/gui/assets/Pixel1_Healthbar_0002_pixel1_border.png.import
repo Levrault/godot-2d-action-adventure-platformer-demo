@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pixel1_Healthbar_0002_pixel1_border.png-bacc821a9826d028c385341cace3a939.stex"
+path="res://.import/Pixel1_Healthbar_0002_pixel1_border.png-de4cca4c3ad2697ea5b72827760c9fe6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/assets/Pixel1_Healthbar_0002_pixel1_border.png"
-dest_files=[ "res://.import/Pixel1_Healthbar_0002_pixel1_border.png-bacc821a9826d028c385341cace3a939.stex" ]
+source_file="res://player/gui/assets/Pixel1_Healthbar_0002_pixel1_border.png"
+dest_files=[ "res://.import/Pixel1_Healthbar_0002_pixel1_border.png-de4cca4c3ad2697ea5b72827760c9fe6.stex" ]
 
 [params]
 
