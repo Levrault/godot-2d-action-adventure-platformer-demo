@@ -5,6 +5,7 @@
 
 [node name="SimpleLifebar" type="TextureProgress"]
 modulate = Color( 0.917647, 0.207843, 0.207843, 1 )
+rect_scale = Vector2( 0.4, 0.4 )
 value = 100.0
 texture_progress = ExtResource( 1 )
 script = ExtResource( 2 )

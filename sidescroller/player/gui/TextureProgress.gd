@@ -15,6 +15,8 @@ func update_value(new_value):
 	$TweenProgress.start()
 
 
+#warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _on_tween_color_completed(object: Object, key: NodePath):
 	set_color_normal(COLOR)
 	

@@ -14,4 +14,4 @@ This demo was made by using those amazing assets. To use those assets, I recomma
 
 ​	[Pixel health bar asset pack](https://adwitr.itch.io/pixel-health-bar-asset-pack) 
 
-​	
+​	[Slime](https://rvros.itch.io/pixel-art-animated-slime)
