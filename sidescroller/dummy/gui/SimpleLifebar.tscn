@@ -4,9 +4,11 @@
 [ext_resource path="res://dummy/gui/SimpleLifebar.gd" type="Script" id=2]
 
 [node name="SimpleLifebar" type="TextureProgress"]
+modulate = Color( 0.917647, 0.207843, 0.207843, 1 )
 value = 100.0
 texture_progress = ExtResource( 1 )
 script = ExtResource( 2 )
+COLOR = Color( 0.917647, 0.207843, 0.207843, 1 )
 
 [node name="Tween" type="Tween" parent="."]
 

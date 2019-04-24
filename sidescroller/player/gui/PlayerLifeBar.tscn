@@ -6,13 +6,13 @@
 [ext_resource path="res://player/gui/TextureProgress.gd" type="Script" id=4]
 
 [node name="PlayerLifeBar" type="TextureRect"]
-editor/display_folded = true
 margin_left = 10.0
 margin_top = 10.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
+modulate = Color( 0.917647, 0.207843, 0.207843, 1 )
 margin_left = 2.0
 margin_top = 1.0
 margin_right = 81.0
@@ -20,6 +20,9 @@ margin_bottom = 8.0
 value = 100.0
 texture_progress = ExtResource( 3 )
 script = ExtResource( 4 )
+COLOR = Color( 0.917647, 0.207843, 0.207843, 1 )
 
-[node name="Tween" type="Tween" parent="TextureProgress"]
+[node name="TweenColor" type="Tween" parent="TextureProgress"]
+
+[node name="TweenProgress" type="Tween" parent="TextureProgress"]
 
