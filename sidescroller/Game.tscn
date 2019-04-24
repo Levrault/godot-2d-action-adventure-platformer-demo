@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://level/LevelLimit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://environment/TilemapHerb.tscn" type="PackedScene" id=7]
 [ext_resource path="res://dummy/Dummy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
@@ -45,4 +46,8 @@ current = true
 zoom = Vector2( 0.9, 0.9 )
 limit_bottom = 270
 limit_smoothed = true
+
+[node name="gui" type="CanvasLayer" parent="World/Player"]
+
+[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 10 )]
 

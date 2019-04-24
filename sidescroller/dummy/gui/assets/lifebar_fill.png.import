@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lifebar_border.png-c059b8ebb209c5dc2e153649270bcfd9.stex"
+path="res://.import/lifebar_fill.png-7b6abecac018ac1aefd23870d13de273.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/assets/lifebar_border.png"
-dest_files=[ "res://.import/lifebar_border.png-c059b8ebb209c5dc2e153649270bcfd9.stex" ]
+source_file="res://dummy/gui/assets/lifebar_fill.png"
+dest_files=[ "res://.import/lifebar_fill.png-7b6abecac018ac1aefd23870d13de273.stex" ]
 
 [params]
 
