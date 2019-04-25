@@ -2,6 +2,7 @@
 extends KinematicBody2D
 class_name Character
 
+signal state_changed(new_state)
 
 # state management
 var current_state: State = null
@@ -28,6 +29,19 @@ var knockback_force: Vector2 = Vector2(0, 0)
 # combo
 var has_set_next_attack: bool = false
 
+
+func _initialize_state():
+	# state change
+	for state_node in $States.get_children():
+		states_map[state_node.get_name()] = state_node
+		state_node.connect('finished', self, '_change_state')
+
+	# default states
+	states_stack.push_front(states_map['Idle'])
+	current_state = states_stack[0]
+	_change_state('Idle')
+
+
 # update character state
 func _change_state(state_name: String) -> void:
 	current_state.exit(self)
@@ -45,7 +59,13 @@ func _change_state(state_name: String) -> void:
 	if current_state.get_name() != 'Previous':
 		current_state.enter(self)
 
+	emit_signal('state_changed', current_state.get_name())
+
 
 # on animation finish 
 func _on_animation_finished(anim_name: String) -> void:
 	current_state._on_animation_finished(anim_name, self)
+
+
+func _on_death() -> void:
+	queue_free()

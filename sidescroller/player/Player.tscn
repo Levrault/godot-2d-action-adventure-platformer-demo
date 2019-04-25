@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physic.gd" type="Script" id=2]
@@ -20,8 +20,9 @@
 [ext_resource path="res://player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=18]
 [ext_resource path="res://player/states/motion/on-ground/combat-idle.gd" type="Script" id=19]
 [ext_resource path="res://player/states/motion/combat/tidy-sword.gd" type="Script" id=20]
-[ext_resource path="res://player/states/motion/combat/getting-hit.gd" type="Script" id=21]
-[ext_resource path="res://player/states/motion/combat/death.gd" type="Script" id=22]
+[ext_resource path="res://character/states/combat/getting-hit.gd" type="Script" id=21]
+[ext_resource path="res://character/states/combat/death.gd" type="Script" id=22]
+[ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"
@@ -422,7 +423,7 @@ extents = Vector2( 16.8385, 16.2194 )
 extents = Vector2( 12.2256, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 3
 script = ExtResource( 1 )
 
@@ -486,7 +487,6 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="AttackLight" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
@@ -614,6 +614,9 @@ script = ExtResource( 21 )
 
 [node name="Death" type="Node2D" parent="States"]
 script = ExtResource( 22 )
+
+[node name="Explosion" parent="States/Death" instance=ExtResource( 23 )]
+visible = false
 
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

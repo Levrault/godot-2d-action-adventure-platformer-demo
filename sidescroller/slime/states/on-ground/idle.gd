@@ -1,19 +1,19 @@
 extends OnGround
 
+var host_cache: Character = null
 
-func enter(host) -> void:
+func enter(host: Slime) -> void:
+	host_cache = host
 	host.get_node('AnimationPlayer').play('Idle')
 	host.snap_enable = true
 	host.velocity.x = 0
+	
+	
+#warning-ignore:unused_argument
+func update(host: Slime, delta: float) -> void:
+	if host.has_target and host.can_attack:
+		emit_signal('finished', 'Follow')
 
 
-func exit(host) -> void:
+func exit(host: Slime) -> void:
 	host.snap_enable = false
-
-
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func update(host, delta: float) -> void:
-	var input_direction: Vector2 = get_input_direction()
-	if input_direction.x:
-		emit_signal('finished', 'Move')

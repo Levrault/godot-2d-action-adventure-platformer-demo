@@ -9,13 +9,13 @@ func get_input_direction() -> Vector2:
 	return input_direction
 
 
-func update_look_direction(host, direction) -> void:
+func update_look_direction(host: Character, direction: Vector2, scale_multiplier: int = 1) -> void:
 	if direction and host.look_direction != direction:
 		host.look_direction = direction
 	if not direction.x in [-1, 1]:
 		return
-	host.get_node('Sprite').set_scale(Vector2(direction.x, 1))
-	host.get_node('States').set_scale(Vector2(direction.x, 1))
+	host.get_node('Sprite').set_scale(Vector2(direction.x * scale_multiplier, 1))
+	host.get_node('States').set_scale(Vector2(direction.x * scale_multiplier, 1))
 
 
 func move(host, input_direction: Vector2, speed: float, acceleration: float) -> void:

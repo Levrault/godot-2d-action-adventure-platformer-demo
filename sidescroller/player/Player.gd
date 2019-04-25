@@ -2,34 +2,31 @@
 extends Character
 class_name Player
 
+signal player_position_changed(new_position)
+#warning-ignore:unused_signal
+signal player_death
+
 # cache
 onready var Physics2D: Node2D = $Physics2D
 onready var CoolDownTimer: Timer = $CoolDownTimer
 
+var previous_position: Vector2 = Vector2()
 
-func _ready() -> void:
-#	.set_states_map(override_states_map)
-	
-	
+func _ready() -> void:	
 	# Signals
 	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
 	$Health.connect('take_damage', self, '_on_getting_hit')
-
-	# set finish signal and construct states_map
-	for state_node in $States.get_children():
-		states_map[state_node.get_name()] = state_node
-		state_node.connect('finished', self, '_change_state')
-
-	# default states
-	states_stack.push_front(states_map['Idle'])
-	current_state = states_stack[0]
-	_change_state('Idle')
+	$States/Death/Explosion.connect('exploded', self, '_on_death')
+	
+	._initialize_state()
 
 
-# Delegate the call to the state
+# Delegate the call to theer
 func _physics_process(delta: float) -> void:
 	current_state.update(self, delta)
 	Physics2D.compute_gravity(self, delta)
+	if previous_position != position:
+		_on_position_changed()
 
 
 # Connect to Health
@@ -49,8 +46,9 @@ func game_over():
 	get_tree().change_scene("res://interfaces/GameOverInterface.tscn")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	current_state._on_animation_finished(anim_name, self)
+func _on_position_changed():
+	previous_position = position
+	emit_signal('player_position_changed', position)
 
 
 func _on_CoolDownTimer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://slime/ Slime.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physic.gd" type="Script" id=2]
@@ -6,11 +6,14 @@
 [ext_resource path="res://player/Momentum.gd" type="Script" id=4]
 [ext_resource path="res://slime/assets/slime-Sheet.png" type="Texture" id=5]
 [ext_resource path="res://slime/states/on-ground/idle.gd" type="Script" id=6]
-[ext_resource path="res://slime/states/on-ground/move.gd" type="Script" id=7]
+[ext_resource path="res://slime/states/on-ground/follow.gd" type="Script" id=7]
 [ext_resource path="res://slime/states/combat/attack.gd" type="Script" id=8]
 [ext_resource path="res://player/DamageZone.gd" type="Script" id=9]
-[ext_resource path="res://slime/states/combat/death.gd" type="Script" id=10]
-[ext_resource path="res://dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://character/states/combat/getting-hit.gd" type="Script" id=10]
+[ext_resource path="res://character/states/combat/death.gd" type="Script" id=11]
+[ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tools/draw_circle.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -88,15 +91,28 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 14.9379, 10.5369 )
+[sub_resource type="Animation" id=5]
+resource_name = "Move"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
 
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 36.0
-height = 126.0
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 12.0953, 6 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 20.6787, 15.9085 )
+extents = Vector2( 12, 12 )
 
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 4
@@ -108,70 +124,90 @@ anims/Attack = SubResource( 1 )
 anims/Death = SubResource( 2 )
 anims/GettingHit = SubResource( 3 )
 anims/Idle = SubResource( 4 )
+anims/Move = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0769463, 1.00029 )
-shape = SubResource( 5 )
+position = Vector2( 0, 5.55975 )
+shape = SubResource( 6 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource( 3 )
-max_health = 50.0
+max_health = 10.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="SightZone" type="Area2D" parent="."]
-editor/display_folded = true
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SightZone"]
-position = Vector2( 0, 1 )
-rotation = 1.5708
-shape = SubResource( 6 )
+wait_time = 1.5
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 vframes = 3
 hframes = 8
-frame = 17
+frame = 10
 
 [node name="States" type="Node2D" parent="."]
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
 
-[node name="Move" type="Node2D" parent="States"]
+[node name="Follow" type="Node2D" parent="States"]
 script = ExtResource( 7 )
 
 [node name="Attack" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="DamageZone" type="Area2D" parent="States/Attack"]
-editor/display_folded = true
 monitoring = false
 script = ExtResource( 9 )
 MASK = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="States/Attack/DamageZone"]
-position = Vector2( -17, -4 )
+position = Vector2( -13.8772, -0.438583 )
 shape = SubResource( 7 )
 
-[node name="Death" type="Node2D" parent="States"]
+[node name="GettingHit" type="Node2D" parent="States"]
 script = ExtResource( 10 )
+
+[node name="Death" type="Node2D" parent="States"]
+script = ExtResource( 11 )
+
+[node name="Explosion" parent="States/Death" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -2.31964, -6.49501 )
 
 [node name="GUI" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="SimpleLifebar" parent="GUI" instance=ExtResource( 11 )]
+[node name="SimpleLifebar" parent="GUI" instance=ExtResource( 13 )]
 margin_left = -15.0
 margin_top = -22.0
 margin_right = 64.0
 margin_bottom = -14.0
+
+[node name="Debug" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Follow" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+color = Color( 0.882353, 0.92549, 0.105882, 1 )
+value = "FOLLOW_RANGE"
+DEBUG_MODE = true
+
+[node name="Attack" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+color = Color( 0.941176, 0.156863, 0.156863, 1 )
+value = "ATTACK_RANGE"
+DEBUG_MODE = true
+
+[node name="Stop" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+color = Color( 255, 255, 255, 255 )
+value = "TARGET_MIN_DISTANCE"
+DEBUG_MODE = true
 

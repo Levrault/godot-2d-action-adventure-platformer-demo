@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/DamageZone.gd"
 }, {
+"base": "Node2D",
+"class": "Draw",
+"language": "GDScript",
+"path": "res://tools/draw.gd"
+}, {
 "base": "Player",
 "class": "Dummy",
 "language": "GDScript",
@@ -49,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/Player.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Character",
 "class": "Slime",
 "language": "GDScript",
 "path": "res://slime/ Slime.gd"
@@ -63,6 +68,7 @@ _global_script_class_icons={
 "Attack": "",
 "Character": "",
 "DamageZone": "",
+"Draw": "",
 "Dummy": "",
 "InAir": "",
 "Motion": "",
