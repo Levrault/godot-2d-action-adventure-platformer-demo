@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_movement_ladder1b.wav-07c0defdf1ce01d619ad0a22d063bc9e.sample"
+
+[deps]
+
+source_file="res://music/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/Movement/Climbing Ladder/sfx_movement_ladder1b.wav"
+dest_files=[ "res://.import/sfx_movement_ladder1b.wav-07c0defdf1ce01d619ad0a22d063bc9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

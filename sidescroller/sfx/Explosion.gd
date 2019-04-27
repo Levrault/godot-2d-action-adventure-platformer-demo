@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func start() -> void:
 	$AnimationPlayer.play('Explode')
+	$AudioStreamPlayer2D.play()
 
 
 func _on_Animation_finished(anim_name: String) -> void:

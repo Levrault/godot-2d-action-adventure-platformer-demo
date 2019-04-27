@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_lowhealth_alarmloop1.wav-30593bbb49abe69a53b3596a91384f9f.sample"
+
+[deps]
+
+source_file="res://music/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Alarms/Low health Alarms/sfx_lowhealth_alarmloop1.wav"
+dest_files=[ "res://.import/sfx_lowhealth_alarmloop1.wav-30593bbb49abe69a53b3596a91384f9f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

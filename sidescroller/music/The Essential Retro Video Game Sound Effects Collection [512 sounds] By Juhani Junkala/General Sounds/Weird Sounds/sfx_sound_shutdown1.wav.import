@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_shutdown1.wav-9c0b5629398d5a2f2b1ee5ee02c80eb7.sample"
+
+[deps]
+
+source_file="res://music/The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala/General Sounds/Weird Sounds/sfx_sound_shutdown1.wav"
+dest_files=[ "res://.import/sfx_sound_shutdown1.wav-9c0b5629398d5a2f2b1ee5ee02c80eb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
