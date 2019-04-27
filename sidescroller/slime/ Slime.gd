@@ -1,62 +1,52 @@
-extends KinematicBody2D
+extends Character
+class_name Slime
 
+# cache
 onready var Physics2D: Node2D = $Physics2D
 
+# I.A.
 #warning-ignore:unused_class_variable
-var velocity: Vector2 = Vector2()
-var is_alive: bool = true
-#warning-ignore:unused_class_variable
-var gravity_enable: bool = true
-#warning-ignore:unused_class_variable
-var snap_enable: bool = false
-#warning-ignore:unused_class_variable
-var knockback_force: Vector2 = Vector2(0, 0)
-#warning-ignore:unused_class_variable
-var is_grounded: bool = false
-#warning-ignore:unused_class_variable
-var is_on_wall: bool = false
+var has_target: bool = false
+var target_position: Vector2 = Vector2()
+
+const TARGET_MIN_DISTANCE: float = 20.0
+const FOLLOW_RANGE: float = 100.0
+const ATTACK_RANGE: float = 30.0
 
 
 func _ready() -> void:
+	# signal
+	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')	
 	$Health.connect('take_damage', self, '_on_getting_hit')
-	$AttackCooldownTimer.connect('timeout', self, '_on_attack_cooldown')
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finish')
-	$SightZone.connect('body_entered', self, '_on_player_sight')
-	$SightZone.connect('body_exited', self, '_on_player_unsight')
-	$AnimationPlayer.play('Idle')
+	$CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
+	$States/Death/Explosion.connect('exploded', self, '_on_death')
+	
+	if get_tree().get_root().has_node('Game/World/Player'):
+		get_tree().get_root().get_node('Game/World/Player').connect('player_position_changed', self, '_on_player_position_changed')
+	
+	# state change
+	._initialize_state()
+
+
+# Connect to Health
+func _on_getting_hit(alive: bool, direction: int) -> void:
+	look_direction.x = direction
+	is_alive = alive
+	if alive: 
+		_change_state('GettingHit')
+	else: 
+		_change_state('Death')
 
 
 func _physics_process(delta: float) -> void:
+	current_state.update(self, delta)
 	Physics2D.compute_gravity(self, delta)
 
 
-func _on_attack_cooldown() -> void:
-	$AnimationPlayer.play('Attack')
+func _on_cooldown_timeout() -> void:
+	can_attack = true
 
 
-#warning-ignore:unused_argument
-func _on_getting_hit(alive: bool, direction: int) -> void:
-	is_alive = alive
-	if is_alive:
-		$AnimationPlayer.play('GettingHit')
-	else: 
-		$AnimationPlayer.play('Death')
-
-
-func _on_animation_finish(anim_name: String) -> void:
-	if anim_name in ['Attack', 'GettingHit']:
-		$AttackCooldownTimer.start()
-		$AnimationPlayer.play('Idle')
-	elif anim_name == 'Death':
-		queue_free()
-
-
-func _on_player_sight(body: Object) -> void:
-	if body.get_collision_mask_bit(1):
-		$AnimationPlayer.play('Attack')
-
-
-func _on_player_unsight(body: Object) -> void:
-	if body.get_collision_mask_bit(1):
-		$AnimationPlayer.play('Idle')
-		$AttackCooldownTimer.stop()
+func _on_player_position_changed(new_position: Vector2) -> void:
+	target_position = new_position
+	has_target = position.distance_to(target_position) <= FOLLOW_RANGE

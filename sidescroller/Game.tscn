@@ -7,10 +7,10 @@
 [ext_resource path="res://environment/Tilemap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/TilemapForest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/TilemapHerb.tscn" type="PackedScene" id=7]
-[ext_resource path="res://dummy/Dummy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://slime/ Slime.tscn" type="PackedScene" id=9]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://dummy/Dummy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://slime/ Slime.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
@@ -18,6 +18,7 @@ position = Vector2( 930.242, 636.341 )
 [node name="World" type="Node2D" parent="."]
 
 [node name="LevelLimit" parent="World" instance=ExtResource( 1 )]
+position = Vector2( 26.758, -27.341 )
 
 [node name="Background" parent="World" instance=ExtResource( 2 )]
 
@@ -36,13 +37,7 @@ tile_data = PoolIntArray( -2555958, 25, 0, -2555932, 24, 0, -2228255, 21, 0, -22
 [node name="TilemapHerb" parent="World" instance=ExtResource( 7 )]
 tile_data = PoolIntArray( -2228256, 6, 0, -2228255, 6, 0, -2228254, 4, 0, -2228253, 4, 0, -2228252, 4, 0, -2228251, 4, 0, -2228250, 4, 0, -2228249, 5, 0, -2228248, 5, 0, -2162720, 0, 0, -2162719, 1, 0, -2162718, 2, 0, -2162717, 1, 0, -2162716, 2, 0, -2162715, 1, 0, -2162714, 2, 0, -2162713, 1, 0, -2162712, 3, 0, -1638436, 6, 0, -1638435, 4, 0, -1638434, 4, 0, -1638433, 4, 0, -1572900, 2, 0, -1572899, 2, 0, -1572898, 2, 0, -1572897, 2, 0, -1572896, 2, 0, -1572895, 3, 0 )
 
-[node name="Dummy" parent="World" instance=ExtResource( 8 )]
-position = Vector2( -603.242, -417.341 )
-
-[node name="Slime" parent="World" instance=ExtResource( 9 )]
-position = Vector2( -654.242, -411.341 )
-
-[node name="Player" parent="World" instance=ExtResource( 10 )]
+[node name="Player" parent="World" instance=ExtResource( 8 )]
 editor/display_folded = true
 position = Vector2( -781.242, -417.341 )
 
@@ -54,5 +49,12 @@ limit_smoothed = true
 
 [node name="gui" type="CanvasLayer" parent="World/Player"]
 
-[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 11 )]
+[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 9 )]
+
+[node name="Dummy" parent="World" instance=ExtResource( 10 )]
+position = Vector2( -481.242, -440.341 )
+collision_layer = 4
+
+[node name="Slime" parent="World" instance=ExtResource( 11 )]
+position = Vector2( -665.242, -424.341 )
 

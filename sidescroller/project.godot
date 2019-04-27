@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/states/motion/combat/attack.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://character/Character.gd"
+}, {
 "base": "Area2D",
 "class": "DamageZone",
 "language": "GDScript",
 "path": "res://player/DamageZone.gd"
+}, {
+"base": "Node2D",
+"class": "Draw",
+"language": "GDScript",
+"path": "res://tools/draw.gd"
 }, {
 "base": "Player",
 "class": "Dummy",
@@ -39,10 +49,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/states/motion/on-ground/on-ground.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Character",
 "class": "Player",
 "language": "GDScript",
 "path": "res://player/Player.gd"
+}, {
+"base": "Character",
+"class": "Slime",
+"language": "GDScript",
+"path": "res://slime/ Slime.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -51,12 +66,15 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Attack": "",
+"Character": "",
 "DamageZone": "",
+"Draw": "",
 "Dummy": "",
 "InAir": "",
 "Motion": "",
 "OnGround": "",
 "Player": "",
+"Slime": "",
 "State": ""
 }
 

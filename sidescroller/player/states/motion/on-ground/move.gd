@@ -1,21 +1,21 @@
 extends OnGround
 
 # pixels/sec
-export (float) var WALK_SPEED:= 125
+export (float) var SPEED:= 125
 export (float) var ACCELERATION:= 1
 
 
-func enter(host) -> void:
+func enter(host: Character) -> void:
 	host.get_node('AnimationPlayer').play('Move')
 	host.snap_enable = true
 
 
-func exit(host) -> void:
+func exit(host: Character) -> void:
 	host.snap_enable = false
 
 
 #warning-ignore:unused_argument
-func update(host, delta: float) -> void:
+func update(host: Character, delta: float) -> void:
 	var input_direction: Vector2 = get_input_direction()
 	update_look_direction(host, get_input_direction())
 	if not input_direction:
@@ -23,4 +23,4 @@ func update(host, delta: float) -> void:
 	if not host.is_grounded:
 		emit_signal('finished', 'Fall')
 	
-	move(host, input_direction, WALK_SPEED, ACCELERATION)
+	move(host, input_direction, SPEED, ACCELERATION)

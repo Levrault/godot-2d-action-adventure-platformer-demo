@@ -11,6 +11,7 @@
 position = Vector2( 775.796, 127.943 )
 
 [node name="Sprite" type="Sprite" parent="CloudsBack"]
+visible = false
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 320 )
@@ -20,6 +21,7 @@ position = Vector2( 764.796, 162.943 )
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="CloudFront"]
+visible = false
 position = Vector2( 10.5397, -35.7753 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -30,6 +32,7 @@ position = Vector2( 769.796, 167.943 )
 motion_scale = Vector2( 0.8, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="BGBack"]
+visible = false
 position = Vector2( 5.62885, -46.882 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -40,6 +43,7 @@ position = Vector2( 771.564, 132.958 )
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="Sprite" type="Sprite" parent="BGFront"]
+visible = false
 position = Vector2( 3.68317, -3.68317 )
 texture = ExtResource( 4 )
 region_enabled = true
