@@ -60,9 +60,13 @@ limit_smoothed = true
 [node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 10 )]
 
 [node name="Dummy" parent="World" instance=ExtResource( 11 )]
+visible = false
 position = Vector2( -481.242, -440.341 )
 collision_layer = 4
 
 [node name="Slime" parent="World" instance=ExtResource( 12 )]
 position = Vector2( -665.242, -424.341 )
+
+[node name="Slime2" parent="World" instance=ExtResource( 12 )]
+position = Vector2( -400.242, -421.341 )
 

@@ -197,17 +197,17 @@ margin_bottom = -14.0
 script = ExtResource( 14 )
 color = Color( 0.882353, 0.92549, 0.105882, 1 )
 value = "FOLLOW_RANGE"
-DEBUG_MODE = false
+DEBUG_MODE = true
 
 [node name="Attack" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 0.941176, 0.156863, 0.156863, 1 )
 value = "ATTACK_RANGE"
-DEBUG_MODE = false
+DEBUG_MODE = true
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
-DEBUG_MODE = false
+DEBUG_MODE = true
 
