@@ -137,7 +137,6 @@ script = ExtResource( 2 )
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource( 3 )
-max_health = 10.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -193,23 +192,22 @@ margin_right = 64.0
 margin_bottom = -14.0
 
 [node name="Debug" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Follow" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 0.882353, 0.92549, 0.105882, 1 )
 value = "FOLLOW_RANGE"
-DEBUG_MODE = true
+DEBUG_MODE = false
 
 [node name="Attack" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 0.941176, 0.156863, 0.156863, 1 )
 value = "ATTACK_RANGE"
-DEBUG_MODE = true
+DEBUG_MODE = false
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
-DEBUG_MODE = true
+DEBUG_MODE = false
 
