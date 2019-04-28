@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://character/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physic.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://character/states/combat/getting-hit.gd" type="Script" id=21]
 [ext_resource path="res://character/states/combat/death.gd" type="Script" id=22]
 [ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=23]
+[ext_resource path="res://character/player/states/interactions/wait-for-alert-box.gd" type="Script" id=24]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"
@@ -423,6 +424,7 @@ extents = Vector2( 16.8385, 16.2194 )
 extents = Vector2( 12.2256, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 1 )
@@ -465,6 +467,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
+frame = 3
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 
@@ -487,6 +490,7 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="AttackLight" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 11 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
@@ -501,6 +505,7 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
 [node name="AttackMedium" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 13 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackMedium"]
@@ -515,6 +520,7 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 14 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
@@ -531,6 +537,7 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
 [node name="AttackAirLight" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 15 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
@@ -547,6 +554,7 @@ position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
 [node name="AttackAirMedium" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
@@ -563,6 +571,7 @@ position = Vector2( 7.51204, 1.06918 )
 shape = SubResource( 19 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
@@ -609,10 +618,13 @@ script = ExtResource( 20 )
 script = ExtResource( 21 )
 
 [node name="Death" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 22 )
 
 [node name="Explosion" parent="States/Death" instance=ExtResource( 23 )]
 visible = false
 
+[node name="WaitForAlertBox" type="Node2D" parent="States"]
+script = ExtResource( 24 )
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

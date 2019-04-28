@@ -20,6 +20,14 @@ func _ready() -> void:
 	$States/Death/Explosion.connect('exploded', self, '_on_death')
 	
 	._initialize_state()
+	_initialize_interaction()
+
+
+func _initialize_interaction():
+	if get_tree().get_root().has_node('Game/World'):
+		for interaction in get_tree().get_root().get_node('Game/World').get_children():
+			if interaction is Interaction:
+				interaction.connect('interaction', self, '_change_state')
 
 
 # Delegate the call to theer
@@ -44,7 +52,7 @@ func _input(event: InputEvent) -> void:
 
 func game_over():
 	#warning-ignore:return_value_discarded
-	get_tree().change_scene("res://interfaces/GameOverInterface.tscn")
+	get_tree().change_scene('res://interfaces/GameOverInterface.tscn')
 
 
 func _on_position_changed():

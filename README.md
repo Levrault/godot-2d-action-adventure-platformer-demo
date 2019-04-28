@@ -24,19 +24,39 @@ It's contains
 
 ## Credits
 
-This demo was made by using those amazing assets. To use those assets, I recommend to directly download it from their official page and follow the license terms. 
+This demo was made by using those amazing assets (thanks to their author, that share their works like that). To use those assets, I recommend to directly download it from their official page and follow the license terms. 
 
-​	[Animated Pixel Adventurer](https://rvros.itch.io/animated-pixel-hero) 
 
-​	[Free Pixelart Platformer Tileset](https://aamatniekss.itch.io/free-pixelart-platformer-tileset) 
 
-​	[The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala](https://opengameart.org/content/512-sound-effects-8-bit-style) 
+### Sprites
 
-​	[Arcade Classic Font](https://www.1001fonts.com/arcadeclassic-font.html#more) 
+[Animated Pixel Adventurer](https://rvros.itch.io/animated-pixel-hero) 
 
-​	[Pixel health bar asset pack](https://adwitr.itch.io/pixel-health-bar-asset-pack) 
+[Free Pixelart Platformer Tileset](https://aamatniekss.itch.io/free-pixelart-platformer-tileset) 
 
-​	[Slime](https://rvros.itch.io/pixel-art-animated-slime)
+[Sunny Land 2D Pixel Art Pack](https://opengameart.org/content/sunny-land-2d-pixel-art-pack)
 
-​    [Star Commander1 [music]](https://www.dl-sounds.com/royalty-free/star-commander1)
+[Slime](https://rvros.itch.io/pixel-art-animated-slime)
+
+[Pixel health bar asset pack](https://adwitr.itch.io/pixel-health-bar-asset-pack) 
+
+
+
+### Fonts
+
+[pixelmix font](https://www.dafont.com/fr/pixelmix.font)
+
+[Arcade Classic Font](https://www.1001fonts.com/arcadeclassic-font.html#more) 
+
+
+
+### Sounds and musics
+
+[The Essential Retro Video Game Sound Effects Collection [512 sounds] By Juhani Junkala](https://opengameart.org/content/512-sound-effects-8-bit-style) 
+
+[Star Commander1 [music]](https://www.dl-sounds.com/royalty-free/star-commander1)
+
+
+
+*Obviously if an asset is not credited, contact me, I always try to credits the asset I use, but something I can just forget to do it.*
 
