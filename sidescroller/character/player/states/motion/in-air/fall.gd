@@ -12,7 +12,7 @@ func enter(host: Player) -> void:
 
 
 func handle_input(host: Player, event: InputEvent) -> InputEvent:
-	if event.is_action_pressed('jump'):
+	if event.is_action_pressed('jump') and host.can_double_jump:
 		emit_signal('finished', 'DoubleJump')
 		
 	return .handle_input(host, event)
@@ -27,3 +27,4 @@ func update(host: Player, delta: float) -> void:
 
 	if host.is_grounded:
 		emit_signal('finished', 'Idle')
+		host.can_double_jump = true

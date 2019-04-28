@@ -14,6 +14,7 @@ onready var states_map: Dictionary = {}
 var is_alive: bool = true
 var can_attack: bool = true
 var gravity_enable: bool = true
+var can_double_jump: bool = true
 
 # velocity
 var velocity: Vector2 = Vector2()
