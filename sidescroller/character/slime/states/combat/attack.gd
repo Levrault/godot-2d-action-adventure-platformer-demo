@@ -1,0 +1,18 @@
+extends Motion 
+
+onready var stream: Resource = load('res://sound/weapons/single-shot-sounds/sfx_weapon_singleshot2.wav')
+
+
+func enter(host: Slime) -> void:
+	host.get_node('AnimationPlayer').play('Attack')
+	host.velocity = Vector2(0, 0)
+	play_sound(host, stream)
+
+
+func _on_animation_finished(anim_name: String, host: Slime) -> void:
+	host.get_node('CooldownTimer').start()
+	host.can_attack = false
+	if host.has_target:
+		emit_signal('finished', 'Follow')
+	else:
+		emit_signal('finished', 'Idle')

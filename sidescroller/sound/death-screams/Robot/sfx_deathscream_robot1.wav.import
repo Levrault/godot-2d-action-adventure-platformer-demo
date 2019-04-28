@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_deathscream_robot1.wav-15e4edcf4d2607f4cf356db155c226f1.sample"
+
+[deps]
+
+source_file="res://sound/death-screams/Robot/sfx_deathscream_robot1.wav"
+dest_files=[ "res://.import/sfx_deathscream_robot1.wav-15e4edcf4d2607f4cf356db155c226f1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

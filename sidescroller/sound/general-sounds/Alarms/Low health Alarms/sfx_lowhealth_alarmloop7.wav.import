@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_lowhealth_alarmloop7.wav-d2695966f8193c4f914bcc232477b942.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Alarms/Low health Alarms/sfx_lowhealth_alarmloop7.wav"
+dest_files=[ "res://.import/sfx_lowhealth_alarmloop7.wav-d2695966f8193c4f914bcc232477b942.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_interaction26.wav-307e7018c8d4c2abd1e16decb6cba486.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Interactions/sfx_sounds_interaction26.wav"
+dest_files=[ "res://.import/sfx_sounds_interaction26.wav-307e7018c8d4c2abd1e16decb6cba486.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

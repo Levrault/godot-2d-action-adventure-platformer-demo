@@ -1,6 +1,6 @@
 extends State
 
-onready var stream: Resource = load('res://player/assets/sfx_damage_hit1.wav')
+onready var stream: Resource = load('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit1.wav')
 
 
 func enter(host: Character) -> void:

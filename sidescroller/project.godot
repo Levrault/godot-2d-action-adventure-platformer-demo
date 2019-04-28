@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Motion",
 "class": "Attack",
 "language": "GDScript",
-"path": "res://player/states/motion/combat/attack.gd"
+"path": "res://character/player/states/motion/combat/attack.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Character",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "DamageZone",
 "language": "GDScript",
-"path": "res://player/DamageZone.gd"
+"path": "res://character/player/DamageZone.gd"
 }, {
 "base": "State",
 "class": "Death",
@@ -37,37 +37,37 @@ _global_script_classes=[ {
 "base": "Player",
 "class": "Dummy",
 "language": "GDScript",
-"path": "res://dummy/Dummy.gd"
+"path": "res://character/dummy/Dummy.gd"
 }, {
 "base": "Motion",
 "class": "InAir",
 "language": "GDScript",
-"path": "res://player/states/motion/in-air/in-air.gd"
+"path": "res://character/player/states/motion/in-air/in-air.gd"
 }, {
 "base": "State",
 "class": "Motion",
 "language": "GDScript",
-"path": "res://player/states/motion/motion.gd"
+"path": "res://character/player/states/motion/motion.gd"
 }, {
 "base": "Motion",
 "class": "OnGround",
 "language": "GDScript",
-"path": "res://player/states/motion/on-ground/on-ground.gd"
+"path": "res://character/player/states/motion/on-ground/on-ground.gd"
 }, {
 "base": "Character",
 "class": "Player",
 "language": "GDScript",
-"path": "res://player/Player.gd"
+"path": "res://character/player/Player.gd"
 }, {
 "base": "Character",
 "class": "Slime",
 "language": "GDScript",
-"path": "res://slime/ Slime.gd"
+"path": "res://character/slime/ Slime.gd"
 }, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://player/states/state.gd"
+"path": "res://character/player/states/state.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",

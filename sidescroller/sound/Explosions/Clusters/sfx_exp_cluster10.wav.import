@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_exp_cluster10.wav-356ba5391913499e52977005aafd06ed.sample"
+
+[deps]
+
+source_file="res://sound/Explosions/Clusters/sfx_exp_cluster10.wav"
+dest_files=[ "res://.import/sfx_exp_cluster10.wav-356ba5391913499e52977005aafd06ed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

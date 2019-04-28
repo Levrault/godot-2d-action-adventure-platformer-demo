@@ -8,10 +8,10 @@
 [ext_resource path="res://environment/Tilemap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://environment/TilemapForest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://environment/TilemapHerb.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://player/gui/PlayerLifeBar.tscn" type="PackedScene" id=10]
-[ext_resource path="res://dummy/Dummy.tscn" type="PackedScene" id=11]
-[ext_resource path="res://slime/ Slime.tscn" type="PackedScene" id=12]
+[ext_resource path="res://character/player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://character/player/gui/PlayerLifeBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://character/dummy/Dummy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://character/slime/ Slime.tscn" type="PackedScene" id=12]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
