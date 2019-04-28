@@ -12,6 +12,7 @@ func enter(host) -> void:
 	host.get_node('AnimationPlayer').play('DoubleJump')
 	play_sound(host, stream)
 	host.snap_enable = false
+	host.can_double_jump = false
 	host.velocity.y = -JUMP_FORCE
 	max_air_speed = host.velocity.x if host.velocity.x > 0 else BASE_MAX_AIR_SPEED
 

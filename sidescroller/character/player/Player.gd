@@ -12,7 +12,8 @@ onready var CoolDownTimer: Timer = $CoolDownTimer
 
 var previous_position: Vector2 = Vector2()
 
-func _ready() -> void:	
+
+func _ready() -> void:
 	# Signals
 	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
 	$Health.connect('take_damage', self, '_on_getting_hit')
