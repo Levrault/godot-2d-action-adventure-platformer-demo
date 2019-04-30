@@ -152,6 +152,7 @@ hframes = 8
 frame = 16
 
 [node name="States" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
@@ -198,13 +199,16 @@ margin_bottom = -14.0
 script = ExtResource( 14 )
 color = Color( 0.882353, 0.92549, 0.105882, 1 )
 value = "FOLLOW_RANGE"
+DEBUG_MODE = false
 
 [node name="Attack" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 0.941176, 0.156863, 0.156863, 1 )
 value = "ATTACK_RANGE"
+DEBUG_MODE = false
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
+color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
-
+DEBUG_MODE = false
