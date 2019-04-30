@@ -469,6 +469,7 @@ vframes = 16
 hframes = 7
 
 [node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="States" type="Node2D" parent="."]
 
