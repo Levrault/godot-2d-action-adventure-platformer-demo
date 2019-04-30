@@ -1,9 +1,9 @@
 [gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://character/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://engine/Physic.gd" type="Script" id=2]
-[ext_resource path="res://character/player/Momentum.gd" type="Script" id=3]
-[ext_resource path="res://character/player/Health.gd" type="Script" id=4]
+[ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
+[ext_resource path="res://engine/Momentum.gd" type="Script" id=3]
+[ext_resource path="res://character/Health.gd" type="Script" id=4]
 [ext_resource path="res://character/player/assets/adventurer-v1.5-Sheet.png" type="Texture" id=5]
 [ext_resource path="res://character/player/states/motion/on-ground/idle.gd" type="Script" id=6]
 [ext_resource path="res://character/player/states/motion/on-ground/move.gd" type="Script" id=7]
@@ -11,7 +11,7 @@
 [ext_resource path="res://character/player/states/motion/in-air/double-jump.gd" type="Script" id=9]
 [ext_resource path="res://character/player/states/motion/in-air/fall.gd" type="Script" id=10]
 [ext_resource path="res://character/player/states/motion/combat/attack-light.gd" type="Script" id=11]
-[ext_resource path="res://character/player/DamageZone.gd" type="Script" id=12]
+[ext_resource path="res://character/DamageZone.gd" type="Script" id=12]
 [ext_resource path="res://character/player/states/motion/combat/attack-medium.gd" type="Script" id=13]
 [ext_resource path="res://character/player/states/motion/combat/attack-heavy.gd" type="Script" id=14]
 [ext_resource path="res://character/player/states/motion/combat/attack-air-light.gd" type="Script" id=15]
@@ -20,8 +20,8 @@
 [ext_resource path="res://character/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=18]
 [ext_resource path="res://character/player/states/motion/on-ground/combat-idle.gd" type="Script" id=19]
 [ext_resource path="res://character/player/states/motion/combat/tidy-sword.gd" type="Script" id=20]
-[ext_resource path="res://character/states/combat/getting-hit.gd" type="Script" id=21]
-[ext_resource path="res://character/states/combat/death.gd" type="Script" id=22]
+[ext_resource path="res://character/states/motion/combat/getting-hit.gd" type="Script" id=21]
+[ext_resource path="res://character/states/motion/combat/death.gd" type="Script" id=22]
 [ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://character/player/states/interactions/wait-for-alert-box.gd" type="Script" id=24]
 
@@ -48,10 +48,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -421,7 +421,7 @@ extents = Vector2( 24.7865, 18.0065 )
 extents = Vector2( 16.8385, 16.2194 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 12.2256, 18.0065 )
+extents = Vector2( 16.973, 18.0065 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 2
@@ -467,9 +467,8 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 3
 
-[node name="CoolDownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
 
 [node name="States" type="Node2D" parent="."]
 
@@ -571,11 +570,12 @@ position = Vector2( 7.51204, 1.06918 )
 shape = SubResource( 19 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 17 )
+amount = 75.0
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
 visible = false
+position = Vector2( 7.14157, -0.830416 )
 monitoring = false
 collision_layer = 4
 collision_mask = 4
@@ -584,12 +584,12 @@ amount = 25.0
 KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
-position = Vector2( -0.421165, 0.408073 )
+position = Vector2( 2.56833, 0.241991 )
 shape = SubResource( 20 )
 
 [node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 18 )
+amount = 100.0
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavyGrounded"]
 visible = false
@@ -626,5 +626,4 @@ visible = false
 
 [node name="WaitForAlertBox" type="Node2D" parent="States"]
 script = ExtResource( 24 )
-[connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

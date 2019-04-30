@@ -1,4 +1,5 @@
 extends State
+class_name GettingHit
 
 onready var stream: Resource = load('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit1.wav')
 

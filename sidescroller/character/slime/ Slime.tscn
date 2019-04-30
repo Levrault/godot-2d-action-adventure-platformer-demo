@@ -1,19 +1,19 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://character/slime/ Slime.gd" type="Script" id=1]
-[ext_resource path="res://engine/Physic.gd" type="Script" id=2]
-[ext_resource path="res://character/player/Health.gd" type="Script" id=3]
-[ext_resource path="res://character/player/Momentum.gd" type="Script" id=4]
+[ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
+[ext_resource path="res://character/Health.gd" type="Script" id=3]
+[ext_resource path="res://engine/Momentum.gd" type="Script" id=4]
 [ext_resource path="res://character/slime/assets/slime-Sheet.png" type="Texture" id=5]
 [ext_resource path="res://character/slime/states/on-ground/idle.gd" type="Script" id=6]
 [ext_resource path="res://character/slime/states/on-ground/follow.gd" type="Script" id=7]
 [ext_resource path="res://character/slime/states/combat/attack.gd" type="Script" id=8]
-[ext_resource path="res://character/player/DamageZone.gd" type="Script" id=9]
-[ext_resource path="res://character/states/combat/getting-hit.gd" type="Script" id=10]
+[ext_resource path="res://character/DamageZone.gd" type="Script" id=9]
+[ext_resource path="res://character/states/motion/combat/getting-hit.gd" type="Script" id=10]
 [ext_resource path="res://character/slime/states/combat/death.gd" type="Script" id=11]
 [ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=12]
 [ext_resource path="res://character/dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://tools/draw_circle.gd" type="Script" id=14]
+[ext_resource path="res://tools/draw-circle.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -152,7 +152,6 @@ hframes = 8
 frame = 16
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
@@ -161,7 +160,6 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="Attack" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="DamageZone" type="Area2D" parent="States/Attack"]
@@ -209,6 +207,5 @@ DEBUG_MODE = false
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
-color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
 DEBUG_MODE = false

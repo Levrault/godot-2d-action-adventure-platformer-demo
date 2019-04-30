@@ -31,16 +31,16 @@ var knockback_force: Vector2 = Vector2(0, 0)
 var has_set_next_attack: bool = false
 
 
-func _initialize_state():
+func _initialize_state(key: String = 'Idle'):
 	# state change
 	for state_node in $States.get_children():
 		states_map[state_node.get_name()] = state_node
 		state_node.connect('finished', self, '_change_state')
 
 	# default states
-	states_stack.push_front(states_map['Idle'])
+	states_stack.push_front(states_map[key])
 	current_state = states_stack[0]
-	_change_state('Idle')
+	_change_state(key)
 
 
 # update character state
@@ -66,6 +66,10 @@ func _change_state(state_name: String) -> void:
 # on animation finish 
 func _on_animation_finished(anim_name: String) -> void:
 	current_state._on_animation_finished(anim_name, self)
+
+
+func _on_cooldown_timeout():
+	can_attack = true
 
 
 func _on_death() -> void:

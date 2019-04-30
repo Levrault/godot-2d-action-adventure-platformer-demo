@@ -13,6 +13,7 @@ func enter(host: Player) -> void:
 
 func exit(host: Player) -> void:
 	host.has_set_next_attack = false
+	$DamageZone.set_monitoring(false)
 
 
 #warning-ignore:unused_argument

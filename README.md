@@ -34,7 +34,7 @@ This demo was made by using those amazing assets (thanks to their author, that s
 
 [Free Pixelart Platformer Tileset](https://aamatniekss.itch.io/free-pixelart-platformer-tileset) 
 
-[Sunny Land 2D Pixel Art Pack](https://opengameart.org/content/sunny-land-2d-pixel-art-pack)
+[Sunny Land 2D Pixel Art Pack](https://ansimuz.itch.io/sunny-land-pixel-game-art)
 
 [Slime](https://rvros.itch.io/pixel-art-animated-slime)
 

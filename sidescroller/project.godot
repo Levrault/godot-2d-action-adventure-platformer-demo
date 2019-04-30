@@ -27,12 +27,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "DamageZone",
 "language": "GDScript",
-"path": "res://character/player/DamageZone.gd"
+"path": "res://character/DamageZone.gd"
 }, {
 "base": "State",
 "class": "Death",
 "language": "GDScript",
-"path": "res://character/states/combat/death.gd"
+"path": "res://character/states/motion/combat/death.gd"
 }, {
 "base": "Node2D",
 "class": "Draw",
@@ -44,6 +44,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://character/dummy/Dummy.gd"
 }, {
+"base": "Character",
+"class": "Eagle",
+"language": "GDScript",
+"path": "res://character/eagle/Eagle.gd"
+}, {
+"base": "State",
+"class": "GettingHit",
+"language": "GDScript",
+"path": "res://character/states/motion/combat/getting-hit.gd"
+}, {
+"base": "Node2D",
+"class": "Health",
+"language": "GDScript",
+"path": "res://character/Health.gd"
+}, {
 "base": "Motion",
 "class": "InAir",
 "language": "GDScript",
@@ -54,15 +69,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://environment/House.gd"
 }, {
+"base": "Node2D",
+"class": "Momentum",
+"language": "GDScript",
+"path": "res://engine/Momentum.gd"
+}, {
 "base": "State",
 "class": "Motion",
 "language": "GDScript",
-"path": "res://character/player/states/motion/motion.gd"
+"path": "res://character/states/motion/motion.gd"
 }, {
 "base": "Motion",
 "class": "OnGround",
 "language": "GDScript",
-"path": "res://character/player/states/motion/on-ground/on-ground.gd"
+"path": "res://character/states/motion/on-ground/on-ground.gd"
+}, {
+"base": "Node2D",
+"class": "Physics2D",
+"language": "GDScript",
+"path": "res://engine/Physics2D.gd"
 }, {
 "base": "Character",
 "class": "Player",
@@ -77,7 +102,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://character/player/states/state.gd"
+"path": "res://character/states/state.gd"
 } ]
 _global_script_class_icons={
 "AlertBox": "",
@@ -87,10 +112,15 @@ _global_script_class_icons={
 "Death": "",
 "Draw": "",
 "Dummy": "",
+"Eagle": "",
+"GettingHit": "",
+"Health": "",
 "InAir": "",
 "Interaction": "",
+"Momentum": "",
 "Motion": "",
 "OnGround": "",
+"Physics2D": "",
 "Player": "",
 "Slime": "",
 "State": ""
@@ -101,10 +131,6 @@ _global_script_class_icons={
 config/name="sidescroller-demo"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-GameManager="*res://level/GameManager.gd"
 
 [debug]
 
