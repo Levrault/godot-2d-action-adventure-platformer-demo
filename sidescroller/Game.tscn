@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://music/Star Commander1.wav" type="AudioStream" id=1]
 [ext_resource path="res://environment/ParallaxBackground.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://character/player/gui/PlayerLifeBar.tscn" type="PackedScene" id=11]
 [ext_resource path="res://character/dummy/Dummy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://character/slime/ Slime.tscn" type="PackedScene" id=13]
+[ext_resource path="res://character/eagle/Eagle.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
@@ -85,3 +86,10 @@ position = Vector2( 196.758, -492.341 )
 
 [node name="Slime4" parent="World" instance=ExtResource( 13 )]
 position = Vector2( 533.758, -427.341 )
+
+[node name="Eagle" parent="World" instance=ExtResource( 14 )]
+position = Vector2( -82.242, -486.341 )
+patrol_distance = 100.0
+
+[node name="Eagle2" parent="World" instance=ExtResource( 14 )]
+position = Vector2( 590.758, -521.341 )

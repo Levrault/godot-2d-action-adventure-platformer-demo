@@ -2,7 +2,9 @@ tool
 extends Node2D
 class_name Draw
 
+# warning-ignore:unused_class_variable
 export (Color) var color = Color(255, 255, 255, 255)
+# warning-ignore:unused_class_variable
 export (String) var value = null
 export (bool) var DEBUG_MODE = true
 
@@ -14,7 +16,7 @@ func _ready():
 		visible = true
 
 
-func draw_circle_outline(radius, color, offset=Vector2(), line_width=1.0):
+func draw_circle_outline(radius: float, color: Color, offset:= Vector2(), line_width:=1.0) -> void:
 	var points_array = PoolVector2Array()
 	for i in range(POINTS_COUNT + 1):
 		var angle = 2 * PI * i / POINTS_COUNT

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Physics2D
 
 # physics
 export (float) var GRAVITY:= 900

@@ -1,4 +1,5 @@
 extends Node2D
+class_name Momentum
 
 export(float) var DURATION: float = 0.07 
 export(float) var STRENGTH: float = 1.0

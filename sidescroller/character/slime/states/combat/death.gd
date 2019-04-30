@@ -1,4 +1,4 @@
-extends "res://character/states/combat/death.gd"
+extends Death
 
 onready var stream: Resource = load('res://sound/death-screams/alien/sfx_deathscream_alien2.wav')
 
