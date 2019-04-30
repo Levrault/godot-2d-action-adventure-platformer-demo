@@ -4,6 +4,7 @@ class_name Attack
 
 func exit(host: Player) -> void:
 	host.has_set_next_attack = false
+	$DamageZone.set_monitoring(false)
 
 
 func handle_input(host: Player, event: InputEvent) -> InputEvent:
