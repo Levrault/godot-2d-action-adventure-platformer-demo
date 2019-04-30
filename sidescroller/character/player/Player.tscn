@@ -20,7 +20,7 @@
 [ext_resource path="res://character/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=18]
 [ext_resource path="res://character/player/states/motion/on-ground/combat-idle.gd" type="Script" id=19]
 [ext_resource path="res://character/player/states/motion/combat/tidy-sword.gd" type="Script" id=20]
-[ext_resource path="res://character/states/motion/combat/getting-hit.gd" type="Script" id=21]
+[ext_resource path="res://character/player/states/combat/getting-hit.gd" type="Script" id=21]
 [ext_resource path="res://character/states/motion/combat/death.gd" type="Script" id=22]
 [ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://character/player/states/interactions/wait-for-alert-box.gd" type="Script" id=24]
@@ -570,6 +570,7 @@ position = Vector2( 7.51204, 1.06918 )
 shape = SubResource( 19 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 17 )
 amount = 75.0
 
@@ -588,6 +589,7 @@ position = Vector2( 2.56833, 0.241991 )
 shape = SubResource( 20 )
 
 [node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 18 )
 amount = 100.0
 
