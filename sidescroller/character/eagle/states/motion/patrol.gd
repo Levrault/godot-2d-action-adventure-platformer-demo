@@ -13,8 +13,6 @@ func enter(host: Eagle) -> void:
 
 #warning-ignore:unused_argument
 func update(host: Eagle, delta: float) -> void:
-	print(host.position.x)
-	print(host.min_distance)
 	if host.position.x < host.min_distance:
 		direction = 1
 	elif host.position.x > host.max_distance:

@@ -19,12 +19,10 @@
 position = Vector2( 930.242, 636.341 )
 
 [node name="Ambiance" type="Node2D" parent="."]
-editor/display_folded = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ambiance"]
+[node name="Music" type="AudioStreamPlayer" parent="Ambiance"]
 stream = ExtResource( 1 )
 autoplay = true
-attenuation = 1.36604
 
 [node name="World" type="Node2D" parent="."]
 
