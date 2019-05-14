@@ -3,11 +3,11 @@ extends TextureProgress
 
 export(Color) var COLOR setget set_color_normal
 
-func _ready():
+func _ready() -> void:
 	$TweenColor.connect('tween_completed', self, '_on_tween_color_completed')
 
 
-func update_value(new_value):
+func update_value(new_value: float) -> void:
 	$TweenColor.interpolate_property(self, 'modulate', modulate, Color(255, 255, 255), 0.4, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
 	$TweenColor.start()
 	
@@ -17,10 +17,10 @@ func update_value(new_value):
 
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
-func _on_tween_color_completed(object: Object, key: NodePath):
+func _on_tween_color_completed(object: Object, key: NodePath) -> void:
 	set_color_normal(COLOR)
 	
 	
-func set_color_normal(value):
+func set_color_normal(value: Color) -> void:
 	COLOR = value
 	modulate = value
