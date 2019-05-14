@@ -1,26 +1,38 @@
-# sidescroller-demo
+# Godot 2D action adventure platformer demo
 
-This is a small sidescroller demo made with the [Godot Engine 3.1](https://godotengine.org/).
+Godot 2D action adventure platformer demo will be a "complete" tiny demo that should contains a lot of useful stuffs for people that want to learn [Godot Engine](https://godotengine.org/) and creating their own platformer. 
 
-It's contains
+I hope it should answer the common question : _Damn, how can I code that ?_ by only reading through code instead.
 
-- A basic 2D physics
-- A player that make the following actions
+## Features
+
+- A basic retro physic engine
+- A pretty complete character moveset 
   - Jump
   - Double jump
-  - Get hit
-  - Died
-  - Make a simple combo of 3 attacks when on ground
-  - Make a simple combo of 3 attacks when on air
-- One enemy type, the slime
-  - Controlled by a simple IA, it'll follow the player when he reach his sight zone.
-  - Attack the player when it can
-  - Can get hit 
-  - Can died
-- A really simple level
+  - Wall jump (todo)
+  - Ledge grab (todo)
+  - Getting hit
+  - Diyng
+  - Grounded combo attack
+  - Air combo attack
+- IA controlled enemy
+  - Slime
+    - Vicious little creature that will follow you if you get to close to him.
+    - Will try to bite you if you too close
+    - Multiples behavior (idle, move, attack, getting hit, dying)
+  - Eagle
+    - A flying enemy that mind his own business if you don't get in is path (move along multiples waypoints) 
+- GUI
+  - Player health bar
+  - Enemy health bar
+- Tilemaps system
+- Pause Menu (todo)
+- Loading screen (todo)
+- Main menu (todo)
+- Dialogue system (todo)
+- Basic cinematic system (todo)
 - Some cools sounds and musics
-
-
 
 ## Credits
 
