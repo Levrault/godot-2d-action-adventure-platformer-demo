@@ -5,12 +5,17 @@
 [ext_resource path="res://character/player/gui/assets/Pixel1_Healthbar_0001_pixel1_healthbar.png" type="Texture" id=3]
 [ext_resource path="res://character/player/gui/TextureProgress.gd" type="Script" id=4]
 
-
 [node name="PlayerLifeBar" type="TextureRect"]
 margin_left = 10.0
-margin_top = 10.0
+margin_top = 15.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="TweenShakeDown" type="Tween" parent="."]
+
+[node name="TweenShakeUp" type="Tween" parent="."]
+
+[node name="TweenReset" type="Tween" parent="."]
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 modulate = Color( 0.917647, 0.207843, 0.207843, 1 )
@@ -26,4 +31,3 @@ COLOR = Color( 0.917647, 0.207843, 0.207843, 1 )
 [node name="TweenColor" type="Tween" parent="TextureProgress"]
 
 [node name="TweenProgress" type="Tween" parent="TextureProgress"]
-
