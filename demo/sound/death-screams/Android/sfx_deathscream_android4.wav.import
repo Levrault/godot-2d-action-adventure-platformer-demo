@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_deathscream_android4.wav-d68fcca2155a4f10fd0eeb3f2d2134ba.sample"
+
+[deps]
+
+source_file="res://sound/death-screams/Android/sfx_deathscream_android4.wav"
+dest_files=[ "res://.import/sfx_deathscream_android4.wav-d68fcca2155a4f10fd0eeb3f2d2134ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

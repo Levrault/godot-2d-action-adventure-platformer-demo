@@ -1,0 +1,211 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://character/slime/ Slime.gd" type="Script" id=1]
+[ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
+[ext_resource path="res://character/Health.gd" type="Script" id=3]
+[ext_resource path="res://engine/Momentum.gd" type="Script" id=4]
+[ext_resource path="res://character/slime/assets/slime-Sheet.png" type="Texture" id=5]
+[ext_resource path="res://character/slime/states/on-ground/idle.gd" type="Script" id=6]
+[ext_resource path="res://character/slime/states/on-ground/follow.gd" type="Script" id=7]
+[ext_resource path="res://character/slime/states/combat/attack.gd" type="Script" id=8]
+[ext_resource path="res://character/DamageZone.gd" type="Script" id=9]
+[ext_resource path="res://character/states/motion/combat/getting-hit.gd" type="Script" id=10]
+[ext_resource path="res://character/slime/states/combat/death.gd" type="Script" id=11]
+[ext_resource path="res://sfx/Explosion.tscn" type="PackedScene" id=12]
+[ext_resource path="res://character/dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://tools/draw-circle.gd" type="Script" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/Attack/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "GettingHit"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Move"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 12.0953, 6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 12, 12 )
+
+[node name="Slime" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 1 )
+anims/Death = SubResource( 2 )
+anims/GettingHit = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Move = SubResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 5.55975 )
+shape = SubResource( 6 )
+
+[node name="Physics2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Momentum" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+vframes = 3
+hframes = 8
+frame = 16
+
+[node name="States" type="Node2D" parent="."]
+
+[node name="Idle" type="Node2D" parent="States"]
+script = ExtResource( 6 )
+
+[node name="Follow" type="Node2D" parent="States"]
+script = ExtResource( 7 )
+
+[node name="Attack" type="Node2D" parent="States"]
+script = ExtResource( 8 )
+
+[node name="DamageZone" type="Area2D" parent="States/Attack"]
+monitoring = false
+script = ExtResource( 9 )
+MASK = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="States/Attack/DamageZone"]
+position = Vector2( -13.8772, -0.438583 )
+shape = SubResource( 7 )
+
+[node name="GettingHit" type="Node2D" parent="States"]
+script = ExtResource( 10 )
+
+[node name="Death" type="Node2D" parent="States"]
+editor/display_folded = true
+script = ExtResource( 11 )
+
+[node name="Explosion" parent="States/Death" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -2.31964, -6.49501 )
+
+[node name="GUI" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="SimpleLifebar" parent="GUI" instance=ExtResource( 13 )]
+margin_left = -15.0
+margin_top = -22.0
+margin_right = 64.0
+margin_bottom = -14.0
+
+[node name="Debug" type="Node2D" parent="."]
+
+[node name="Follow" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+color = Color( 0.882353, 0.92549, 0.105882, 1 )
+value = "FOLLOW_RANGE"
+DEBUG_MODE = false
+
+[node name="Attack" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+color = Color( 0.941176, 0.156863, 0.156863, 1 )
+value = "ATTACK_RANGE"
+DEBUG_MODE = false
+
+[node name="Stop" type="Node2D" parent="Debug"]
+script = ExtResource( 14 )
+value = "TARGET_MIN_DISTANCE"
+DEBUG_MODE = false
