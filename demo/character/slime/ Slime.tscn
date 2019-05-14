@@ -207,5 +207,6 @@ DEBUG_MODE = false
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
+color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
 DEBUG_MODE = false

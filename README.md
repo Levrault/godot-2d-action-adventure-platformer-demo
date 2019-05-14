@@ -7,32 +7,32 @@ I hope it should answer the common question : _Damn, how can I code that ?_ by o
 ## Features
 
 - A basic retro physic engine
-- A pretty complete character moveset 
+- A pretty complete character moveset
   - Jump
   - Double jump
-  - Wall jump (todo)
-  - Ledge grab (todo)
+  - Wall jump
+  - Ledge grab
   - Getting hit
   - Diyng
   - Grounded combo attack
   - Air combo attack
 - IA controlled enemy
   - Slime
-    - Vicious little creature that will follow you if you get to close to him.
+    - A vicious little creature that will follow you if you get to close to him.
     - Will try to bite you if you too close
     - Multiples behavior (idle, move, attack, getting hit, dying)
   - Eagle
-    - A flying enemy that mind his own business if you don't get in is path (move along multiples waypoints) 
+    -  A flying enemy that mind his own business, if you don't get in his path (move along multiples waypoints)
 - GUI
   - Player health bar
   - Enemy health bar
 - Tilemaps system
-- Pause Menu (todo)
-- Loading screen (todo)
-- Main menu (todo)
-- Dialogue system (todo)
-- Basic cinematic system (todo)
-- Some cools sounds and musics
+- Pause Menu 
+- Loading screen 
+- Main menu
+- Dialogue system 
+- Basic cinematic system
+- Some cool sounds and music
 
 ## Credits
 
