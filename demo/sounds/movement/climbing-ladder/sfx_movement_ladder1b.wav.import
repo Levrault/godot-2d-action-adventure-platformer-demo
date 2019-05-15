@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_movement_ladder1b.wav-72fb8525922259bb131f160ad229db60.sample"
+
+[deps]
+
+source_file="res://sounds/movement/climbing-ladder/sfx_movement_ladder1b.wav"
+dest_files=[ "res://.import/sfx_movement_ladder1b.wav-72fb8525922259bb131f160ad229db60.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

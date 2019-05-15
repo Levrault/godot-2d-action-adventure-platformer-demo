@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://environment/tilemaps/sprites/Tileset.png" type="Texture" id=1]
+[ext_resource path="res://environment/tilemaps/sprites/Trees.png" type="Texture" id=2]
+
+
+
+[sub_resource type="TileSet" id=1]
+21/name = "Tileset.png 21"
+21/texture = ExtResource( 1 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 80, 80, 16, 16 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shapes = [  ]
+21/z_index = 0
+22/name = "Tileset.png 22"
+22/texture = ExtResource( 1 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 96, 80, 16, 16 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shapes = [  ]
+22/z_index = 0
+23/name = "Tileset.png 23"
+23/texture = ExtResource( 1 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 112, 80, 16, 16 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shapes = [  ]
+23/z_index = 0
+24/name = "Trees.png 24"
+24/texture = ExtResource( 2 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 32, 32, 64, 96 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shapes = [  ]
+24/z_index = 0
+25/name = "Trees.png 25"
+25/texture = ExtResource( 2 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 160, 16, 80, 112 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shapes = [  ]
+25/z_index = 0
+
+[node name="TilemapForest" type="TileMap"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+

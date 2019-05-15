@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_wpn_missilelaunch.wav-225e6954124c6e89b24c6011d3b37085.sample"
+
+[deps]
+
+source_file="res://sounds/weapons/Grenade Whistles/sfx_wpn_missilelaunch.wav"
+dest_files=[ "res://.import/sfx_wpn_missilelaunch.wav-225e6954124c6e89b24c6011d3b37085.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
