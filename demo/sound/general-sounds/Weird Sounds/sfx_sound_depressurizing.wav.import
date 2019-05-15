@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_depressurizing.wav-2a4503f126c6fd4704e25a2c48bf06f4.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Weird Sounds/sfx_sound_depressurizing.wav"
+dest_files=[ "res://.import/sfx_sound_depressurizing.wav-2a4503f126c6fd4704e25a2c48bf06f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

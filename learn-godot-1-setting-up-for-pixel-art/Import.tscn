@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BAD_adventurer-v1.5-Sheet.png" type="Texture" id=1]
+
+[node name="Import" type="Node2D"]
+
+[node name="Good" type="Sprite" parent="."]
+position = Vector2( 44.8101, -298.796 )
+texture = ExtResource( 1 )
+vframes = 16
+hframes = 7
+
+[node name="Label2" type="Label" parent="Good"]
+margin_left = -18.1831
+margin_top = -39.2478
+margin_right = 23.8169
+margin_bottom = -25.2478
+text = "GOOD"
+
+[node name="Bad" type="Sprite" parent="."]
+position = Vector2( -0.340881, -299.014 )
+texture = ExtResource( 1 )
+vframes = 16
+hframes = 7
+
+[node name="Label" type="Label" parent="Bad"]
+margin_left = -14.1591
+margin_top = -38.5577
+margin_right = 25.8409
+margin_bottom = -7.55771
+text = "BAD
+"
+uppercase = true
