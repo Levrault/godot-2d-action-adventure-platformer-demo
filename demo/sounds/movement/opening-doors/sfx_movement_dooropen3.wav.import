@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_movement_dooropen3.wav-db2d73a23785c5fd131394c4a10467ac.sample"
+
+[deps]
+
+source_file="res://sounds/movement/opening-doors/sfx_movement_dooropen3.wav"
+dest_files=[ "res://.import/sfx_movement_dooropen3.wav-db2d73a23785c5fd131394c4a10467ac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
