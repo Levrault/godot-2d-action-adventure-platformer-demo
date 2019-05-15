@@ -3,7 +3,7 @@ extends TextureRect
 const SHAKE_TRIGGER = 25
 const SHAKE_DISTANCE = 4
 var shake_health_bar := false
-var initial_margin_top := 0
+var initial_margin_top := 0.0
 
 
 func _ready() -> void:

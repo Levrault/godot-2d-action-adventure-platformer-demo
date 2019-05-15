@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_fanfare3.wav-c0d7dc46a033342d0d2a5f5d10f8f5c5.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Fanfares/sfx_sounds_fanfare3.wav"
+dest_files=[ "res://.import/sfx_sounds_fanfare3.wav-c0d7dc46a033342d0d2a5f5d10f8f5c5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_nagger2.wav-6281a4b17887f756ce46d80d9ca79f17.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Weird Sounds/sfx_sound_nagger2.wav"
+dest_files=[ "res://.import/sfx_sound_nagger2.wav-6281a4b17887f756ce46d80d9ca79f17.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

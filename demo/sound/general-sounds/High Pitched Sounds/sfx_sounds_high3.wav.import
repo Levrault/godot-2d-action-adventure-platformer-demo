@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_high3.wav-bfed157b2a09f7919efe8e05a8fc2848.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/High Pitched Sounds/sfx_sounds_high3.wav"
+dest_files=[ "res://.import/sfx_sounds_high3.wav-bfed157b2a09f7919efe8e05a8fc2848.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

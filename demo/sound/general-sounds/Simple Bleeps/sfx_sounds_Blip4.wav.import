@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_Blip4.wav-9a499f6cca36ff0beac1f7804ce7a195.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Simple Bleeps/sfx_sounds_Blip4.wav"
+dest_files=[ "res://.import/sfx_sounds_Blip4.wav-9a499f6cca36ff0beac1f7804ce7a195.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

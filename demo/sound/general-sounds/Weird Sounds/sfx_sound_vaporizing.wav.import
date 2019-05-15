@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_vaporizing.wav-8e01df923e7dba6aebc0151ca02238ea.sample"
+
+[deps]
+
+source_file="res://sound/general-sounds/Weird Sounds/sfx_sound_vaporizing.wav"
+dest_files=[ "res://.import/sfx_sound_vaporizing.wav-8e01df923e7dba6aebc0151ca02238ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
