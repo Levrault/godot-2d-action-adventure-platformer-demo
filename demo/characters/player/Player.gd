@@ -12,6 +12,9 @@ onready var CooldownTimer: Timer = $CooldownTimer
 
 var previous_position: Vector2 = Vector2()
 
+# status
+var is_invincible := false
+
 
 func _ready() -> void:
 	# Signals
