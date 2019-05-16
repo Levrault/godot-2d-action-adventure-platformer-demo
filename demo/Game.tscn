@@ -26,7 +26,7 @@ scale = Vector2( 1, 12.36 )
 position = Vector2( -929.923, -362.962 )
 
 [node name="Max" type="Position2D" parent="Bounds"]
-position = Vector2( 805.418, -636.053 )
+position = Vector2( 810.646, -29.9415 )
 
 [node name="Ambiance" type="Node2D" parent="."]
 editor/display_folded = true
@@ -58,7 +58,7 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 position = Vector2( 709.758, -501.341 )
 
 [node name="Player" parent="World" instance=ExtResource( 10 )]
-position = Vector2( -780.242, -422.341 )
+position = Vector2( -843.18, -563.323 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true

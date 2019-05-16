@@ -4,11 +4,6 @@
 [ext_resource path="res://characters/enemies/eagle/Eagle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
 
-
-
-
-
-
 [node name="EagleDebug" type="Node2D"]
 
 [node name="World" type="Node2D" parent="."]
@@ -18,6 +13,7 @@ tile_data = PoolIntArray( 720897, 0, 0, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1
 
 [node name="Eagle" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 251, 120 )
+patrol_distance = 0.0
 
 [node name="Player" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 112, 142 )
