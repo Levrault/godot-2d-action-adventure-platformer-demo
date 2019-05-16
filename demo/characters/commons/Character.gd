@@ -26,6 +26,7 @@ var is_on_one_way_platform: bool = false
 var is_on_wall: bool = false
 var snap_enable: bool = false
 var knockback_force: Vector2 = Vector2(0, 0)
+var is_invincible: bool = false
 
 # combo
 var has_set_next_attack: bool = false
