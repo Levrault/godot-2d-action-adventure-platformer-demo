@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "AlertBox",
 "language": "GDScript",
-"path": "res://interfaces/AlertBox.gd"
+"path": "res://interfaces/dialogue/AlertBox.gd"
 }, {
 "base": "Motion",
 "class": "Attack",

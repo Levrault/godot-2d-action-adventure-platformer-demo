@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://environment/backgrounds/ParallaxBackground.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interfaces/theme/fonts/menu.dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interfaces/theme/button/pressed.stylebox.tres" type="StyleBox" id=3]
+[ext_resource path="res://interfaces/theme/button/focus.stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://interfaces/theme/button/normal.stylebox.tres" type="StyleBox" id=5]
+[ext_resource path="res://interfaces/theme/fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 6 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+
+[node name="CloudFront" parent="Background" index="1"]
+visible = false
+position = Vector2( 820, 203 )
+
+[node name="BGBack" parent="Background" index="2"]
+position = Vector2( 769.796, 150 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 181.0
+margin_top = 62.0
+margin_right = 298.0
+margin_bottom = 208.0
+alignment = 1
+
+[node name="Play" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+margin_right = 117.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+
+[node name="Options" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 117.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+
+[node name="Credits" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+margin_top = 78.0
+margin_right = 117.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 2 )
+text = "Credits"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 117.0
+margin_right = 117.0
+margin_bottom = 146.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -146.512
+margin_top = -22.8521
+margin_right = 0.487671
+margin_bottom = -5.85211
+custom_fonts/font = SubResource( 1 )
+text = "A  demo  by  Levrault"
+
+[editable path="Background"]

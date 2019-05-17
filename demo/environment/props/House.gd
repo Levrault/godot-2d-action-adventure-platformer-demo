@@ -3,7 +3,7 @@ class_name Interaction
 
 signal interaction(type)
 
-const ALERT_SCENE: Resource = preload('res://interfaces/AlertBox.tscn')
+const ALERT_SCENE: Resource = preload('res://interfaces/dialogue/AlertBox.tscn')
 
 
 func _ready():
