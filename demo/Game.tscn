@@ -59,7 +59,6 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 position = Vector2( 709.758, -501.341 )
 
 [node name="Player" parent="World" instance=ExtResource( 10 )]
-editor/display_folded = true
 position = Vector2( -793.923, -418.866 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
@@ -70,10 +69,9 @@ limit_top = 30
 limit_right = 1750
 limit_bottom = 270
 
-[node name="gui" type="CanvasLayer" parent="World/Player"]
-editor/display_folded = true
+[node name="HUD" type="CanvasLayer" parent="World/Player"]
 
-[node name="PlayerLifeBar" parent="World/Player/gui" instance=ExtResource( 11 )]
+[node name="PlayerLifeBar" parent="World/Player/HUD" instance=ExtResource( 11 )]
 
 [node name="Dummy" parent="World" instance=ExtResource( 12 )]
 visible = false

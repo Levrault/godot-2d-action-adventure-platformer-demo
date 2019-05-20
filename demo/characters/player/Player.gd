@@ -8,7 +8,6 @@ signal player_death
 
 # cache
 onready var Physics2D: Node2D = $Physics2D
-onready var CooldownTimer: Timer = $CooldownTimer
 
 var previous_position: Vector2 = Vector2()
 
@@ -16,9 +15,10 @@ var previous_position: Vector2 = Vector2()
 func _ready() -> void:
 	# Signals
 	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
-	CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
 	$Health.connect('take_damage', self, '_on_getting_hit')
 	$States/Death/Explosion.connect('exploded', self, '_on_death')
+	$CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
+	$CooldownBar.set_duration($CooldownTimer.wait_time)
 	
 	._initialize_state()
 	_initialize_interaction()
@@ -49,6 +49,11 @@ func _on_getting_hit(alive: bool, direction: int) -> void:
 # Catch input
 func _input(event: InputEvent) -> void:
 	current_state.handle_input(self, event)
+
+
+func start_cooldown():
+	$CooldownTimer.start()
+	$CooldownBar.start()
 
 
 func game_over():
