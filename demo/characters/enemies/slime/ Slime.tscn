@@ -15,11 +15,6 @@
 [ext_resource path="res://characters/enemies/dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
 [ext_resource path="res://tools/draw-circle.gd" type="Script" id=14]
 
-
-
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
 length = 0.5
@@ -118,7 +113,7 @@ tracks/0/keys = {
 extents = Vector2( 12.0953, 6 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 12, 12 )
+extents = Vector2( 14.2761, 12 )
 
 [node name="Slime" type="KinematicBody2D"]
 collision_layer = 4
@@ -157,6 +152,7 @@ hframes = 8
 frame = 16
 
 [node name="States" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
@@ -173,7 +169,7 @@ script = ExtResource( 9 )
 MASK = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="States/Attack/DamageZone"]
-position = Vector2( -13.8772, -0.438583 )
+position = Vector2( -10.2136, -0.961952 )
 shape = SubResource( 7 )
 
 [node name="GettingHit" type="Node2D" parent="States"]
@@ -202,16 +198,12 @@ margin_bottom = -14.0
 script = ExtResource( 14 )
 color = Color( 0.882353, 0.92549, 0.105882, 1 )
 value = "FOLLOW_RANGE"
-DEBUG_MODE = false
 
 [node name="Attack" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
 color = Color( 0.941176, 0.156863, 0.156863, 1 )
 value = "ATTACK_RANGE"
-DEBUG_MODE = false
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
-color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
-DEBUG_MODE = false
