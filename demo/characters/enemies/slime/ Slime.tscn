@@ -12,7 +12,7 @@
 [ext_resource path="res://characters/commons/states/motion/combat/getting-hit.gd" type="Script" id=10]
 [ext_resource path="res://characters/enemies/slime/states/combat/death.gd" type="Script" id=11]
 [ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=12]
-[ext_resource path="res://characters/enemies/dummy/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/enemies/gui/SimpleLifebar.tscn" type="PackedScene" id=13]
 [ext_resource path="res://tools/draw-circle.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
