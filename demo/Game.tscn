@@ -29,7 +29,6 @@ position = Vector2( -930.411, -27.7881 )
 position = Vector2( 806.003, -51.4145 )
 
 [node name="Ambiance" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Ambiance"]
 stream = ExtResource( 2 )
@@ -58,7 +57,7 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 position = Vector2( 709.758, -501.341 )
 
 [node name="Player" parent="World" instance=ExtResource( 10 )]
-position = Vector2( -752.291, -420.688 )
+position = Vector2( -795.587, -421.085 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true
