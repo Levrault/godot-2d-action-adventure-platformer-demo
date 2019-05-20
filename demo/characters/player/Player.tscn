@@ -20,7 +20,7 @@
 [ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=18]
 [ext_resource path="res://characters/player/states/motion/on-ground/combat-idle.gd" type="Script" id=19]
 [ext_resource path="res://characters/player/states/motion/combat/tidy-sword.gd" type="Script" id=20]
-[ext_resource path="res://characters/player/states/combat/getting-hit.gd" type="Script" id=21]
+[ext_resource path="res://characters/player/states/motion/combat/getting-hit.gd" type="Script" id=21]
 [ext_resource path="res://characters/commons/states/motion/combat/death.gd" type="Script" id=22]
 [ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://characters/player/states/interactions/wait-for-alert-box.gd" type="Script" id=24]
@@ -472,7 +472,6 @@ hframes = 7
 wait_time = 0.5
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )

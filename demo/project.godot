@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Attack",
+"class": "AirAttack",
+"language": "GDScript",
+"path": "res://characters/player/states/motion/combat/air-attack.gd"
+}, {
 "base": "Node2D",
 "class": "AlertBox",
 "language": "GDScript",
@@ -105,6 +110,7 @@ _global_script_classes=[ {
 "path": "res://characters/commons/states/state.gd"
 } ]
 _global_script_class_icons={
+"AirAttack": "",
 "AlertBox": "",
 "Attack": "",
 "Character": "",
