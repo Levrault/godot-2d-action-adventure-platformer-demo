@@ -5,7 +5,7 @@ func enter(host: Player) -> void:
 	host.get_node('AnimationPlayer').play('CombatIdle')
 	host.velocity.x = 0
 	host.can_attack = false
-	host.CooldownTimer.start()
+	host.start_cooldown()
 	$CombatIdleTimer.start()
   
 
