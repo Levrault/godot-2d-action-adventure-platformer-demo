@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://characters/enemies/eagle/Eagle.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://characters/commons/states/motion/combat/death.gd" type="Script" id=8]
 [ext_resource path="res://effects/ExplosionAir.tscn" type="PackedScene" id=9]
 [ext_resource path="res://characters/enemies/eagle/states/motion/combat/getting-hit.gd" type="Script" id=10]
-[ext_resource path="res://tools/draw-line.gd" type="Script" id=11]
+[ext_resource path="res://characters/enemies/gui/SimpleLifebar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tools/draw-line.gd" type="Script" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Death"
@@ -123,9 +124,17 @@ position = Vector2( -4, 8 )
 [node name="GettingHit" type="Node2D" parent="States"]
 script = ExtResource( 10 )
 
+[node name="GUI" type="Node2D" parent="."]
+
+[node name="SimpleLifebar" parent="GUI" instance=ExtResource( 11 )]
+margin_left = -14.4458
+margin_top = -27.0474
+margin_right = 64.5542
+margin_bottom = -19.0474
+
 [node name="Debug" type="Node2D" parent="."]
 
 [node name="Patrol" type="Node2D" parent="Debug"]
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 color = Color( 0.701961, 0.811765, 0.156863, 1 )
 value = "patrol_distance"
