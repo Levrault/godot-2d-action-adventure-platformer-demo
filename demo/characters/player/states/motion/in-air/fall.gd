@@ -18,6 +18,11 @@ func handle_input(host: Player, event: InputEvent) -> InputEvent:
 	return .handle_input(host, event)
 
 
+func exit(host: Player) -> void:
+	if not host.can_attack:
+		host.can_attack = true
+
+
 #warning-ignore:unused_argument
 func update(host: Player, delta: float) -> void:
 	var input_direction: Vector2 = get_input_direction()

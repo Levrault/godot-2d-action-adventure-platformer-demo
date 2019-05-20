@@ -5,8 +5,8 @@ export(float) var amount := 10.0
 onready var stream: Resource = load('res://sound/weapons/melee/sfx_wpn_punch1.wav')
 
 func enter(host: Player) -> void:
-	host.velocity.x = 0
 	host.get_node('AnimationPlayer').play('AttackLight')
+	host.velocity.x = 0
 	$DamageZone.set_amount(amount)
 	.play_sound(host, stream)
 
