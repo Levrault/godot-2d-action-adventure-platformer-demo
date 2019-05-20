@@ -20,6 +20,7 @@ position = Vector2( 930.242, 636.341 )
 script = ExtResource( 1 )
 
 [node name="Bounds" type="Node2D" parent="."]
+editor/display_folded = true
 scale = Vector2( 1, 12.36 )
 
 [node name="Min" type="Position2D" parent="Bounds"]
@@ -29,6 +30,7 @@ position = Vector2( -930.411, -27.7881 )
 position = Vector2( 806.003, -51.4145 )
 
 [node name="Ambiance" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Ambiance"]
 stream = ExtResource( 2 )
@@ -57,7 +59,8 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 position = Vector2( 709.758, -501.341 )
 
 [node name="Player" parent="World" instance=ExtResource( 10 )]
-position = Vector2( -795.587, -421.085 )
+editor/display_folded = true
+position = Vector2( -793.923, -418.866 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true
@@ -91,8 +94,9 @@ position = Vector2( 196.758, -492.341 )
 position = Vector2( 533.758, -427.341 )
 
 [node name="Eagle" parent="World" instance=ExtResource( 14 )]
-position = Vector2( -82.242, -486.341 )
+position = Vector2( -141.738, -488.292 )
 patrol_distance = 100.0
 
 [node name="Eagle2" parent="World" instance=ExtResource( 14 )]
-position = Vector2( 590.758, -521.341 )
+position = Vector2( 589.758, -541.841 )
+patrol_distance = 150.0

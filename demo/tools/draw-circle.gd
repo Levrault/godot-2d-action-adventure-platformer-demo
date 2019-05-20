@@ -3,7 +3,7 @@ extends Draw
 
 
 func _draw():
-	if not (DEBUG_MODE):
+	if not ProjectSettings.get_setting('Debug/debug_mode'):
 		return
 	var parent = get_parent().get_parent()
 	if parent.get(value):

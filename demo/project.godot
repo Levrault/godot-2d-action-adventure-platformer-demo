@@ -126,6 +126,10 @@ _global_script_class_icons={
 "State": ""
 }
 
+[Debug]
+
+debug_mode=true
+
 [application]
 
 config/name="godot-2d-action-adventure-platformer-demo"

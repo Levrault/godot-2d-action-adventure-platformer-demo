@@ -6,13 +6,11 @@ class_name Draw
 export (Color) var color = Color(255, 255, 255, 255)
 # warning-ignore:unused_class_variable
 export (String) var value = null
-export (bool) var DEBUG_MODE = true
 
 const POINTS_COUNT = 24
 
-
 func _ready():
-	if DEBUG_MODE:
+	if ProjectSettings.get_setting('Debug/debug_mode'):
 		visible = true
 
 
