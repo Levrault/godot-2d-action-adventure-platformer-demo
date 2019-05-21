@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
@@ -13,18 +13,19 @@
 [ext_resource path="res://characters/player/states/motion/in-air/fall.gd" type="Script" id=11]
 [ext_resource path="res://characters/player/states/motion/combat/attack-light.gd" type="Script" id=12]
 [ext_resource path="res://characters/commons/DamageZone.gd" type="Script" id=13]
-[ext_resource path="res://characters/player/states/motion/combat/attack-medium.gd" type="Script" id=14]
-[ext_resource path="res://characters/player/states/motion/combat/attack-heavy.gd" type="Script" id=15]
-[ext_resource path="res://characters/player/states/motion/combat/attack-air-light.gd" type="Script" id=16]
-[ext_resource path="res://characters/player/states/motion/combat/attack-air-medium.gd" type="Script" id=17]
-[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy.gd" type="Script" id=18]
-[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=19]
-[ext_resource path="res://characters/player/states/motion/on-ground/combat-idle.gd" type="Script" id=20]
-[ext_resource path="res://characters/player/states/motion/combat/tidy-sword.gd" type="Script" id=21]
-[ext_resource path="res://characters/player/states/motion/combat/getting-hit.gd" type="Script" id=22]
-[ext_resource path="res://characters/commons/states/motion/combat/death.gd" type="Script" id=23]
-[ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=24]
-[ext_resource path="res://characters/player/states/interactions/wait-for-alert-box.gd" type="Script" id=25]
+[ext_resource path="res://effects/Slash.tscn" type="PackedScene" id=14]
+[ext_resource path="res://characters/player/states/motion/combat/attack-medium.gd" type="Script" id=15]
+[ext_resource path="res://characters/player/states/motion/combat/attack-heavy.gd" type="Script" id=16]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-light.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-medium.gd" type="Script" id=18]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy.gd" type="Script" id=19]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=20]
+[ext_resource path="res://characters/player/states/motion/on-ground/combat-idle.gd" type="Script" id=21]
+[ext_resource path="res://characters/player/states/motion/combat/tidy-sword.gd" type="Script" id=22]
+[ext_resource path="res://characters/player/states/motion/combat/getting-hit.gd" type="Script" id=23]
+[ext_resource path="res://characters/commons/states/motion/combat/death.gd" type="Script" id=24]
+[ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=25]
+[ext_resource path="res://characters/player/states/interactions/wait-for-alert-box.gd" type="Script" id=26]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"
@@ -416,13 +417,13 @@ radius = 5.30756
 height = 19.6778
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 24.7865, 18.0065 )
+extents = Vector2( 20.9621, 10 )
 
 [sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 16.8385, 16.2194 )
+extents = Vector2( 15, 15.7378 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 16.973, 18.0065 )
+extents = Vector2( 19.0174, 18.6717 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 2
@@ -456,6 +457,7 @@ shape = SubResource( 17 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
+GRAVITY = 1.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -468,15 +470,18 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
+frame = 105
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="CooldownBar" parent="." instance=ExtResource( 6 )]
+visible = false
 margin_left = -15.6545
 margin_top = -18.5
 margin_right = 63.3455
 margin_bottom = -10.5
+duration = 0.5
 
 [node name="States" type="Node2D" parent="."]
 
@@ -501,107 +506,141 @@ editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
+editor/display_folded = true
 visible = false
 monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 13 )
+has_slash = true
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackLight/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
+[node name="Slash" parent="States/AttackLight" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 24, -3 )
+
 [node name="AttackMedium" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 14 )
+position = Vector2( -2, 0 )
+script = ExtResource( 15 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackMedium"]
+editor/display_folded = true
 visible = false
 monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 13 )
+type_of_attack = "Medium"
+has_slash = true
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackMedium/DamageZone"]
 position = Vector2( 11.0379, -0.69376 )
 shape = SubResource( 18 )
 
-[node name="AttackHeavy" type="Node2D" parent="States"]
-editor/display_folded = true
-script = ExtResource( 15 )
-
-[node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
-editor/display_folded = true
+[node name="Slash" parent="States/AttackMedium" instance=ExtResource( 14 )]
 visible = false
-monitoring = false
-collision_layer = 4
-collision_mask = 4
-script = ExtResource( 13 )
-KNOCKBACK_FORCE = Vector2( 10, 10 )
+position = Vector2( 24, 2 )
 
-[node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
-position = Vector2( 11.0379, -0.69376 )
-shape = SubResource( 18 )
-
-[node name="AttackAirLight" type="Node2D" parent="States"]
+[node name="AttackHeavy" type="Node2D" parent="States"]
 editor/display_folded = true
 script = ExtResource( 16 )
 
-[node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
+[node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
 visible = false
+position = Vector2( 1, 0 )
 monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 13 )
-amount = 25.0
+type_of_attack = "Heavy"
+has_slash = true
 KNOCKBACK_FORCE = Vector2( 10, 10 )
 
-[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirLight/DamageZone"]
-position = Vector2( 11.0379, -0.69376 )
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
+position = Vector2( 0, 5 )
 shape = SubResource( 18 )
 
-[node name="AttackAirMedium" type="Node2D" parent="States"]
+[node name="Slash" parent="States/AttackHeavy" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 25, 5 )
+
+[node name="AttackAirLight" type="Node2D" parent="States"]
 editor/display_folded = true
 script = ExtResource( 17 )
 
-[node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
+[node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
+editor/display_folded = true
 visible = false
 monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 13 )
 amount = 25.0
+has_slash = true
+KNOCKBACK_FORCE = Vector2( 10, 10 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirLight/DamageZone"]
+position = Vector2( 2, -1 )
+shape = SubResource( 18 )
+
+[node name="Slash" parent="States/AttackAirLight" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 23, -1 )
+
+[node name="AttackAirMedium" type="Node2D" parent="States"]
+editor/display_folded = true
+script = ExtResource( 18 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
+editor/display_folded = true
+visible = false
+monitoring = false
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 13 )
+amount = 25.0
+type_of_attack = "Medium"
+has_slash = true
 KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirMedium/DamageZone"]
-position = Vector2( 7.51204, 1.06918 )
+position = Vector2( 9.122, 0.449196 )
 shape = SubResource( 19 )
+
+[node name="Slash" parent="States/AttackAirMedium" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 23.9949, -2.0783 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 amount = 75.0
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
-visible = false
 position = Vector2( 7.14157, -0.830416 )
 monitoring = false
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 13 )
 amount = 25.0
+type_of_attack = "Heavy"
 KNOCKBACK_FORCE = Vector2( 10, 10 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
-position = Vector2( 2.56833, 0.241991 )
+position = Vector2( 1.08029, 1.05364 )
 shape = SubResource( 20 )
 
 [node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 amount = 100.0
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavyGrounded"]
+editor/display_folded = true
 visible = false
 monitoring = false
 collision_layer = 4
@@ -616,24 +655,24 @@ shape = SubResource( 18 )
 
 [node name="CombatIdle" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 
 [node name="CombatIdleTimer" type="Timer" parent="States/CombatIdle"]
 wait_time = 2.0
 
 [node name="TidySword" type="Node2D" parent="States"]
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 
 [node name="GettingHit" type="Node2D" parent="States"]
-script = ExtResource( 22 )
+script = ExtResource( 23 )
 
 [node name="Death" type="Node2D" parent="States"]
 editor/display_folded = true
-script = ExtResource( 23 )
+script = ExtResource( 24 )
 
-[node name="Explosion" parent="States/Death" instance=ExtResource( 24 )]
+[node name="Explosion" parent="States/Death" instance=ExtResource( 25 )]
 visible = false
 
 [node name="WaitForAlertBox" type="Node2D" parent="States"]
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]
