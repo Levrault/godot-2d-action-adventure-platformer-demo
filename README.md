@@ -34,6 +34,14 @@ I hope it should answer the common question : _Damn, how can I code that ?_ by o
 - Basic cinematic system
 - Some cool sounds and music
 
+
+
+## GDscript Guidelines
+
+
+
+
+
 ## Credits
 
 This demo was made by using those amazing assets (thanks to their author, that share their works like that). To use those assets, I recommend to directly download it from their official page and follow the license terms. 

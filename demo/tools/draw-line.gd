@@ -5,12 +5,6 @@ var from: Vector2 = Vector2()
 var to: Vector2 = Vector2()
 var parent = null
 
-func _ready():
-	parent = get_parent().get_parent()
-	if parent.get(value):
-		from = Vector2()
-		to = Vector2(-parent.get(value), 0)
-
 
 func _draw():
 	if not ProjectSettings.get_setting('Debug/debug_mode'):
