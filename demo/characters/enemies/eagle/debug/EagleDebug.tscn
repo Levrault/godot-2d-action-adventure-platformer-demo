@@ -16,10 +16,12 @@ tile_data = PoolIntArray( 720897, 0, 0, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1
 position = Vector2( 241.073, 116.39 )
 
 [node name="Eagle2" parent="World" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 241.073, 60.1089 )
 patrol_distance = 100.0
 
 [node name="Eagle3" parent="World" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 434.464, 7.42027 )
 
 [node name="Player" parent="World" instance=ExtResource( 3 )]

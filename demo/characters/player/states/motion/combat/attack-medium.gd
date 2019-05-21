@@ -6,6 +6,7 @@ onready var stream: Resource = load('res://sound/weapons/melee/sfx_wpn_punch2.wa
 
 func enter(host: Player) -> void:
 	host.get_node('AnimationPlayer').play('AttackMedium')
+	$DamageZone.set_type_of_attack('Medium')
 	$DamageZone.set_amount(amount)
 	.play_sound(host, stream)
 

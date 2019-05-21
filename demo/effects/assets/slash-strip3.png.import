@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GOOD_adventurer-v1.5-Sheet.png-d061d505669f9a44dc1f7ff713a41a2e.stex"
+path="res://.import/slash-strip3.png-5de13f7031fc2a4237925cf4385a27ee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GOOD_adventurer-v1.5-Sheet.png"
-dest_files=[ "res://.import/GOOD_adventurer-v1.5-Sheet.png-d061d505669f9a44dc1f7ff713a41a2e.stex" ]
+source_file="res://effects/assets/slash-strip3.png"
+dest_files=[ "res://.import/slash-strip3.png-5de13f7031fc2a4237925cf4385a27ee.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

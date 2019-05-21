@@ -8,6 +8,7 @@ func enter(host: Player) -> void:
 	host.get_node('AnimationPlayer').play('AttackAirMedium')
 	host.gravity_enable = false
 	host.velocity = Vector2(0, 0)
+	$DamageZone.set_type_of_attack('Medium')
 	$DamageZone.set_amount(amount)
 	.play_sound(host, stream)
 

@@ -58,6 +58,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 16, 17, 18, 19, 20 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "GettingHit"
@@ -74,6 +86,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 13, 14, 15, 16 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -110,7 +134,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 12.0953, 6 )
+extents = Vector2( 10.8194, 6.66371 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 14.2761, 12 )
@@ -130,7 +154,7 @@ anims/Move = SubResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 5.55975 )
+position = Vector2( 1, 4.28281 )
 shape = SubResource( 6 )
 
 [node name="Physics2D" type="Node2D" parent="."]
@@ -149,10 +173,9 @@ wait_time = 1.5
 texture = ExtResource( 5 )
 vframes = 3
 hframes = 8
-frame = 16
+frame = 18
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 6 )
@@ -161,9 +184,11 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="Attack" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="DamageZone" type="Area2D" parent="States/Attack"]
+visible = false
 monitoring = false
 script = ExtResource( 9 )
 MASK = 1
@@ -193,6 +218,7 @@ margin_right = 64.0
 margin_bottom = -14.0
 
 [node name="Debug" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Follow" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
@@ -206,4 +232,5 @@ value = "ATTACK_RANGE"
 
 [node name="Stop" type="Node2D" parent="Debug"]
 script = ExtResource( 14 )
+color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
