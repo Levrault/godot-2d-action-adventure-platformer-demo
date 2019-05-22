@@ -63,6 +63,7 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 position = Vector2( 709.758, -501.341 )
 
 [node name="Player" parent="World" instance=ExtResource( 11 )]
+editor/display_folded = false
 position = Vector2( -793.923, -418.866 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
