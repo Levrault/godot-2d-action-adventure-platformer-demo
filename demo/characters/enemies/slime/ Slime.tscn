@@ -184,7 +184,6 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="Attack" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="DamageZone" type="Area2D" parent="States/Attack"]
@@ -192,6 +191,7 @@ visible = false
 monitoring = false
 script = ExtResource( 9 )
 MASK = 1
+KNOCKBACK_FORCE = Vector2( 10, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="States/Attack/DamageZone"]
 position = Vector2( -10.2136, -0.961952 )
