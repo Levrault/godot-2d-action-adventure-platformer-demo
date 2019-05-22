@@ -86,7 +86,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "AttackAirLight"
-length = 0.4
+length = 0.35
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -114,7 +114,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "AttackAirMedium"
-length = 0.3
+length = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -168,7 +168,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.7
+length = 0.55
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -195,7 +195,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 0.5
+length = 0.45
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -309,7 +309,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-length = 0.6
+length = 0.55
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -330,10 +330,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+"values": [ true, true, false, true, false, true, false, true, false, true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:modulate")
@@ -349,9 +349,9 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-length = 0.6
+length = 0.75
 loop = true
-step = 0.2
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -359,7 +359,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3 ]
@@ -470,7 +470,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 1
+frame = 52
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -502,7 +502,6 @@ script = ExtResource( 10 )
 script = ExtResource( 11 )
 
 [node name="AttackLight" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
@@ -523,7 +522,6 @@ visible = false
 position = Vector2( 24, -3 )
 
 [node name="AttackMedium" type="Node2D" parent="States"]
-editor/display_folded = true
 position = Vector2( -2, 0 )
 script = ExtResource( 15 )
 
@@ -546,7 +544,6 @@ visible = false
 position = Vector2( 24, 2 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
@@ -569,7 +566,6 @@ visible = false
 position = Vector2( 25, 5 )
 
 [node name="AttackAirLight" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
@@ -581,7 +577,7 @@ collision_mask = 4
 script = ExtResource( 13 )
 amount = 25.0
 has_slash = true
-KNOCKBACK_FORCE = Vector2( 10, 10 )
+KNOCKBACK_FORCE = Vector2( 10, 0 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirLight/DamageZone"]
 position = Vector2( 2, -1 )
@@ -592,7 +588,6 @@ visible = false
 position = Vector2( 23, -1 )
 
 [node name="AttackAirMedium" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
@@ -605,7 +600,7 @@ script = ExtResource( 13 )
 amount = 25.0
 type_of_attack = "Medium"
 has_slash = true
-KNOCKBACK_FORCE = Vector2( 10, 10 )
+KNOCKBACK_FORCE = Vector2( 10, 0 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirMedium/DamageZone"]
 position = Vector2( 9.122, 0.449196 )
@@ -628,7 +623,7 @@ collision_mask = 4
 script = ExtResource( 13 )
 amount = 25.0
 type_of_attack = "Heavy"
-KNOCKBACK_FORCE = Vector2( 10, 10 )
+KNOCKBACK_FORCE = Vector2( 25, 0 )
 
 [node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
 position = Vector2( 1.08029, 1.05364 )
