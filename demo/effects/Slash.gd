@@ -7,7 +7,6 @@ func _ready() -> void:
 
 
 func _on_animation_finished(anim_name: String) -> void:
-	print('sadsadsadsad')
 	visible = false
 
 

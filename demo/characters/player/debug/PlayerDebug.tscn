@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://environment/tilemaps/TilemapGround.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=2]
+
+[node name="PlayerDebug" type="Node2D"]
+
+[node name="Word" type="Node2D" parent="."]
+
+[node name="Tilemap" parent="Word" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 11, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 1, 19, 0, 1, 20, 0, 1, 21, 0, 1, 22, 0, 1, 23, 0, 2, 65536, 0, 131072, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 131073, 65541, 0, 131073, 65542, 0, 131073, 65543, 0, 131073, 65544, 0, 131073, 65545, 0, 131073, 65546, 0, 131073, 65547, 0, 131073, 65548, 0, 131073, 65549, 0, 131073, 65550, 0, 131073, 65551, 0, 131073, 65552, 0, 131073, 65553, 0, 131073, 65554, 0, 131073, 65555, 0, 131073, 65556, 0, 131073, 65557, 0, 131073, 65558, 0, 131073, 65559, 0, 131074 )
+
+[node name="Player" parent="Word" instance=ExtResource( 2 )]
+position = Vector2( 51.4563, -27.9334 )
+
+[node name="Camera2D" type="Camera2D" parent="Word/Player"]
+current = true
