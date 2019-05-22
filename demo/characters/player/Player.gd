@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 
 # Connect to Health
 func _on_getting_hit(alive: bool, direction: int) -> void:
+	print(direction)
 	look_direction.x = direction
 	is_alive = alive
 	_change_state('GettingHit')

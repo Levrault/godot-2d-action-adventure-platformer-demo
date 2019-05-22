@@ -15,14 +15,10 @@ tile_data = PoolIntArray( 720897, 0, 0, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1
 [node name="Eagle" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 241.073, 116.39 )
 
-[node name="Eagle2" parent="World" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 241.073, 60.1089 )
-patrol_distance = 100.0
-
-[node name="Eagle3" parent="World" instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 434.464, 7.42027 )
+[node name="DamageZone" parent="World/Eagle" index="8"]
+KNOCKBACK_FORCE = Vector2( 150, 150 )
 
 [node name="Player" parent="World" instance=ExtResource( 3 )]
 position = Vector2( 112, 142 )
+
+[editable path="World/Eagle"]

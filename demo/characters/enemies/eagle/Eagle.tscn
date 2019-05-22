@@ -125,6 +125,7 @@ position = Vector2( -4, 8 )
 script = ExtResource( 10 )
 
 [node name="GUI" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="SimpleLifebar" parent="GUI" instance=ExtResource( 11 )]
 margin_left = -14.4458
@@ -133,6 +134,7 @@ margin_right = 64.5542
 margin_bottom = -19.0474
 
 [node name="Debug" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Patrol" type="Node2D" parent="Debug"]
 script = ExtResource( 12 )

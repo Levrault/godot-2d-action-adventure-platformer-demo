@@ -470,7 +470,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 105
+frame = 1
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -616,11 +616,11 @@ visible = false
 position = Vector2( 23.9949, -2.0783 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
-editor/display_folded = true
 script = ExtResource( 19 )
 amount = 75.0
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
+visible = false
 position = Vector2( 7.14157, -0.830416 )
 monitoring = false
 collision_layer = 4
