@@ -3,6 +3,8 @@ class_name AlertBox
 
 signal interaction(type)
 
+export(String) var scene_path = '' setget set_scene_path
+
 var host = null
 
 
@@ -19,8 +21,13 @@ func start(body) -> void:
 	$Tween.start()
 
 
+func set_scene_path(new_scene_path: String) -> void:
+	scene_path = new_scene_path
+
+
 func _on_yes_button_pressed() -> void:
-	get_tree().quit()
+	LevelManager.goto_scene('res://%s.tscn' % [scene_path])
+	queue_free()
 
 
 func _on_no_button_pressed() -> void:

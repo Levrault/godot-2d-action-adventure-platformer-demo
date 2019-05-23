@@ -3,8 +3,6 @@
 [ext_resource path="res://environment/props/house.png" type="Texture" id=1]
 [ext_resource path="res://environment/props/House.gd" type="Script" id=2]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 0.443707 )
 
@@ -21,3 +19,4 @@ shape = SubResource( 1 )
 
 [node name="AlertBoxPosition" type="Position2D" parent="."]
 position = Vector2( -99.6485, -41.0888 )
+

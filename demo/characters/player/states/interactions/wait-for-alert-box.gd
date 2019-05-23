@@ -7,5 +7,4 @@ func enter(host: Player) -> void:
 
 
 func handle_input(host: Player, event: InputEvent) -> InputEvent:
-		
 	return .handle_input(host, event)
