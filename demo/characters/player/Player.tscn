@@ -483,7 +483,6 @@ margin_bottom = -10.5
 duration = 0.5
 
 [node name="States" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Idle" type="Node2D" parent="States"]
 script = ExtResource( 7 )
@@ -502,6 +501,7 @@ script = ExtResource( 10 )
 script = ExtResource( 11 )
 
 [node name="AttackLight" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
@@ -522,6 +522,7 @@ visible = false
 position = Vector2( 24, -3 )
 
 [node name="AttackMedium" type="Node2D" parent="States"]
+editor/display_folded = true
 position = Vector2( -2, 0 )
 script = ExtResource( 15 )
 
@@ -544,6 +545,7 @@ visible = false
 position = Vector2( 24, 2 )
 
 [node name="AttackHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 16 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
@@ -566,6 +568,7 @@ visible = false
 position = Vector2( 25, 5 )
 
 [node name="AttackAirLight" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
@@ -588,6 +591,7 @@ visible = false
 position = Vector2( 23, -1 )
 
 [node name="AttackAirMedium" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 18 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
@@ -611,6 +615,7 @@ visible = false
 position = Vector2( 23.9949, -2.0783 )
 
 [node name="AttackAirHeavy" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 19 )
 amount = 75.0
 
@@ -670,4 +675,5 @@ visible = false
 
 [node name="WaitForAlertBox" type="Node2D" parent="States"]
 script = ExtResource( 26 )
+
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

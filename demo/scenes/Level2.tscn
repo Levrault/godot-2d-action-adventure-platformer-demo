@@ -65,11 +65,11 @@ tile_data = PoolIntArray( -2293748, 6, 0, -2293747, 4, 0, -2293746, 4, 0, -22937
 
 [node name="House" parent="World/Props" instance=ExtResource( 10 )]
 position = Vector2( 344.758, -598.341 )
+scene_path = "interfaces/menu/MainMenu"
 
 [node name="Enemies" type="Node2D" parent="World"]
 
 [node name="Dummy" parent="World/Enemies" instance=ExtResource( 11 )]
-editor/display_folded = false
 visible = false
 position = Vector2( -481.242, -440.341 )
 z_index = 0
@@ -106,3 +106,4 @@ limit_bottom = 270
 editor/display_folded = true
 
 [node name="PlayerLifeBar" parent="World/Player/HUD" instance=ExtResource( 15 )]
+

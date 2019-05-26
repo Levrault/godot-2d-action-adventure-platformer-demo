@@ -106,3 +106,4 @@ custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.67451, 0.623529, 0.623529, 1 )
 custom_colors/font_color_hover = Color( 0.207843, 0.101961, 0.101961, 1 )
 text = "No"
+
