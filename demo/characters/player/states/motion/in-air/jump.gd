@@ -1,6 +1,7 @@
 extends InAir
 
-export (float) var JUMP_FORCE:= 350.0
+export (float) var MAX_JUMP_FORCE:= 350.0
+export (float) var MIN_JUMP_FORCE:= 200.0
 export (float) var BASE_MAX_AIR_SPEED:= 75.0
 export (float) var ACCELERATION:= 0.25
 
@@ -12,13 +13,17 @@ func enter(host) -> void:
 	host.get_node('AnimationPlayer').play('Jump')
 	play_sound(host, stream)
 	host.snap_enable = false
-	host.velocity.y = -JUMP_FORCE
+	host.velocity.y = -MAX_JUMP_FORCE
 	max_air_speed = host.velocity.x if host.velocity.x > 0 else BASE_MAX_AIR_SPEED
 
 
 func handle_input(host: Player, event: InputEvent) -> InputEvent:
 	if event.is_action_pressed('jump') and host.can_double_jump:
 		emit_signal('finished', 'DoubleJump')
+
+	if event.is_action_released('jump'):
+		if abs(host.velocity.y) > MIN_JUMP_FORCE: 
+			host.velocity.y = -MIN_JUMP_FORCE
 		
 	return .handle_input(host, event)
 
