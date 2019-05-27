@@ -1,22 +1,59 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/player/gui/assets/Pixel1_Healthbar_0002_pixel1_border.png" type="Texture" id=1]
 [ext_resource path="res://characters/player/gui/PlayerLifeBar.gd" type="Script" id=2]
 [ext_resource path="res://characters/player/gui/assets/Pixel1_Healthbar_0001_pixel1_healthbar.png" type="Texture" id=3]
 [ext_resource path="res://characters/player/gui/TextureProgress.gd" type="Script" id=4]
 
+[sub_resource type="Animation" id=3]
+resource_name = "Flash"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureProgress:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.917647, 0.207843, 0.207843, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hit"
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shake"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 10, 15 ), Vector2( 6, 15 ), Vector2( 14, 15 ), Vector2( 6, 15 ), Vector2( 14, 15 ), Vector2( 10, 15 ) ]
+}
 
 [node name="PlayerLifeBar" type="TextureRect"]
 margin_left = 10.0
 margin_top = 15.0
+margin_right = 93.0
+margin_bottom = 26.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="TweenShakeDown" type="Tween" parent="."]
-
-[node name="TweenShakeUp" type="Tween" parent="."]
-
-[node name="TweenReset" type="Tween" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flash = SubResource( 3 )
+anims/Hit = SubResource( 2 )
+anims/Shake = SubResource( 1 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
 modulate = Color( 0.917647, 0.207843, 0.207843, 1 )
@@ -32,3 +69,5 @@ COLOR = Color( 0.917647, 0.207843, 0.207843, 1 )
 [node name="TweenColor" type="Tween" parent="TextureProgress"]
 
 [node name="TweenProgress" type="Tween" parent="TextureProgress"]
+
+[node name="ShakeTimer" type="Timer" parent="."]
