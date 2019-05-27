@@ -675,5 +675,4 @@ visible = false
 
 [node name="WaitForAlertBox" type="Node2D" parent="States"]
 script = ExtResource( 26 )
-
 [connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

@@ -36,4 +36,3 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 1 )
 Label/styles/normal = null
 PanelContainer/styles/Dialog = ExtResource( 6 )
-

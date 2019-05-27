@@ -98,8 +98,7 @@ position = Vector2( 589.758, -541.841 )
 patrol_distance = 150.0
 
 [node name="Player" parent="World" instance=ExtResource( 14 )]
-editor/display_folded = true
-position = Vector2( 638.918, -478.641 )
+position = Vector2( -794.417, -443.782 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true
@@ -113,4 +112,3 @@ limit_bottom = 270
 editor/display_folded = true
 
 [node name="PlayerLifeBar" parent="World/Player/HUD" instance=ExtResource( 15 )]
-
