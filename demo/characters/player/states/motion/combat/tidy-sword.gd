@@ -6,6 +6,6 @@ func enter(host: Player) -> void:
 
 
 #warning-ignore:unused_argument
-func _on_animation_finished(anim_name: String, host: Player) -> void:
+func _on_Animation_finished(anim_name: String, host: Player) -> void:
 	assert anim_name == 'TidySword'
 	emit_signal('finished', 'Idle')

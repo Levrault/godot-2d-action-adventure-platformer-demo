@@ -2,11 +2,11 @@ extends Node2D
 
 
 func _ready() -> void:
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
+	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
 	visible = false
 
 
-func _on_animation_finished(anim_name: String) -> void:
+func _on_Animation_finished(anim_name: String) -> void:
 	visible = false
 
 

@@ -14,10 +14,10 @@ var previous_position: Vector2 = Vector2()
 
 func _ready() -> void:
 	# Signals
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
+	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
 	$Health.connect('take_damage', self, '_on_getting_hit')
-	$States/Death/Explosion.connect('exploded', self, '_on_death')
-	$CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
+	$States/Death/Explosion.connect('exploded', self, '_on_Death')
+	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
 	$CooldownBar.set_duration($CooldownTimer.wait_time)
 	
 	._initialize_state()

@@ -10,10 +10,10 @@ var max_distance := 0.0
 
 func _ready() -> void:
 	# signal
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')	
+	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')	
 	$Health.connect('take_damage', self, '_on_getting_hit')
-	$CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
-	$States/Death/Explosion.connect('exploded', self, '_on_death')
+	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
+	$States/Death/Explosion.connect('exploded', self, '_on_Death')
 	
 	gravity_enable = false
 	
