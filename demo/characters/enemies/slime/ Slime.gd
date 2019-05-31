@@ -16,10 +16,10 @@ const ATTACK_RANGE: float = 30.0
 
 func _ready() -> void:
 	# signal
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')	
+	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')	
 	$Health.connect('take_damage', self, '_on_getting_hit')
-	$CooldownTimer.connect('timeout', self, '_on_cooldown_timeout')
-	$States/Death/Explosion.connect('exploded', self, '_on_death')
+	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
+	$States/Death/Explosion.connect('exploded', self, '_on_Death')
 	
 	if get_tree().get_root().has_node('Game/World/Player'):
 		get_tree().get_root().get_node('Game/World/Player').connect('player_position_changed', self, '_on_player_position_changed')

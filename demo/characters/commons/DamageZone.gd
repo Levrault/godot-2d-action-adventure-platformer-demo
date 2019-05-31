@@ -1,3 +1,7 @@
+"""
+Manage damage on a character.
+When touched, a knockback force is apply to the character.
+"""
 extends Area2D
 class_name DamageZone
 
@@ -10,18 +14,10 @@ export(Vector2) var KNOCKBACK_FORCE := Vector2(5, 0)
 
 
 func _ready():
-	self.connect('body_entered', self, '_on_body_entered')
+	self.connect('body_entered', self, '_on_Body_entered')
 
 
-func set_type_of_attack(type):
-	type_of_attack = type
-
-
-func set_amount(new_amount):
-	amount = new_amount
-
-
-func _on_body_entered(body: Object) -> void:
+func _on_Body_entered(body: Object) -> void:
 	#	ennemy and player
 	if body.get_collision_mask_bit(MASK) and not body.is_invincible:
 		var direction: int = -1 if body.get_global_position() > get_parent().get_global_position() else 1
@@ -33,3 +29,16 @@ func _on_body_entered(body: Object) -> void:
 
 		print('%s atk hit %s' % [get_parent().get_name(), body.get_name()])
 	
+"""
+Type of attack will decide wich slash will be displayed.
+"""
+func set_type_of_attack(type):
+	type_of_attack = type
+
+"""
+Damage amount for the hitted character.
+"""
+func set_amount(new_amount):
+	amount = new_amount
+
+

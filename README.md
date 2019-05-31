@@ -38,7 +38,11 @@ I hope it should answer the common question : _Damn, how can I code that ?_ by o
 
 ## GDscript Guidelines
 
+### Naming convention
 
+When a function is linked to a signal, it name should begin with `_on` following by his action with a Maj.
+
+eg. `_on_Death`, `_on_Cooldown_timer`
 
 
 

@@ -5,7 +5,7 @@ func enter(host: Character) -> void:
 	host.is_invincible = true
 
 
-func _on_animation_finished(anim_name: String, host: Character) -> void:
+func _on_Animation_finished(anim_name: String, host: Character) -> void:
 	assert anim_name == 'GettingHit'
 	if host.is_alive:
 		host.is_invincible = false

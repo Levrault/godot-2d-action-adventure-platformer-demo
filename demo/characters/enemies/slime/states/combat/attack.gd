@@ -10,7 +10,7 @@ func enter(host: Slime) -> void:
 
 
 # warning-ignore:unused_argument
-func _on_animation_finished(anim_name: String, host: Slime) -> void:
+func _on_Animation_finished(anim_name: String, host: Slime) -> void:
 	host.get_node('CooldownTimer').start()
 	host.can_attack = false
 	if host.has_target:

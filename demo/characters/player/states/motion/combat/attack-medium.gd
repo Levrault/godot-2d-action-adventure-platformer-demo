@@ -12,7 +12,7 @@ func enter(host: Player) -> void:
 
 
 #warning-ignore:unused_argument
-func _on_animation_finished(anim_name: String, host: Player) -> void:
+func _on_Animation_finished(anim_name: String, host: Player) -> void:
 	if not host.has_set_next_attack:
 		emit_signal('finished', 'CombatIdle')
 	else:

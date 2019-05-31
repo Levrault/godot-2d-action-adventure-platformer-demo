@@ -112,3 +112,4 @@ limit_bottom = 270
 editor/display_folded = true
 
 [node name="PlayerLifeBar" parent="World/Player/HUD" instance=ExtResource( 15 )]
+

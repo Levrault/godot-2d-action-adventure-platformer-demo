@@ -27,5 +27,5 @@ func update(host: Player, delta: float) -> void:
 
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
-func _on_animation_finished(anim_name: String, host: Player) -> void:
+func _on_Animation_finished(anim_name: String, host: Player) -> void:
 	emit_signal('finished', 'Fall')
