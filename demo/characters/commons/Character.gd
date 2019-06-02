@@ -12,6 +12,7 @@ character (player and mob).
 """
 extends KinematicBody2D
 class_name Character
+#warning-ignore-all:unused_class_variable
 
 # signal emitted when a the character change his state.
 signal state_changed(new_state)

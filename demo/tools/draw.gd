@@ -2,9 +2,9 @@ tool
 extends Node2D
 class_name Draw
 
-# warning-ignore:unused_class_variable
+#warning-ignore:unused_class_variable
 export (Color) var color = Color(255, 255, 255, 255)
-# warning-ignore:unused_class_variable
+#warning-ignore:unused_class_variable
 export (String) var value = null
 
 const POINTS_COUNT = 24

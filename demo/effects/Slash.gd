@@ -6,6 +6,7 @@ func _ready() -> void:
 	visible = false
 
 
+#warning-ignore:unused_argument
 func _on_Animation_finished(anim_name: String) -> void:
 	visible = false
 

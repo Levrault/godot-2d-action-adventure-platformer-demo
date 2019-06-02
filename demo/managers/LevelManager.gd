@@ -32,7 +32,7 @@ func goto_scene(path: String) -> void: # game requests to switch to this scene
 	wait_frames = 1
 
 
-# warning-ignore:unused_argument
+#warning-ignore:unused_argument
 func _process(time: float) -> void:
 	if loader == null:
 		 # no need to process anymore
