@@ -26,6 +26,7 @@ func set_resource(loaded_resource: Resource) -> void:
 	load_completed = true
 
 
+#warning-ignore:unused_argument
 func _on_tween_completed(object: Object, key: NodePath) -> void:
 	match object.get_name():
 		'ProgressBar':

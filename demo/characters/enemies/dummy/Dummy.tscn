@@ -2,14 +2,9 @@
 
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/enemies/dummy/Dummy.gd" type="Script" id=2]
-[ext_resource path="res://characters/enemies/dummy/states/motion/on-ground/idle.gd" type="Script" id=3]
-[ext_resource path="res://characters/enemies/dummy/states/motion/on-ground/move.gd" type="Script" id=4]
-[ext_resource path="res://characters/enemies/gui/SimpleLifebar.tscn" type="PackedScene" id=5]
-
-
-
-
-
+[ext_resource path="res://characters/enemies/gui/SimpleLifebar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/enemies/dummy/states/motion/on-ground/idle.gd" type="Script" id=4]
+[ext_resource path="res://characters/enemies/dummy/states/motion/on-ground/move.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "AttackAirHeavy"
@@ -397,6 +392,7 @@ tracks/0/keys = {
 }
 
 [node name="Dummy" instance=ExtResource( 1 )]
+collision_layer = 4
 collision_mask = 5
 script = ExtResource( 2 )
 
@@ -418,32 +414,26 @@ anims/Jump = SubResource( 14 )
 anims/Move = SubResource( 15 )
 anims/TidySword = SubResource( 16 )
 
+[node name="Health" parent="." index="5"]
+max_health = 1000.0
+
 [node name="Sprite" parent="." index="6"]
 modulate = Color( 1, 0, 0, 1 )
-
-[node name="Idle" parent="States" index="0"]
-script = ExtResource( 3 )
-
-[node name="Move" parent="States" index="1"]
-script = ExtResource( 4 )
-
-[node name="AttackLight" parent="States" index="5"]
-editor/display_folded = false
-
-[node name="AttackMedium" parent="States" index="6"]
-editor/display_folded = false
-
-[node name="AttackHeavy" parent="States" index="7"]
-editor/display_folded = false
 
 [node name="GUI" type="Node2D" parent="." index="9"]
 position = Vector2( -17, -19 )
 
-[node name="SimpleLifebar" parent="GUI" index="0" instance=ExtResource( 5 )]
+[node name="SimpleLifebar" parent="GUI" index="0" instance=ExtResource( 3 )]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 85.0
 margin_bottom = 13.0
 size_flags_horizontal = 7
 size_flags_vertical = 3
+
+[node name="Idle" parent="States" index="0"]
+script = ExtResource( 4 )
+
+[node name="Move" parent="States" index="1"]
+script = ExtResource( 5 )
 

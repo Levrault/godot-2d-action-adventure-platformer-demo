@@ -184,11 +184,14 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 
 [node name="Attack" type="Node2D" parent="States"]
+editor/display_folded = true
 script = ExtResource( 8 )
 
 [node name="DamageZone" type="Area2D" parent="States/Attack"]
 visible = false
 monitoring = false
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 9 )
 MASK = 1
 KNOCKBACK_FORCE = Vector2( 10, 0 )
@@ -234,3 +237,4 @@ value = "ATTACK_RANGE"
 script = ExtResource( 14 )
 color = Color( 255, 255, 255, 255 )
 value = "TARGET_MIN_DISTANCE"
+

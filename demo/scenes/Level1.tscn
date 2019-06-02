@@ -43,7 +43,6 @@ autoplay = true
 [node name="World" type="Node2D" parent="."]
 
 [node name="Environment" type="Node2D" parent="World"]
-editor/display_folded = true
 
 [node name="Background" parent="World/Environment" instance=ExtResource( 4 )]
 
@@ -66,7 +65,7 @@ tile_data = PoolIntArray( -2686956, 2, 0, -2686955, 2, 0, -2686954, 3, 0, -26214
 
 [node name="House" parent="World/Props" instance=ExtResource( 10 )]
 position = Vector2( 709.758, -501.341 )
-scene_path = "scenes/level2"
+scene_path = "scenes/Level2"
 
 [node name="Enemies" type="Node2D" parent="World"]
 editor/display_folded = true
@@ -75,7 +74,6 @@ editor/display_folded = true
 visible = false
 position = Vector2( -481.242, -440.341 )
 z_index = 0
-collision_layer = 4
 
 [node name="Slime" parent="World/Enemies" instance=ExtResource( 12 )]
 position = Vector2( -664.242, -412.341 )

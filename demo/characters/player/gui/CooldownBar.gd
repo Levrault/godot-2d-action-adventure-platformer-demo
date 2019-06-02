@@ -5,11 +5,13 @@ export(Color) var COLOR setget set_color_normal
 export(float) var duration = 0.5 setget set_duration
 
 func _ready() -> void:
-	$Tween.connect('tween_all_completed', self, '_on_tween_completed')
+	$Tween.connect('tween_completed', self, '_on_Tween_completed')
 	visible = false
 
 
-func _on_tween_completed() -> void:
+#warning-ignore:unused_argument
+#warning-ignore:unused_argument
+func _on_Tween_completed(object: Object, key: NodePath) -> void:
 	visible = false
 
 

@@ -100,6 +100,8 @@ hframes = 4
 
 [node name="DamageZone" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 6 )
 MASK = 1
 KNOCKBACK_FORCE = Vector2( 100, 100 )
@@ -140,3 +142,4 @@ editor/display_folded = true
 script = ExtResource( 12 )
 color = Color( 0.701961, 0.811765, 0.156863, 1 )
 value = "patrol_distance"
+

@@ -4,6 +4,7 @@
 [ext_resource path="res://characters/player/gui/CooldownBar.gd" type="Script" id=2]
 
 [node name="CooldownBar" type="TextureProgress"]
+visible = false
 modulate = Color( 0.121569, 0.388235, 0.8, 1 )
 rect_scale = Vector2( 0.4, 0.4 )
 value = 100.0
@@ -12,3 +13,4 @@ script = ExtResource( 2 )
 COLOR = Color( 0.121569, 0.388235, 0.8, 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
