@@ -15,7 +15,7 @@ var previous_position: Vector2 = Vector2()
 func _ready() -> void:
 	# Signals
 	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
-	$Health.connect('take_damage', self, '_on_getting_hit')
+	$Health.connect('take_damage', self, '_on_Getting_hit')
 	$States/Death/Explosion.connect('exploded', self, '_on_Death')
 	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
 	$CooldownBar.set_duration($CooldownTimer.wait_time)
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 
 
 # Connect to Health
-func _on_getting_hit(alive: bool, direction: int) -> void:
+func _on_Getting_hit(alive: bool, direction: int) -> void:
 	look_direction.x = direction
 	is_alive = alive
 	_change_state('GettingHit')

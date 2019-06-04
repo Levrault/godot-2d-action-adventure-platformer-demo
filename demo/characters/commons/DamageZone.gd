@@ -32,7 +32,6 @@ func make_damage(body: Character) -> void:
 	var direction: int = -1 if body.get_global_position() > get_parent().get_global_position() else 1
 	body.knockback_force = KNOCKBACK_FORCE
 	body.get_node('Health').take_damage(amount, direction)
-	print('%s atk hit %s' % [get_parent().get_name(), body.get_name()])
 
 
 """

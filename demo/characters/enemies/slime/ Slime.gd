@@ -16,8 +16,8 @@ const ATTACK_RANGE: float = 30.0
 
 func _ready() -> void:
 	# signal
-	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')	
-	$Health.connect('take_damage', self, '_on_getting_hit')
+	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
+	$Health.connect('take_damage', self, '_on_Getting_hit')
 	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
 	$States/Death/Explosion.connect('exploded', self, '_on_Death')
 	
@@ -29,7 +29,7 @@ func _ready() -> void:
 
 
 # Connect to Health
-func _on_getting_hit(alive: bool, direction: int) -> void:
+func _on_Getting_hit(alive: bool, direction: int) -> void:
 	look_direction.x = direction
 	is_alive = alive
 	if alive: 

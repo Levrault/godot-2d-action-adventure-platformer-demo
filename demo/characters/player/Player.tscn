@@ -142,7 +142,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-length = 0.6
+length = 0.54
+step = 0.09
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -150,7 +151,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36, 0.45 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 52, 53, 54, 55, 56, 58 ]
@@ -162,14 +163,15 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3, 0.4 ),
+"times": PoolRealArray( 0.27, 0.36 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.55
+length = 0.42
+step = 0.07
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -177,7 +179,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35 ),
 "transitions": PoolRealArray( 4, 2.63902, 3.36358, 1, 1, 1 ),
 "update": 1,
 "values": [ 42, 43, 44, 45, 46, 47 ]
@@ -189,14 +191,15 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
+"times": PoolRealArray( 0.14, 0.21 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=7]
-length = 0.45
+length = 0.35
+step = 0.07
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -204,7 +207,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 48, 49, 50, 51, 52 ]
@@ -216,7 +219,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.2, 0.3 ),
+"times": PoolRealArray( 0.14, 0.21 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -471,16 +474,17 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
+frame = 1
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="CooldownBar" parent="." instance=ExtResource( 6 )]
-visible = false
 margin_left = -15.6545
 margin_top = -18.5
 margin_right = 63.3455
 margin_bottom = -10.5
+duration = 0.5
 
 [node name="States" type="Node2D" parent="."]
 
@@ -505,7 +509,6 @@ script = ExtResource( 12 )
 
 [node name="DamageZone" type="Area2D" parent="States/AttackLight"]
 editor/display_folded = true
-visible = false
 monitoring = false
 collision_layer = 0
 collision_mask = 4
@@ -526,7 +529,6 @@ script = ExtResource( 15 )
 [node name="DamageZone" type="Area2D" parent="States/AttackMedium"]
 editor/display_folded = true
 visible = false
-monitoring = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 13 )
