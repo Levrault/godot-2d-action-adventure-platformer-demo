@@ -1,11 +1,12 @@
 extends State
 class_name GettingHit
 
-onready var stream: Resource = load('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit1.wav')
+onready var stream: Resource = load('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit5.wav')
 
 
 func enter(host: Character) -> void:
 	host.get_node('AnimationPlayer').play('GettingHit')
+	print('%s has been hit' % [host.get_name()])
 	play_sound(host, stream)
 	host.can_attack = false
 	host.has_set_next_attack = false
