@@ -56,11 +56,6 @@ func start_cooldown():
 	$CooldownBar.start()
 
 
-func game_over():
-	#warning-ignore:return_value_discarded
-	get_tree().change_scene('res://interfaces/GameOverInterface.tscn')
-
-
 func _on_position_changed():
 	previous_position = position
 	emit_signal('player_position_changed', position)
