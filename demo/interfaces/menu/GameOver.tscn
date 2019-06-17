@@ -6,9 +6,6 @@
 [ext_resource path="res://interfaces/theme/Theme.tres" type="Theme" id=4]
 [ext_resource path="res://interfaces/animations/ButtonFadeIn.gd" type="Script" id=5]
 
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 2 )
@@ -24,6 +21,7 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -53.0
@@ -43,6 +41,7 @@ script = ExtResource( 3 )
 [node name="Tween" type="Tween" parent="CenterContainer/Title"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
