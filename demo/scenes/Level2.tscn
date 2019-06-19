@@ -74,6 +74,7 @@ tile_data = PoolIntArray( -2293748, 6, 0, -2293747, 4, 0, -2293746, 4, 0, -22937
 [node name="House" parent="World/Props" instance=ExtResource( 11 )]
 position = Vector2( 344.758, -598.341 )
 scene_path = "interfaces/menu/MainMenu"
+is_last_level = true
 
 [node name="Enemies" type="Node2D" parent="World"]
 
