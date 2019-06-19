@@ -42,6 +42,7 @@ anti_aliasing = false
 [sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="AlertBox" type="Node2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]

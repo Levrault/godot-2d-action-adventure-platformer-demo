@@ -88,6 +88,7 @@ GRAVITY = 0.0
 
 [node name="Health" type="Node2D" parent="."]
 script = ExtResource( 3 )
+max_health = 5.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 4 )
