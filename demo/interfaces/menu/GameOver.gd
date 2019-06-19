@@ -1,15 +1,23 @@
+"""
+Game over interface with some simples fade in animation.
+- Retry should restart the current level
+- Quit should quit the application
+"""
 extends Control
 
 
+func _ready() -> void:
+	$HBoxContainer/Retry.connect('pressed', self, '_on_Retry')
+	$HBoxContainer/Quit.connect('pressed', self, '_on_Quit')
+
+
 func show() -> void:
-	visible = true
-	$HBoxContainer/Retry.grab_focus()
-	$HBoxContainer/Retry.connect('pressed', self, '_retry')
+	$AnimationPlayer.play('Show')
 
 
-func _retry() -> void:
+func _on_Retry() -> void:
 	get_tree().reload_current_scene()
 
 
-func quit() -> void:
+func _on_Quit() -> void:
 	get_tree().quit()

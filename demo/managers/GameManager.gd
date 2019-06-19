@@ -4,9 +4,11 @@ var min_limit: Vector2 = Vector2()
 var max_limit: Vector2 = Vector2()
 
 func _ready():
-	$World/Player.connect('player_position_changed', self, '_on_player_position_changed')
+	$World/Player.connect('player_position_changed', self, '_on_Player_position_changed')
+	$World/Player.connect('player_death', self, '_on_Player_death')
 	min_limit = $Bounds/Min.position
 	max_limit = $Bounds/Max.position
+
 	# camera limits are based on global pixels, so we'll get the absolute position of our bounds to set the limits, 
 	# and use relative to compare to the player's relative position
 	# Thanks to Razoric for this solution !
@@ -18,8 +20,13 @@ func _ready():
 	$World/Player/Camera.limit_bottom = global_min.y
 
 
-func _on_player_position_changed(new_position: Vector2):
+func _on_Player_position_changed(new_position: Vector2) -> void:
 	if new_position.x < min_limit.x or new_position.y > min_limit.y or new_position.x > max_limit.x:
 		$World/Player.queue_free()
+		_on_Player_death()
+
+
+func _on_Player_death() -> void:
+		$Ambiance/Music.stop()
 		$Interfaces/GameOver.show()
 		

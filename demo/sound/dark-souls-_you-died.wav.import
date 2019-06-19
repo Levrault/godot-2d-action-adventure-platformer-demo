@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dark-souls-_you-died.wav-417c2f380031b7936f747ec34bd9e14f.sample"
+
+[deps]
+
+source_file="res://sound/dark-souls-_you-died.wav"
+dest_files=[ "res://.import/dark-souls-_you-died.wav-417c2f380031b7936f747ec34bd9e14f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

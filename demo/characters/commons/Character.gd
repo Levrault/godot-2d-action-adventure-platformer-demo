@@ -10,9 +10,9 @@ will automaticly create the state machine with Idle and Move state.
 It also contains all the common physics/behavior state variable share between all 
 character (player and mob).
 """
+#warning-ignore-all:unused_class_variable
 extends KinematicBody2D
 class_name Character
-#warning-ignore-all:unused_class_variable
 
 # signal emitted when a the character change his state.
 signal state_changed(new_state)
