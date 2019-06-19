@@ -22,11 +22,13 @@ position = Vector2( 930.242, 636.341 )
 script = ExtResource( 1 )
 
 [node name="Interfaces" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="GameOver" parent="Interfaces" instance=ExtResource( 2 )]
 visible = false
 
 [node name="Bounds" type="Node2D" parent="."]
+editor/display_folded = true
 scale = Vector2( 1, 12.36 )
 script = ExtResource( 3 )
 color = Color( 0.756863, 0.376471, 0.85098, 1 )
@@ -39,13 +41,13 @@ position = Vector2( -903.677, -29.6289 )
 position = Vector2( 806.003, -51.4145 )
 
 [node name="Ambiance" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Ambiance"]
 stream = ExtResource( 4 )
 autoplay = true
 
 [node name="World" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Environment" type="Node2D" parent="World"]
 editor/display_folded = true

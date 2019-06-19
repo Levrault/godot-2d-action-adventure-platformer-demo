@@ -16,7 +16,7 @@ func _ready() -> void:
 	# Signals
 	$AnimationPlayer.connect('animation_finished', self, '_on_Animation_finished')
 	$Health.connect('take_damage', self, '_on_Getting_hit')
-	$States/Death/Explosion.connect('exploded', self, '_on_Death')
+	$States/Death/Explosion.connect('exploded', self, '_on_Player_death')
 	$CooldownTimer.connect('timeout', self, '_on_Cooldown_timeout')
 	$CooldownBar.set_duration($CooldownTimer.wait_time)
 	
@@ -54,6 +54,11 @@ func _input(event: InputEvent) -> void:
 func start_cooldown():
 	$CooldownTimer.start()
 	$CooldownBar.start()
+
+
+func _on_Player_death() -> void:
+	_on_Death()
+	emit_signal('player_death')
 
 
 func _on_position_changed():
