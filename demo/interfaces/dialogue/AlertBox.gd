@@ -9,8 +9,8 @@ var host = null
 
 
 func _ready() -> void:
-	$Panel/Vertical/Yes.connect('pressed', self, '_on_yes_button_pressed')
-	$Panel/Vertical/No.connect('pressed', self, '_on_no_button_pressed')
+	$Panel/Vertical/Yes.connect('pressed', self, '_on_Yes_button_pressed')
+	$Panel/Vertical/No.connect('pressed', self, '_on_No_button_pressed')
 
 
 func start(body) -> void:
@@ -25,11 +25,10 @@ func set_scene_path(new_scene_path: String) -> void:
 	scene_path = new_scene_path
 
 
-func _on_yes_button_pressed() -> void:
+func _on_Yes_button_pressed() -> void:
 	LevelManager.goto_scene('res://%s.tscn' % [scene_path])
-	queue_free()
 
 
-func _on_no_button_pressed() -> void:
+func _on_No_button_pressed() -> void:
 	emit_signal('interaction', 'Idle')
 	queue_free()

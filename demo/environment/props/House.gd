@@ -16,9 +16,13 @@ func _ready():
 func _on_body_enter(body: Object) -> void:
 	if body.get_collision_mask_bit(1):
 		if body.is_grounded:
-			var alert_box = NEXT_ALERT_SCENE.instance() if not is_last_level else ALERT_SCENE.instance()
-			alert_box.set_scene_path(scene_path)
-			alert_box.position = $AlertBoxPosition.get_global_position()
-			get_tree().get_root().add_child(alert_box)
+			var alert_box = null
+			if not is_last_level:
+				alert_box = NEXT_ALERT_SCENE.instance() 
+				alert_box.set_scene_path(scene_path)
+			else:
+				alert_box = ALERT_SCENE.instance()
+			alert_box.position = $AlertBoxPosition.position
+			self.add_child(alert_box)
 			alert_box.start(body)
 			emit_signal('interaction', 'WaitForAlertBox')

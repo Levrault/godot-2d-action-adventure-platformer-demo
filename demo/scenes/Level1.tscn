@@ -76,6 +76,7 @@ position = Vector2( 709.758, -501.341 )
 scene_path = "scenes/Level2"
 
 [node name="Enemies" type="Node2D" parent="World"]
+editor/display_folded = true
 
 [node name="Dummy" parent="World/Enemies" instance=ExtResource( 12 )]
 visible = false
@@ -103,7 +104,7 @@ position = Vector2( 589.758, -541.841 )
 patrol_distance = 150.0
 
 [node name="Player" parent="World" instance=ExtResource( 15 )]
-position = Vector2( -794.681, -417.694 )
+position = Vector2( -792.736, -417.828 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true
