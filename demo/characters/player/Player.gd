@@ -25,8 +25,8 @@ func _ready() -> void:
 
 
 func _initialize_interaction():
-	if get_tree().get_root().has_node('Game/World'):
-		for interaction in get_tree().get_root().get_node('Game/World').get_children():
+	if get_tree().get_root().has_node('Game/World/Props'):
+		for interaction in get_tree().get_root().get_node('Game/World/Props').get_children():
 			if interaction is Interaction:
 				interaction.connect('interaction', self, '_change_state')
 

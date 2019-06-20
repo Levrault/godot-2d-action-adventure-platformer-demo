@@ -3,7 +3,6 @@ extends Node
 var loader: ResourceInteractiveLoader
 var wait_frames: int
 var time_max: int = 100 # msec
-var current_scene: Node
 var loading_screen_scene: Resource = preload('res://interfaces/loading/LoadingScreen.tscn')
 var loading_screen: Node
 var root: Node
@@ -11,7 +10,6 @@ var root: Node
 
 func _ready() -> void:
 	root = get_tree().get_root()
-	loading_screen = loading_screen_scene.instance()
 
 
 func show_error() -> void:
@@ -24,10 +22,11 @@ func goto_scene(path: String) -> void: # game requests to switch to this scene
 		show_error()
 		return
 	set_process(true)
-	current_scene = root.get_child(root.get_child_count() -1)	
-	current_scene.queue_free() # get rid of the old scene
+
+	root.get_child(root.get_child_count() -1).queue_free() # get rid of the old scene
 	
 	# start your "loading..." animation
+	loading_screen = loading_screen_scene.instance()	
 	root.add_child(loading_screen)
 	wait_frames = 1
 
@@ -64,10 +63,9 @@ func _process(time: float) -> void:
 
 
 func update_progress(value: float) -> void:
-	# Update your progress bar?
 	loading_screen.set_progress(round(value * 100))
 
 
 func set_new_scene(scene_resource: Resource) -> void:
-	current_scene = scene_resource.instance()
-	get_node("/root").add_child(current_scene)
+	var scene = scene_resource.instance()
+	get_node('/root').add_child(scene)
