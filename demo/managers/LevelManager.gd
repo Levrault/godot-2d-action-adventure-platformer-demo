@@ -11,7 +11,6 @@ var root: Node
 
 func _ready() -> void:
 	root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() -1)
 	loading_screen = loading_screen_scene.instance()
 
 
@@ -25,6 +24,7 @@ func goto_scene(path: String) -> void: # game requests to switch to this scene
 		show_error()
 		return
 	set_process(true)
+	current_scene = root.get_child(root.get_child_count() -1)	
 	current_scene.queue_free() # get rid of the old scene
 	
 	# start your "loading..." animation

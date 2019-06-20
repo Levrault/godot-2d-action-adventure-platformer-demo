@@ -46,9 +46,9 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 181.0
-margin_top = 62.0
+margin_top = 81.0
 margin_right = 298.0
-margin_bottom = 208.0
+margin_bottom = 188.0
 alignment = 1
 
 [node name="Play" type="MenuButton" parent="CenterContainer/VBoxContainer"]
@@ -57,24 +57,17 @@ margin_bottom = 35.0
 custom_fonts/font = ExtResource( 3 )
 text = "Play"
 
-[node name="Options" type="MenuButton" parent="CenterContainer/VBoxContainer"]
+[node name="Credits" type="MenuButton" parent="CenterContainer/VBoxContainer"]
 margin_top = 39.0
 margin_right = 117.0
 margin_bottom = 74.0
 custom_fonts/font = ExtResource( 3 )
-text = "Options"
-
-[node name="Credits" type="MenuButton" parent="CenterContainer/VBoxContainer"]
-margin_top = 78.0
-margin_right = 117.0
-margin_bottom = 113.0
-custom_fonts/font = ExtResource( 3 )
 text = "Credits"
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 117.0
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 78.0
 margin_right = 117.0
-margin_bottom = 146.0
+margin_bottom = 107.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/focus = ExtResource( 5 )
