@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://interfaces/menu/Pause.gd" type="Script" id=1]
+[ext_resource path="res://interfaces/theme/fonts/menu.dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interfaces/theme/button/hover.stylebox.tres" type="StyleBox" id=3]
+[ext_resource path="res://interfaces/theme/button/pressed.stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://interfaces/theme/button/focus.stylebox.tres" type="StyleBox" id=5]
+[ext_resource path="res://interfaces/theme/button/normal.stylebox.tres" type="StyleBox" id=6]
+[ext_resource path="res://interfaces/theme/fonts/alertbox.normal.tres" type="DynamicFont" id=7]
+[ext_resource path="res://interfaces/theme/fonts/dialog.dynamicfont.tres" type="DynamicFont" id=8]
+
+[node name="Pause" type="Control"]
+pause_mode = 2
+margin_right = 479.0
+margin_bottom = 271.0
+script = ExtResource( 1 )
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -74.5
+margin_top = -62.0
+margin_right = 74.5
+margin_bottom = 62.0
+rect_min_size = Vector2( 48, 27 )
+color = Color( 1, 1, 1, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/VBoxContainer"]
+margin_top = 21.0
+margin_right = 139.0
+margin_bottom = 50.0
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 2 )
+text = "Pause"
+align = 1
+valign = 1
+
+[node name="Resume" type="Button" parent="Background/VBoxContainer"]
+margin_top = 87.0
+margin_right = 139.0
+margin_bottom = 95.0
+focus_next = NodePath("../QuitBtn")
+focus_previous = NodePath("../ResumeBtn")
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+text = "Resume"
+
+[node name="Quit" type="Button" parent="Background/VBoxContainer"]
+margin_top = 111.0
+margin_right = 139.0
+margin_bottom = 119.0
+focus_next = NodePath("../ResumeBtn")
+focus_previous = NodePath("../RestartBtn")
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 8 )
+text = "Quit"
+
