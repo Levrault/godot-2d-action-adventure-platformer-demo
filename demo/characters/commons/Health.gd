@@ -31,10 +31,11 @@ Temporary function to simulate hit/recover health
 @TODO: To remove
 """
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('simulate_getting_hit'):
-		take_damage(25, 1)
-	elif event.is_action_pressed('simulate_recover_health'):
-		recover_health(25.0)
+	if ProjectSettings.get_setting('Debug/debug_mode'):
+		if event.is_action_pressed('simulate_getting_hit'):
+			take_damage(25, 1)
+		elif event.is_action_pressed('simulate_recover_health'):
+			recover_health(25.0)
 
 """
 Damage the character.
