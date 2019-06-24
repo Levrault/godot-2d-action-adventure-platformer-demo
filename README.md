@@ -4,37 +4,84 @@ Godot 2D action adventure platformer demo will be a "complete" tiny demo that sh
 
 I hope it should answer the common question : _Damn, how can I code that ?_ by only reading through code instead.
 
+![preview](./images/preview.gif)
+
 ## Features
 
+### Engine
+
 - A basic retro physic engine
-- A pretty complete character moveset
+
+- Momentum hitting management (slow time with an ease-in-out effect)
+
+  ![momentum](./images/momentum.gif)
+
+- Tilemap system
+
+- Music and sound management
+
+### Player
+
+![moveset](./images/moveset.gif)
+
+- A pretty basic but complete character moveset
   - Jump
   - Double jump
-  - Wall jump
-  - Ledge grab
   - Getting hit
-  - Diyng
+  - Dying
   - Grounded combo attack
   - Air combo attack
-- IA controlled enemy
-  - Slime
-    - A vicious little creature that will follow you if you get to close to him.
-    - Will try to bite you if you too close
-    - Multiples behavior (idle, move, attack, getting hit, dying)
-  - Eagle
-    -  A flying enemy that mind his own business, if you don't get in his path (move along multiples waypoints)
+
+* GUI
+  * Cooldown bar between combo
+  * Healtbar
+  * Pause screen
+
+### Enemies
+
+- Slime
+  - A vicious little creature that will follow you if you get to close to him
+  
+  - Will try to bite you if your too close
+  
+  - Multiples behaviours (idle, move, attack, getting hit, dying)
+  
+    ![slime](./images/slime.gif)
+  
+- Eagle
+  
+  - A flying enemy that mind his own business, if you don't get in his path (simple movement path)
+  
+    ![eagle](./images/eagle.gif)
+  
 - GUI
-  - Player health bar
   - Enemy health bar
-- Tilemaps system
-- Pause Menu 
-- Loading screen 
+
+### Interfaces
+
+![interfaces](./images/interfaces.gif)
+
 - Main menu
-- Dialogue system 
-- Basic cinematic system
-- Some cool sounds and music
 
+- Loading screen 
 
+- Credits Screen
+
+- Game Over screen
+
+  
+
+## Keys
+
+**Move** - wasd, arrow keys
+
+**Jump** - Space bar
+
+**Attack** - F, left mouse click
+
+**Pause** - Escape
+
+*Game is also playable with a game controller*
 
 ## GDscript Guidelines
 
