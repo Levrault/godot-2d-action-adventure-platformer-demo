@@ -21,6 +21,7 @@
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
 script = ExtResource( 1 )
+scene_path = "scenes/Level1"
 
 [node name="Interfaces" type="CanvasLayer" parent="."]
 
@@ -107,7 +108,7 @@ position = Vector2( 589.758, -541.841 )
 patrol_distance = 150.0
 
 [node name="Player" parent="World" instance=ExtResource( 16 )]
-position = Vector2( -792.736, -417.828 )
+position = Vector2( -788.837, -417.678 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true

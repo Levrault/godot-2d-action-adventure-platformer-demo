@@ -16,7 +16,7 @@ func show() -> void:
 
 
 func _on_Retry() -> void:
-	get_tree().reload_current_scene()
+	LevelManager.goto_scene(LevelManager.get_scene_path())
 
 
 func _on_Quit() -> void:

@@ -140,7 +140,7 @@ _global_script_class_icons={
 
 [Debug]
 
-debug_mode=false
+debug_mode=true
 
 [application]
 

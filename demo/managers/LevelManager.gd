@@ -6,6 +6,8 @@ var time_max: int = 100 # msec
 var loading_screen_scene: Resource = preload('res://interfaces/loading/LoadingScreen.tscn')
 var loading_screen: Node
 var root: Node
+var current_resource
+var scene_path = '' setget set_scene_path, get_scene_path
 
 
 func _ready() -> void:
@@ -14,6 +16,14 @@ func _ready() -> void:
 
 func show_error() -> void:
 	print('Scene was not loaded')
+
+
+func set_scene_path(path: String) -> void:
+	scene_path = 'res://%s.tscn' % path
+
+
+func get_scene_path() -> String:
+	return scene_path
 
 
 func goto_scene(path: String) -> void: # game requests to switch to this scene
@@ -50,9 +60,9 @@ func _process(time: float) -> void:
 
 		if err == ERR_FILE_EOF: # Finished loading.
 			update_progress(1)
-			var resource = loader.get_resource()
+			current_resource = loader.get_resource()
 			loader = null
-			loading_screen.set_resource(resource)
+			loading_screen.set_resource(current_resource)
 			break
 		elif err == OK:
 			update_progress(float(loader.get_stage()) / loader.get_stage_count())
