@@ -19,9 +19,10 @@ func _on_body_enter(body: Object) -> void:
 			var alert_box = null
 			if not is_last_level:
 				alert_box = NEXT_ALERT_SCENE.instance() 
-				alert_box.set_scene_path(scene_path)
 			else:
 				alert_box = ALERT_SCENE.instance()
+			
+			alert_box.set_scene_path(scene_path)
 			alert_box.position = $AlertBoxPosition.position
 			self.add_child(alert_box)
 			alert_box.start(body)

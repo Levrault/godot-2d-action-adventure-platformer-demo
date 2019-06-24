@@ -103,7 +103,7 @@ position = Vector2( -236.242, -515.341 )
 patrol_distance = 100.0
 
 [node name="Player" parent="World" instance=ExtResource( 16 )]
-position = Vector2( -816.242, -419.341 )
+position = Vector2( -872.203, -417.025 )
 
 [node name="Camera" type="Camera2D" parent="World/Player"]
 current = true
