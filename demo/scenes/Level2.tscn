@@ -21,6 +21,7 @@
 [node name="Game" type="Node2D"]
 position = Vector2( 930.242, 636.341 )
 script = ExtResource( 1 )
+scene_path = "scenes/Level2"
 
 [node name="Interfaces" type="CanvasLayer" parent="."]
 
