@@ -55,6 +55,7 @@ I hope it should answer the common question : _Damn, how can I code that ?_ by o
     ![eagle](./images/eagle.gif)
   
 - GUI
+  
   - Enemy health bar
 
 ### Interfaces
@@ -90,6 +91,20 @@ I hope it should answer the common question : _Damn, how can I code that ?_ by o
 When a function is linked to a signal, it name should begin with `_on` following by his action with a Maj.
 
 eg. `_on_Death`, `_on_Cooldown_timer`
+
+
+
+# License
+
+*This license only cover the code base of this project. Every assets, musics and fonts used to produce this demo are covered by their own license and belong to their owner (all listed in the credits section).* 
+
+Copyright 2019 Luc-Frédéric Langis (Levrault)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 
@@ -130,4 +145,3 @@ This demo was made by using those amazing assets (thanks to their author, that s
 
 
 *Obviously if an asset is not credited, contact me, I always try to credits the asset I use, but something I can just forget to do it.*
-
