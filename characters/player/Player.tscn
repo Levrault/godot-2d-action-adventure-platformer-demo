@@ -461,7 +461,6 @@ shape = SubResource( 17 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
-GRAVITY = 900.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -474,7 +473,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 5 )
 vframes = 16
 hframes = 7
-frame = 1
+frame = 103
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -601,7 +600,6 @@ amount = 75.0
 [node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
 visible = false
 position = Vector2( 7.14157, -0.830416 )
-monitoring = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource( 20 )

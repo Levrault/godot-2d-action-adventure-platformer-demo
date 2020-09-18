@@ -1,7 +1,7 @@
 extends Attack
 
 export(float) var amount := 10.0
-onready var stream: Resource = load('res://sound/weapons/melee/sfx_wpn_punch1.wav')
+onready var stream: Resource = preload('res://sound/weapons/melee/sfx_wpn_punch1.wav')
 
 
 func enter(host: Player) -> void:

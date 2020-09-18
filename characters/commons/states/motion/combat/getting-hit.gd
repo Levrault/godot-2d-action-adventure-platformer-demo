@@ -1,7 +1,7 @@
 extends State
 class_name GettingHit
 
-onready var stream: Resource = load('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit5.wav')
+onready var stream: Resource = preload('res://sound/general-sounds/simple-damage-sounds/sfx_damage_hit5.wav')
 
 
 func enter(host: Character) -> void:

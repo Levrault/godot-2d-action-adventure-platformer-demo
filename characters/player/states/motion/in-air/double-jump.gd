@@ -4,7 +4,7 @@ export (float) var JUMP_FORCE:= 250.0
 export (float) var BASE_MAX_AIR_SPEED:= 75.0
 export (float) var ACCELERATION:= 0.25
 
-onready var stream: Resource = load('res://sound/movement/jumping-and-landing/sfx_movement_jump1.wav')
+onready var stream: Resource = preload('res://sound/movement/jumping-and-landing/sfx_movement_jump1.wav')
 var max_air_speed: float = 0
 
 

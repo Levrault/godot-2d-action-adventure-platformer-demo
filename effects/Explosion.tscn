@@ -4,9 +4,6 @@
 [ext_resource path="res://sound/Explosions/Short/sfx_exp_short_soft1.wav" type="AudioStream" id=2]
 [ext_resource path="res://effects/assets/explosion-strip10.png" type="Texture" id=3]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
 tracks/0/type = "value"
@@ -38,4 +35,3 @@ texture = ExtResource( 3 )
 vframes = 3
 hframes = 4
 frame = 2
-
