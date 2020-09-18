@@ -461,7 +461,7 @@ shape = SubResource( 17 )
 
 [node name="Physics2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
-GRAVITY = 1.0
+GRAVITY = 900.0
 
 [node name="Momentum" type="Node2D" parent="."]
 script = ExtResource( 3 )

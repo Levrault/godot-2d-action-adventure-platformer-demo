@@ -11,7 +11,6 @@ const MAX_SLOPE_DEGREE = deg2rad(46)
 
 
 func compute_gravity(host, delta: float) -> void:
-	print(host.gravity_enable)
 	if host.gravity_enable:
 		host.velocity.y += GRAVITY * delta
 		if host.velocity.y > GRAVITY:
