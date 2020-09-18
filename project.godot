@@ -264,4 +264,5 @@ file_logging/enable_file_logging=true
 
 [rendering]
 
+quality/driver/fallback_to_gles2=true
 quality/2d/use_pixel_snap=true
