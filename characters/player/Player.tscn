@@ -1,0 +1,648 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://engine/Physics2D.gd" type="Script" id=2]
+[ext_resource path="res://engine/Momentum.gd" type="Script" id=3]
+[ext_resource path="res://characters/commons/Health.gd" type="Script" id=4]
+[ext_resource path="res://characters/player/sprites/adventurer-v1.5-Sheet.png" type="Texture" id=5]
+[ext_resource path="res://characters/player/gui/CooldownBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/player/states/motion/on-ground/idle.gd" type="Script" id=7]
+[ext_resource path="res://characters/player/states/motion/on-ground/move.gd" type="Script" id=8]
+[ext_resource path="res://characters/player/states/motion/in-air/jump.gd" type="Script" id=9]
+[ext_resource path="res://characters/player/states/motion/in-air/double-jump.gd" type="Script" id=10]
+[ext_resource path="res://characters/player/states/motion/in-air/fall.gd" type="Script" id=11]
+[ext_resource path="res://characters/player/states/motion/combat/attack-light.gd" type="Script" id=12]
+[ext_resource path="res://characters/player/PlayerDamageZone.gd" type="Script" id=13]
+[ext_resource path="res://effects/Slash.tscn" type="PackedScene" id=14]
+[ext_resource path="res://characters/player/states/motion/combat/attack-medium.gd" type="Script" id=15]
+[ext_resource path="res://characters/player/states/motion/combat/attack-heavy.gd" type="Script" id=16]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-light.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-medium.gd" type="Script" id=18]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy.gd" type="Script" id=19]
+[ext_resource path="res://characters/commons/DamageZone.gd" type="Script" id=20]
+[ext_resource path="res://characters/player/states/motion/combat/attack-air-heavy-grounded.gd" type="Script" id=21]
+[ext_resource path="res://characters/player/states/motion/on-ground/combat-idle.gd" type="Script" id=22]
+[ext_resource path="res://characters/player/states/motion/combat/tidy-sword.gd" type="Script" id=23]
+[ext_resource path="res://characters/player/states/motion/combat/getting-hit.gd" type="Script" id=24]
+[ext_resource path="res://characters/commons/states/motion/combat/death.gd" type="Script" id=25]
+[ext_resource path="res://effects/Explosion.tscn" type="PackedScene" id=26]
+[ext_resource path="res://characters/player/states/interactions/wait-for-alert-box.gd" type="Script" id=27]
+
+[sub_resource type="Animation" id=1]
+resource_name = "AttackAirHeavy"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 103, 104, 105 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackAirHeavy/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "AttackAirHeavyGrounded"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 106, 107, 108 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackAirHeavyGrounded/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "AttackAirLight"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 96, 97, 98, 99 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackAirLight/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "AttackAirMedium"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 100, 101, 102 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackAirMedium/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.54
+step = 0.09
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 52, 53, 54, 55, 56, 58 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackHeavy/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.27, 0.36 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.42
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35 ),
+"transitions": PoolRealArray( 4, 2.63902, 3.36358, 1, 1, 1 ),
+"update": 1,
+"values": [ 42, 43, 44, 45, 46, 47 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackLight/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.14, 0.21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.35
+step = 0.07
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51, 52 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("States/AttackMedium/DamageZone:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.14, 0.21 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.8
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 38, 39, 40, 41 ]
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 66, 67, 68 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.4, 0.401, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false, true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "DoubleJump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 18, 19, 20, 21 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 59, 60, 61, 62, 63, 64 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, true, false, true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.75
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.9
+loop = true
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 73, 74, 75, 76 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 5.30756
+height = 19.6778
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 20.9621, 10 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 15, 15.7378 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 19.0174, 18.6717 )
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 2
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AttackAirHeavy = SubResource( 1 )
+anims/AttackAirHeavyGrounded = SubResource( 2 )
+anims/AttackAirLight = SubResource( 3 )
+anims/AttackAirMedium = SubResource( 4 )
+anims/AttackHeavy = SubResource( 5 )
+anims/AttackLight = SubResource( 6 )
+anims/AttackMedium = SubResource( 7 )
+anims/CombatIdle = SubResource( 8 )
+anims/Death = SubResource( 9 )
+anims/DoubleJump = SubResource( 10 )
+anims/Fall = SubResource( 11 )
+anims/GettingHit = SubResource( 12 )
+anims/Idle = SubResource( 13 )
+anims/Jump = SubResource( 14 )
+anims/Move = SubResource( 15 )
+anims/TidySword = SubResource( 16 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.242256, 2.35883 )
+shape = SubResource( 17 )
+
+[node name="Physics2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+GRAVITY = 1.0
+
+[node name="Momentum" type="Node2D" parent="."]
+script = ExtResource( 3 )
+DURATION = 0.3
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+vframes = 16
+hframes = 7
+frame = 1
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CooldownBar" parent="." instance=ExtResource( 6 )]
+margin_left = -15.6545
+margin_top = -18.5
+margin_right = 63.3455
+margin_bottom = -10.5
+duration = 0.5
+
+[node name="States" type="Node2D" parent="."]
+
+[node name="Idle" type="Node2D" parent="States"]
+script = ExtResource( 7 )
+
+[node name="Move" type="Node2D" parent="States"]
+script = ExtResource( 8 )
+
+[node name="Jump" type="Node2D" parent="States"]
+script = ExtResource( 9 )
+BASE_MAX_AIR_SPEED = 125.0
+
+[node name="DoubleJump" type="Node2D" parent="States"]
+script = ExtResource( 10 )
+
+[node name="Fall" type="Node2D" parent="States"]
+script = ExtResource( 11 )
+
+[node name="AttackLight" type="Node2D" parent="States"]
+script = ExtResource( 12 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackLight"]
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackLight/DamageZone"]
+position = Vector2( 11.0379, -0.69376 )
+shape = SubResource( 18 )
+
+[node name="Slash" parent="States/AttackLight" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 24, -3 )
+
+[node name="AttackMedium" type="Node2D" parent="States"]
+position = Vector2( -2, 0 )
+script = ExtResource( 15 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackMedium"]
+visible = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackMedium/DamageZone"]
+position = Vector2( 11.0379, -0.69376 )
+shape = SubResource( 18 )
+
+[node name="Slash" parent="States/AttackMedium" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 24, 2 )
+
+[node name="AttackHeavy" type="Node2D" parent="States"]
+script = ExtResource( 16 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackHeavy"]
+visible = false
+position = Vector2( 1, 0 )
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackHeavy/DamageZone"]
+position = Vector2( 0, 5 )
+shape = SubResource( 18 )
+
+[node name="Slash" parent="States/AttackHeavy" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 25, 5 )
+
+[node name="AttackAirLight" type="Node2D" parent="States"]
+script = ExtResource( 17 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackAirLight"]
+visible = false
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirLight/DamageZone"]
+position = Vector2( 2, -1 )
+shape = SubResource( 18 )
+
+[node name="Slash" parent="States/AttackAirLight" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 23, -1 )
+
+[node name="AttackAirMedium" type="Node2D" parent="States"]
+script = ExtResource( 18 )
+
+[node name="DamageZone" type="Area2D" parent="States/AttackAirMedium"]
+visible = false
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 13 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirMedium/DamageZone"]
+position = Vector2( 9.122, 0.449196 )
+shape = SubResource( 19 )
+
+[node name="Slash" parent="States/AttackAirMedium" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 23.9949, -2.0783 )
+
+[node name="AttackAirHeavy" type="Node2D" parent="States"]
+script = ExtResource( 19 )
+amount = 75.0
+
+[node name="DamageZone" type="Area2D" parent="States/AttackAirHeavy"]
+visible = false
+position = Vector2( 7.14157, -0.830416 )
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 20 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavy/DamageZone"]
+position = Vector2( 1.08029, 1.05364 )
+shape = SubResource( 20 )
+
+[node name="AttackAirHeavyGrounded" type="Node2D" parent="States"]
+script = ExtResource( 21 )
+amount = 100.0
+
+[node name="DamageZone" type="Area2D" parent="States/AttackAirHeavyGrounded"]
+visible = false
+monitoring = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 20 )
+
+[node name="HitBox" type="CollisionShape2D" parent="States/AttackAirHeavyGrounded/DamageZone"]
+position = Vector2( -0.0906134, -0.253025 )
+shape = SubResource( 18 )
+
+[node name="CombatIdle" type="Node2D" parent="States"]
+script = ExtResource( 22 )
+
+[node name="CombatIdleTimer" type="Timer" parent="States/CombatIdle"]
+wait_time = 2.0
+
+[node name="TidySword" type="Node2D" parent="States"]
+script = ExtResource( 23 )
+
+[node name="GettingHit" type="Node2D" parent="States"]
+script = ExtResource( 24 )
+
+[node name="Death" type="Node2D" parent="States"]
+script = ExtResource( 25 )
+
+[node name="Explosion" parent="States/Death" instance=ExtResource( 26 )]
+visible = false
+
+[node name="WaitForAlertBox" type="Node2D" parent="States"]
+script = ExtResource( 27 )
+[connection signal="timeout" from="States/CombatIdle/CombatIdleTimer" to="States/CombatIdle" method="_on_CombatIdleTimer_timeout"]

@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=9 format=2]
+
+[ext_resource path="res://interfaces/theme/button/focus.stylebox.tres" type="StyleBox" id=1]
+[ext_resource path="res://interfaces/theme/button/hover.stylebox.tres" type="StyleBox" id=2]
+[ext_resource path="res://interfaces/theme/button/normal.stylebox.tres" type="StyleBox" id=3]
+[ext_resource path="res://interfaces/theme/button/pressed.stylebox.tres" type="StyleBox" id=4]
+[ext_resource path="res://interfaces/theme/fonts/ARCADECLASSIC.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://interfaces/theme/panel/alertbox.styleboxflat.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
+
+[resource]
+default_font = SubResource( 2 )
+Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = ExtResource( 1 )
+Button/styles/hover = ExtResource( 2 )
+Button/styles/normal = ExtResource( 3 )
+Button/styles/pressed = ExtResource( 4 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 1 )
+Label/styles/normal = null
+PanelContainer/styles/Dialog = ExtResource( 6 )
